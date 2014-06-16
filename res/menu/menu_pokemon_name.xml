@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
+        android:showAsAction="always|collapseActionView"
+        android:actionViewClass="android.widget.SearchView"/>
+
+    <item
+        android:id="@+id/action_filter"
+        android:icon="@drawable/ic_filter"
+        android:title="@string/filter"
+        android:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/menu_download"
+        android:title="Download image">
+        <menu>
+            <item
+                android:id="@+id/menu_art"
+                android:title="Sugimori art (57,6MB)"/>
+            <item
+                android:id="@+id/menu_sprite"
+                android:title="Sprite (5,6MB)"/>
+        </menu>
+    </item>
+</menu>

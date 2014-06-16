@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rowEvolution"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/red_line_selected"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingRight="5dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgFrom"
+            android:contentDescription="@string/icon_pokemon"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
+            android:layout_marginRight="3dp"/>
+
+        <TextView
+            android:id="@+id/txtArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="→"
+            android:layout_marginRight="3dp"/>
+
+        <ImageView
+            android:id="@+id/imgEvolved"
+            android:contentDescription="@string/icon_pokemon"
+            android:layout_height="60dp"
+            android:layout_width="60dp"
+            android:layout_marginRight="3dp"/>
+
+        <TextView
+            android:id="@+id/txtRowName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtRowReason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="2dp"
+        android:gravity="center"
+        android:textSize="12sp"/>
+</LinearLayout>

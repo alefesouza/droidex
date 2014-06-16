@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="ActionBarRed_Theme" parent="android:Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/blue_color</item>
+    </style>
+
+    <style name="GridViewStyleRed_Theme" parent="android:Widget.Holo.Light.GridView">
+        <item name="android:listSelector">@drawable/red_theme_list_selector_holo_light</item>
+    </style>
+
+    <style name="PopupMenuRed_Theme" parent="android:Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">#0000ff</item>
+    </style>
+
+    <style name="WidgetRed_Theme" parent="android:Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenuRed_Theme</item>
+    </style>
+</resources>

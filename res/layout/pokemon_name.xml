@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <GridView
+        android:id="@+id/listPokemon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="250dp"
+        android:numColumns="auto_fit"
+        android:verticalSpacing="5dp"
+        android:horizontalSpacing="7dp"
+        android:padding="7dp"
+        android:clipToPadding="false"
+        android:stretchMode="columnWidth"
+        android:fastScrollEnabled="true"
+        android:fadeScrollbars="true"
+        android:drawSelectorOnTop="true"
+        android:overScrollMode="never"/>
+</RelativeLayout>

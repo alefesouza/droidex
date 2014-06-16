@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="http://schemas.android.com/apk/res/com.radhi.Pokedex">
+    <string name="app_name">DroiDéx</string>
+
+    <string name="text_normal">Normal</string>
+    <string name="text_fighting">Fighting</string>
+    <string name="text_flying">Flying</string>
+    <string name="text_poison">Poison</string>
+    <string name="text_ground">Ground</string>
+    <string name="text_rock">Rock</string>
+    <string name="text_bug">Bug</string>
+    <string name="text_ghost">Ghost</string>
+    <string name="text_steel">Steel</string>
+    <string name="text_fire">Fire</string>
+    <string name="text_water">Water</string>
+    <string name="text_grass">Grass</string>
+    <string name="text_electric">Electric</string>
+    <string name="text_psychic">Psychic</string>
+    <string name="text_ice">Ice</string>
+    <string name="text_dragon">Dragon</string>
+    <string name="text_dark">Dark</string>
+    <string name="text_fairy">Fairy</string>
+
+    <string name="text_black">Black</string>
+    <string name="text_blue">Blue</string>
+    <string name="text_brown">Brown</string>
+    <string name="text_gray">Gray</string>
+    <string name="text_green">Green</string>
+    <string name="text_pink">Pink</string>
+    <string name="text_purple">Purple</string>
+    <string name="text_red">Red</string>
+    <string name="text_white">White</string>
+    <string name="text_yellow">Yellow</string>
+
+    <string name="text_gen_1">Generation I</string>
+    <string name="text_gen_2">Generation II</string>
+    <string name="text_gen_3">Generation III</string>
+    <string name="text_gen_4">Generation IV</string>
+    <string name="text_gen_5">Generation V</string>
+    <string name="text_gen_6">Generation VI</string>
+
+    <string name="icon_pokemon">Pokemon icon</string>
+    <string name="icon_type">Icon of type</string>
+    <string name="icon_show">Show or hide left pane</string>
+
+    <string name="filter_pokemon_generation">Pokémon generation</string>
+    <string name="filter_pokemon_type">Pokémon type</string>
+    <string name="filter_pokemon_color">Pokémon color</string>
+    <string name="filter_is_baby">Is baby</string>
+    <string name="filter_has_gender_diff">Has gender differences</string>
+    <string name="filter_clear">Clear filter</string>
+
+    <string name="search">Search</string>
+    <string name="filter">Filter</string>
+
+    <!--Di pokemon details-->
+    <string name="img_sugimori_desc">Sugimori art of Pokemon</string>
+    <string name="img_sprites_front">Sprite of Pokemon from front</string>
+    <string name="img_sprites_back">Sprite of Pokemon from back</string>
+    <string name="img_shiny_front">Shiny sprite of Pokemon from front</string>
+    <string name="img_shiny_back">Shiny sprite of Pokemon from back</string>
+    <string name="male_symbol">♂</string>
+    <string name="body_height">Height</string>
+    <string name="body_weight">Weight</string>
+    <string name="base_exp">Base EXP</string>
+    <string name="base_effort">Base Effort</string>
+    <string name="base_happiness">Base Happiness</string>
+    <string name="stat_HP">Base HP</string>
+    <string name="stat_ATK">Base ATK</string>
+    <string name="stat_DEF">Base DEF</string>
+    <string name="stat_SA">Base SA</string>
+    <string name="stat_SD">Base SD</string>
+    <string name="stat_SPD">Base SPD</string>
+    <string name="data_japanese">Japanese</string>
+    <string name="data_species">Species</string>
+    <string name="data_habitat">Habitat</string>
+    <string name="data_gender">Gender Ratio</string>
+    <string name="data_egg">Egg Group</string>
+    <string name="data_hatch">Hatch Counter</string>
+    <string name="data_growth">Growth Rate</string>
+    <string name="data_capture">Capture Rate</string>
+
+    <!--Di changelog-->
+    <string name="changelog_full_title">Change Log</string>
+    <string name="changelog_title">What\'s New</string>
+    <string name="changelog_ok_button">OK</string>
+    <string name="changelog_show_full">more…</string>
+    <string name="changelog_version_format">Version <xliff:g id="version_name">%s</xliff:g></string>
+</resources>
+
+

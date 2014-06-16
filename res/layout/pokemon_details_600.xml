@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false">
+
+    <ProgressBar
+        android:id="@+id/progressPokemon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyle"
+        android:layout_gravity="center"/>
+
+    <ScrollView
+        android:id="@+id/leftScroll"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:paddingLeft="7dp">
+        <include layout="@layout/pokemon_left_info"/>
+    </ScrollView>
+
+    <include
+        layout="@layout/pokemon_list_data"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"/>
+
+    <ScrollView
+        android:id="@+id/rightScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+        <include layout="@layout/pokemon_right_info_2"/>
+    </ScrollView>
+
+</LinearLayout>

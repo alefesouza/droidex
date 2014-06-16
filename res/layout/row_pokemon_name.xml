@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_background"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="6dp">
+
+    <TextView
+        android:id="@+id/txtRowID"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:id="@+id/imgRowIcon"
+        android:contentDescription="@string/icon_pokemon"
+        android:layout_height="65dp"
+        android:layout_width="65dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="3dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtRowNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="20sp"
+            android:layout_marginBottom="3dp"/>
+
+        <TextView
+            android:id="@+id/txtRowSpecies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/txtRowType1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/txtRowType2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

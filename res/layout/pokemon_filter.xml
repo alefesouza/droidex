@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="?android:actionBarSize">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:background="@color/background_color">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="7dp">
+
+            <TableLayout
+                android:id="@+id/boxGeneration"
+                android:background="@drawable/card_background"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="9dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:id="@+id/txtFilterGeneration"
+                    style="@style/filter_pokemon_title"
+                    android:text="@string/filter_pokemon_generation"
+                    android:drawableRight="@drawable/ic_max_pokedex"/>
+
+                <CheckBox
+                    android:id="@+id/chkGeneration1"
+                    style="@style/filter_pokemon"
+                    android:text="@string/text_gen_1"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"/>
+
+                <CheckBox
+                    android:id="@+id/chkGeneration2"
+                    style="@style/filter_pokemon"
+                    android:text="@string/text_gen_2"
+                    android:layout_marginBottom="5dp"/>
+
+                <CheckBox
+                    android:id="@+id/chkGeneration3"
+                    style="@style/filter_pokemon"
+                    android:text="@string/text_gen_3"
+                    android:layout_marginBottom="5dp"/>
+
+                <CheckBox
+                    android:id="@+id/chkGeneration4"
+                    style="@style/filter_pokemon"
+                    android:text="@string/text_gen_4"
+                    android:layout_marginBottom="5dp"/>
+
+                <CheckBox
+                    android:id="@+id/chkGeneration5"
+                    style="@style/filter_pokemon"
+                    android:text="@string/text_gen_5"
+                    android:layout_marginBottom="5dp"/>
+
+                <CheckBox
+                    android:id="@+id/chkGeneration6"
+                    style="@style/filter_pokemon"
+                    android:text="@string/text_gen_6"/>
+            </TableLayout>
+
+            <TableLayout
+                android:background="@drawable/card_background"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="6dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:id="@+id/txtFilterType"
+                    style="@style/filter_pokemon_title"
+                    android:text="@string/filter_pokemon_type"
+                    android:drawableRight="@drawable/ic_max_pokedex"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="3dp"/>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkTypeNormal"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_normal"
+                        android:text="@string/text_normal"
+                        android:textColor="@color/color_normal"/>
+
+                    <CheckBox
+                        android:id="@+id/chkTypeFighting"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_fighting"
+                        android:text="@string/text_fighting"
+                        android:textColor="@color/color_fighting"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkTypeFlying"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_flying"
+                        android:text="@string/text_flying"
+                        android:textColor="@color/color_flying"/>
+
+                    <CheckBox
+                        android:id="@+id/chkTypePoison"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_poison"
+                        android:text="@string/text_poison"
+                        android:textColor="@color/color_poison"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkTypeGround"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_ground"
+                        android:text="@string/text_ground"
+                        android:textColor="@color/color_ground"/>
+
+                    <CheckBox
+                        android:id="@+id/chkTypeRock"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_rock"
+                        android:text="@string/text_rock"
+                        android:textColor="@color/color_rock"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkTypeBug"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_bug"
+                        android:text="@string/text_bug"
+                        android:textColor="@color/color_bug"/>
+
+                    <CheckBox
+                        android:id="@+id/chkTypeGhost"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_ghost"
+                        android:text="@string/text_ghost"
+                        android:textColor="@color/color_ghost"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkTypeSteel"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_steel"
+                        android:text="@string/text_steel"
+                        android:textColor="@color/color_steel"/>
+
+                    <CheckBox
+                        android:id="@+id/chkTypeFire"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_fire"
+                        android:text="@string/text_fire"
+                        android:textColor="@color/color_fire"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkTypeWater"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_water"
+                        android:text="@string/text_water"
+                        android:textColor="@color/color_water"/>
+
+                    <CheckBox
+                        android:id="@+id/chkTypeGrass"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_grass"
+                        android:text="@string/text_grass"
+                        android:textColor="@color/color_grass"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkTypeElectric"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_electric"
+                        android:text="@string/text_electric"
+                        android:textColor="@color/color_electric"/>
+
+                    <CheckBox
+                        android:id="@+id/chkTypePsychic"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_psychic"
+                        android:text="@string/text_psychic"
+                        android:textColor="@color/color_psychic"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkTypeIce"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_ice"
+                        android:text="@string/text_ice"
+                        android:textColor="@color/color_ice"/>
+
+                    <CheckBox
+                        android:id="@+id/chkTypeDragon"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_dragon"
+                        android:text="@string/text_dragon"
+                        android:textColor="@color/color_dragon"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkTypeDark"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_dark"
+                        android:text="@string/text_dark"
+                        android:textColor="@color/color_dark"/>
+
+                    <CheckBox
+                        android:id="@+id/chkTypeFairy"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/type_fairy"
+                        android:text="@string/text_fairy"
+                        android:textColor="@color/color_fairy"/>
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:background="@drawable/card_background"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="6dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:id="@+id/txtFilterColor"
+                    style="@style/filter_pokemon_title"
+                    android:text="@string/filter_pokemon_color"
+                    android:drawableRight="@drawable/ic_max_pokedex"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="3dp"/>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkColorBlack"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_black"
+                        android:text="@string/text_black"
+                        android:textColor="@color/black_color"/>
+
+                    <CheckBox
+                        android:id="@+id/chkColorBlue"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_blue"
+                        android:text="@string/text_blue"
+                        android:textColor="@color/blue_color"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkColorBrown"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_brown"
+                        android:text="@string/text_brown"
+                        android:textColor="@color/brown_color"/>
+
+                    <CheckBox
+                        android:id="@+id/chkColorGray"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_gray"
+                        android:text="@string/text_gray"
+                        android:textColor="@color/gray_color"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkColorGreen"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_green"
+                        android:text="@string/text_green"
+                        android:textColor="@color/green_color"/>
+
+                    <CheckBox
+                        android:id="@+id/chkColorPink"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_pink"
+                        android:text="@string/text_pink"
+                        android:textColor="@color/pink_color"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkColorPurple"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_purple"
+                        android:text="@string/text_purple"
+                        android:textColor="@color/purple_color"/>
+
+                    <CheckBox
+                        android:id="@+id/chkColorRed"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_red"
+                        android:text="@string/text_red"
+                        android:textColor="@color/red_color"/>
+                </TableRow>
+
+                <TableRow>
+                    <CheckBox
+                        android:id="@+id/chkColorWhite"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_white"
+                        android:text="@string/text_white"
+                        android:textColor="@color/white_color"/>
+
+                    <CheckBox
+                        android:id="@+id/chkColorYellow"
+                        style="@style/filter_pokemon_type"
+                        android:drawableLeft="@drawable/ic_color_yellow"
+                        android:text="@string/text_yellow"
+                        android:textColor="@color/yellow_color"/>
+                </TableRow>
+            </TableLayout>
+
+            <CheckBox
+                android:id="@+id/chkIsBaby"
+                style="@style/filter_pokemon_other"
+                android:text="@string/filter_is_baby"
+                android:drawableLeft="@drawable/ic_is_baby"
+                android:layout_marginBottom="7dp"
+                android:visibility="visible"/>
+
+            <CheckBox
+                android:id="@+id/chkHasGenderDiff"
+                style="@style/filter_pokemon_other"
+                android:text="@string/filter_has_gender_diff"
+                android:drawableLeft="@drawable/ic_has_gender_diff"
+                android:layout_marginBottom="7dp"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/txtClearFilter"
+                style="@style/filter_pokemon_other"
+                android:background="@drawable/red_textview_selected"
+                android:text="@string/filter_clear"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_clear_red"
+                android:clickable="true"
+                android:visibility="visible"/>
+        </TableLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/shadingView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_color"
+        android:alpha="0.75"/>
+</LinearLayout>

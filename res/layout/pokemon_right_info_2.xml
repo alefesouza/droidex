@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="7dp"
+        android:paddingRight="7dp">
+
+        <TableLayout
+            android:id="@+id/boxSprites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_background"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TableRow>
+                <ImageView
+                    android:id="@+id/imgSpritesFront"
+                    android:contentDescription="@string/img_sprites_front"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/imgSpritesBack"
+                    android:contentDescription="@string/img_sprites_back"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TextView
+                android:id="@+id/txtSprites"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:text="@string/male_symbol"
+                android:gravity="center"
+                android:visibility="gone"/>
+
+            <TableRow>
+                <ImageView
+                    android:id="@+id/imgShinyFront"
+                    android:contentDescription="@string/img_shiny_front"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/imgShinyBack"
+                    android:contentDescription="@string/img_shiny_back"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:scaleType="fitCenter"
+                    android:layout_weight="1"/>
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:id="@+id/boxType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/card_background"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="7dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtType1"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="25dp"
+                android:textSize="12sp"
+                android:paddingRight="10dp"
+                android:gravity="center_vertical"
+                android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/txtType2"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="25dp"
+                android:textSize="12sp"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:singleLine="true"/>
+        </LinearLayout>
+
+        <GridLayout
+            android:id="@+id/boxBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="2dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/card_background"
+            android:columnCount="2">
+
+            <TextView
+                android:text="@string/body_height"
+                style="@style/left_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtHeight"
+                style="@style/right_column"
+                android:background="@drawable/bg_line"
+                android:lineSpacingExtra="5dp"
+                android:paddingBottom="2dp"/>
+
+            <TextView
+                android:text="@string/body_weight"
+                style="@style/left_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtWeight"
+                style="@style/right_column"
+                android:background="@drawable/bg_line"
+                android:lineSpacingExtra="5dp"
+                android:paddingBottom="2dp"/>
+
+            <TextView
+                android:id="@+id/txtShape"
+                style="@style/left_column"
+                android:paddingRight="5dp"
+                android:gravity="center"
+                android:layout_gravity="fill"
+                android:layout_columnSpan="2"/>
+        </GridLayout>
+
+        <GridLayout
+            android:id="@+id/boxStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="2dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/card_background"
+            android:columnCount="2">
+
+            <TextView
+                android:id="@+id/txtLblHP"
+                android:text="@string/stat_HP"
+                style="@style/left_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtHP"
+                style="@style/right_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtLblATK"
+                android:text="@string/stat_ATK"
+                style="@style/left_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtATK"
+                style="@style/right_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtLblDEF"
+                android:text="@string/stat_DEF"
+                style="@style/left_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtDEF"
+                style="@style/right_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtLblSA"
+                android:text="@string/stat_SA"
+                style="@style/left_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtSA"
+                style="@style/right_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtLblSD"
+                android:text="@string/stat_SD"
+                style="@style/left_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtSD"
+                style="@style/right_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtLblSPD"
+                android:text="@string/stat_SPD"
+                style="@style/left_column"/>
+
+            <TextView
+                android:id="@+id/txtSPD"
+                style="@style/right_column"/>
+        </GridLayout>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="7dp"
+        android:paddingTop="7dp">
+
+        <LinearLayout
+            android:id="@+id/boxDexNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="2dp"
+            android:layout_marginBottom="5dp"/>
+
+        <GridLayout
+            android:id="@+id/boxBase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="2dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/card_background"
+            android:columnCount="2">
+
+            <TextView
+                android:text="@string/base_exp"
+                style="@style/left_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtBaseExp"
+                style="@style/right_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:text="@string/base_effort"
+                style="@style/left_column"
+                android:background="@drawable/bg_line"/>
+
+            <TextView
+                android:id="@+id/txtBaseEffort"
+                style="@style/right_column"
+                android:background="@drawable/bg_line"
+                android:lineSpacingExtra="2dp"/>
+
+            <TextView
+                android:text="@string/base_happiness"
+                style="@style/left_column"/>
+
+            <TextView
+                android:id="@+id/txtBaseHappiness"
+                style="@style/right_column"/>
+        </GridLayout>
+
+        <LinearLayout
+            android:id="@+id/boxTypeEfficacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="2dp"
+            android:layout_marginBottom="5dp"/>
+    </TableLayout>
+</LinearLayout>
