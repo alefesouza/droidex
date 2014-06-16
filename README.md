@@ -6,19 +6,19 @@ Esse é o código da versão 5.0 (pulei a versão 4.0 porque eu não gosto de n�
 
 Nessa versão foram adicionados:
 
-*Diancie
-*Hoopa
-*Volcanion
-*Poké Ball Vivillon
-*Eternal Floette
-*Mega Latias
-*Mega Latios
-*Mega Sceptile
-*Mega Swampert
-*Mega Sableye
-*Primal Kyogre
-*Primal Groudon
-*Mega Diancie
+* Diancie
+* Hoopa
+* Volcanion
+* Poké Ball Vivillon
+* Eternal Floette
+* Mega Latias
+* Mega Latios
+* Mega Sceptile
+* Mega Swampert
+* Mega Sableye
+* Primal Kyogre
+* Primal Groudon
+* Mega Diancie
 
 E algumas outras melhorias, como todos os sprites e descrições de movimentos da sexta geração.
 
