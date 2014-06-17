@@ -16,7 +16,7 @@ import aloogle.pokedex.other.Other.pokemonInterface;
 public class ActivityMain extends FragmentActivity implements pokemonInterface {
 	private FrameLayout fragmentContainer;
 
-	 @ Override
+	 @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -32,7 +32,7 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		}
 	}
 
-	 @ Override
+	 @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu_activity_main, menu);
@@ -40,7 +40,7 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		return super.onCreateOptionsMenu(menu);
 	}
 
-	 @ Override
+	 @Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_changelog:
@@ -73,7 +73,7 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		}
 	}
 
-	 @ Override
+	 @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK && requestCode == Other.PokemonFilterCode) {
 			String gen = data.getStringExtra(Other.PokemonFilterGeneration);
@@ -88,7 +88,7 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		}
 	}
 
-	 @ Override
+	 @Override
 	public void pokemonSelected(String id) {
 		if (fragmentContainer == null) {
 			Intent intent = new Intent(this, ActivityDetails.class);
@@ -109,7 +109,7 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		}
 	}
 
-	 @ Override
+	 @Override
 	public void formSelected(String id, String img_id, String name, boolean formSwitchable) {
 		Bundle args = new Bundle();
 		args.putString(Other.PokemonId, id);

@@ -111,7 +111,7 @@ public class ActivityAboutChangelog extends Activity {
 		"<li style=\"text-align: justify;\"><a href=\"https://github.com/jeromevdl/android-holo-colors-idea-plugin\">Android Holo Colors Plugin</a>&nbsp;by <a href=\"https://github.com/jeromevdl\"><span class=\"vcard-fullname\">J&eacute;r&ocirc;me Van Der Linden</span></a></li>\n" +
 		"</ul>";
 
-	 @ Override
+	 @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_changelog_about);
@@ -131,7 +131,7 @@ public class ActivityAboutChangelog extends Activity {
 		}
 
 		txtOK.setOnClickListener(new View.OnClickListener() {
-			 @ Override
+			 @Override
 			public void onClick(View v) {
 				finish();
 			}
