@@ -4,16 +4,19 @@
         <item
             android:id="@+id/menu_feedback"
             android:title="Send feedback"
-            android:orderInCategory="997"/>
+            android:orderInCategory="995"/>
         <item
             android:id="@+id/menu_update"
             android:title="Verify updates"
-            android:orderInCategory="997"/>
+            android:orderInCategory="996"/>
+        <item android:id="@+id/menu_share"
+            android:showAsAction="ifRoom"
+            android:title="Share this app"
+            android:orderInCategory="997" />
         <item
             android:id="@+id/menu_changelog"
             android:title="Changelog"
             android:orderInCategory="998"/>
-
         <item
             android:id="@+id/menu_about"
             android:title="About"

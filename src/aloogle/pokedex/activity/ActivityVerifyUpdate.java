@@ -11,12 +11,14 @@ public class ActivityVerifyUpdate extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_update);
-try {
-    String version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName; setTitle("Your version is: " + version);} catch (NameNotFoundException e) {}
+		try {
+			String version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+			setTitle("Your version is: " + version);
+		} catch (NameNotFoundException e) {}
 
 		WebView webView = new WebView(this);
 		setContentView(webView);
 		webView.loadUrl("http://aloogle.tumblr.com/droidex/update");
-   webView.getSettings().setJavaScriptEnabled(true);
+		webView.getSettings().setJavaScriptEnabled(true);
 	}
 }

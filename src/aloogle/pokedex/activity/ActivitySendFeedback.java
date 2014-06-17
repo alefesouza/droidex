@@ -14,6 +14,6 @@ public class ActivitySendFeedback extends Activity {
 		WebView webView = new WebView(this);
 		setContentView(webView);
 		webView.loadUrl("http://aloogle.tumblr.com/droidex/feedback");
-   webView.getSettings().setJavaScriptEnabled(true);
+		webView.getSettings().setJavaScriptEnabled(true);
 	}
 }
