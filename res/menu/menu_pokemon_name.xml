@@ -16,7 +16,7 @@
 
     <item
         android:id="@+id/menu_download"
-        android:title="Download image">
+        android:title="@string/download">
         <menu>
             <item
                 android:id="@+id/menu_art"

@@ -3,8 +3,8 @@
 <manifest 
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="aloogle.pokedex"
-    android:versionCode="29"
-    android:versionName="5.0.1">
+    android:versionCode="35"
+    android:versionName="5.1">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -20,10 +20,10 @@
         android:icon="@drawable/ic_pokedex"
         android:label="@string/app_name"
         android:allowBackup="true"
-        android:theme="@style/Pokedex_Red_Theme">
+        android:theme="@style/Pokedex_Red_Theme" >
 
         <activity
-            android:name=".activity.ActivityMain"
+            android:name=".activity.ActivitySplashScreen"
             android:label="@string/app_name">
 
             <intent-filter>
@@ -31,6 +31,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activity.ActivityMain"
+            android:parentActivityName=".activity.SplashScreenActivity"/>
 
         <activity
             android:name=".activity.ActivityDetails"
@@ -46,6 +50,10 @@
 
         <activity
             android:name=".activity.ActivitySendFeedback"
+            android:parentActivityName=".activity.ActivityMain"/>
+
+        <activity
+            android:name=".activity.ActivitySettings"
             android:parentActivityName=".activity.ActivityMain"/>
 
         <activity

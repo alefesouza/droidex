@@ -86,6 +86,23 @@
     <string name="changelog_ok_button">OK</string>
     <string name="changelog_show_full">more…</string>
     <string name="changelog_version_format">Version <xliff:g id="version_name">%s</xliff:g></string>
+
+    <string name="download">Download image</string>
+    <string name="feedback">Send feedback</string>
+    <string name="update">Verify updates</string>
+    <string name="yourversion">Your version is:</string>
+    <string name="share">Share this app</string>
+    <string name="sharecontent">See the most updated Pokédex app for Android!! http://aloogle.tumblr.com/droidex/download</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="bulbapedia">Open on Bulbapedia</string>
+    <string name="serebii">Open on Serebii</string>
+
+    <string name="downloadwarning">Not close the app while downloading</string>
+
+    <string name="pref_color">Favorite color</string>
+    <string name="pref_color_summary">Select the application color</string>
+    <string name="pref_icon">Choose icon</string>
+    <string name="pref_icon_summary">Select the icon of action bar</string>
+    <string name="pref_restart">Restart the app to apply changes</string>
 </resources>
-
-

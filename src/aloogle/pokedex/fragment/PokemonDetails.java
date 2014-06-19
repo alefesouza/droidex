@@ -3,6 +3,8 @@ package aloogle.pokedex.fragment;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -14,6 +16,9 @@ import aloogle.pokedex.adapter.*;
 import aloogle.pokedex.object.Pokemon;
 import aloogle.pokedex.other.Database;
 import aloogle.pokedex.other.Other;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 public class PokemonDetails extends Fragment{
     private Activity activity;
@@ -76,7 +81,7 @@ public class PokemonDetails extends Fragment{
 
         @Override
         protected void onPostExecute(Pokemon pokemon) {
-            activity.getActionBar().setTitle(pokemon_name);
+              activity.getActionBar().setTitle(pokemon_name);
 
             setDescriptionBox(pokemon);
             setPokemonImage(pokemon);
@@ -95,7 +100,40 @@ public class PokemonDetails extends Fragment{
             progressPokemon.setVisibility(View.GONE);
         }
     }
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
+	}
 
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		inflater.inflate(R.menu.menu_activity_details, menu);
+	}
+
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+       switch (item.getItemId()) {
+          case R.id.menu_bulbapedia:
+             String urlb = "http://bulbapedia.bulbagarden.net/w/index.php?title=Special%3ASearch&search=" + pokemon_name + "&go=Go";
+			   Intent bulbapedia = new Intent(Intent.ACTION_VIEW);
+			   bulbapedia.setData(Uri.parse(urlb));
+			   startActivity(bulbapedia);
+             return true;
+		  case R.id.menu_serebii:
+			   String urls = "http://www.serebii.net/search.shtml?cx=018410473690156091934%3A6gahkiyodbi&cof=FORID%3A11&q=" + pokemon_name;
+			   Intent serebii = new Intent(Intent.ACTION_VIEW);
+			   serebii.setData(Uri.parse(urls));
+			   startActivity(serebii);
+			   return true;
+          default:
+             return
+          super.onOptionsItemSelected(item);
+       }
+    }
+	
     private void setComponentName(View v) {
         rightScroll = (ScrollView) v.findViewById(R.id.leftScroll);
 

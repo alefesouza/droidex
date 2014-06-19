@@ -113,12 +113,12 @@ public class PokemonName extends Fragment {
         switch (item.getItemId())
         {
             case R.id.menu_art:
-                Other.startDownload(mgr,Other.ArtURL, "Sugimori Art", "Sugimori art for Pokédex", "Art.zip");
+                Other.startDownload(mgr,Other.ArtURL, "Sugimori Art",getString(R.string.downloadwarning), "Art.zip");
                 byteBuffer = 16 * 1024;
                 zipName = "Art.zip";
                 return true;
             case R.id.menu_sprite:
-                Other.startDownload(mgr,Other.SpritesURL,"Pokémon Sprites","Sprites for Pokédex","Sprites.zip");
+                Other.startDownload(mgr,Other.SpritesURL,"Pokémon Sprites",getString(R.string.downloadwarning),"Sprites.zip");
                 byteBuffer = 3 * 1024;
                 zipName = "Sprites.zip";
                 return true;

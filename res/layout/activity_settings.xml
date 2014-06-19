@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceCategory android:title="@string/pref_restart">
+<ListPreference
+            android:key="prefColor"
+            android:entries="@array/favColor"
+            android:entryValues="@array/favColorValues"
+            android:title="@string/pref_color"
+            android:summary="@string/pref_color_summary" />
+<ListPreference
+            android:key="prefIcon"
+            android:entries="@array/favIcon"
+            android:entryValues="@array/favIconValues"
+            android:title="@string/pref_icon"
+            android:summary="@string/pref_icon_summary" /> </PreferenceCategory>
+</PreferenceScreen>

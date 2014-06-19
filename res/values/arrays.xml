@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="favColor">
+        <item name="red">Red</item>
+        <item name="green">Green</item>
+        <item name="blue">Blue</item>
+        <item name="yellow">Yellow</item>
+        <item name="gold">Gold</item>
+        <item name="silver">Silver</item>
+        <item name="crystal">Crystal</item>
+        <item name="ruby">Ruby</item>
+        <item name="sapphire">Sapphire</item>
+        <item name="emerald">Emerald</item>
+        <item name="diamond">Diamond</item>
+        <item name="pearl">Pearl</item>
+        <item name="platinum">Platinum</item>
+        <item name="black">Black</item>
+        <item name="droidexblue">DroiDéx Blue</item>
+        <item name="dexdroidred">DéxDroid Red</item>
+    </string-array>
+
+	<string-array name="favColorValues">
+        <item name="red">red</item>
+        <item name="green">green</item>
+        <item name="blue">blue</item>
+        <item name="yellow">yellow</item>
+        <item name="gold">gold</item>
+        <item name="silver">silver</item>
+        <item name="crystal">crystal</item>
+        <item name="ruby">ruby</item>
+        <item name="sapphire">sapphire</item>
+        <item name="emerald">emerald</item>
+        <item name="diamond">diamond</item>
+        <item name="pearl">pearl</item>
+        <item name="platinum">platinum</item>
+        <item name="black">black</item>
+        <item name="droidexblue">droidexblue</item>
+        <item name="dexdroidred">dexdroidred</item>
+    </string-array>
+
+	<string-array name="favIcon">
+        <item name="red">Red</item>
+        <item name="green">Green</item>
+        <item name="blue">Blue</item>
+        <item name="yellow">Yellow</item>
+    </string-array>
+
+	<string-array name="favIconValues">
+        <item name="red">red</item>
+        <item name="green">green</item>
+        <item name="blue">blue</item>
+        <item name="yellow">yellow</item>
+    </string-array>
+
+</resources>
