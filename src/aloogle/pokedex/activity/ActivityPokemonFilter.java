@@ -29,7 +29,7 @@ public class ActivityPokemonFilter extends Activity {
     private String generation, type, color;
     private boolean isBaby, hasGenderDiff;
 
-     @Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pokemon_filter);

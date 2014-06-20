@@ -54,14 +54,14 @@
     <string name="filter">Filtro</string>
 
     <!--Di pokemon details-->
-    <string name="img_sugimori_desc">Sugimori art do Pokemon</string>
-    <string name="img_sprites_front">Sprite do Pokemon de frente</string>
-    <string name="img_sprites_back">Sprite do Pokemon de costas</string>
-    <string name="img_shiny_front">Shiny sprite do Pokemon de frente</string>
-    <string name="img_shiny_back">Shiny sprite do Pokemon de costas</string>
+    <string name="img_sugimori_desc">Sugimori art do Pokémon</string>
+    <string name="img_sprites_front">Sprite do Pokémon de frente</string>
+    <string name="img_sprites_back">Sprite do Pokémon de costas</string>
+    <string name="img_shiny_front">Shiny sprite do Pokémon de frente</string>
+    <string name="img_shiny_back">Shiny sprite do Pokémon de costas</string>
     <string name="male_symbol">♂</string>
     <string name="body_height">Altura</string>
-    <string name="body_weight">Largura</string>
+    <string name="body_weight">Peso</string>
     <string name="base_exp">Base EXP</string>
     <string name="base_effort">Esforço</string>
     <string name="base_happiness">Felicidade</string>
@@ -71,7 +71,7 @@
     <string name="stat_SA">Base SA</string>
     <string name="stat_SD">Base SD</string>
     <string name="stat_SPD">Base SPD</string>
-    <string name="data_japanese">Nome Japonês</string>
+    <string name="data_japanese">Nome japonês</string>
     <string name="data_species">Espécie</string>
     <string name="data_habitat">Habitat</string>
     <string name="data_gender">Proporção de gênero</string>
@@ -87,6 +87,8 @@
     <string name="changelog_show_full">mais…</string>
     <string name="changelog_version_format">Versão <xliff:g id="version_name">%s</xliff:g></string>
 
+    <string name="searchhint">Nome do Pokémon</string>
+    
     <string name="download">Baixar imagens</string>
     <string name="feedback">Enviar feedback</string>
     <string name="update">Verificar atualizações</string>
@@ -99,6 +101,9 @@
     <string name="serebii">Abrir no Serebii</string>
 
     <string name="downloadwarning">Não feche o aplicativo durante o download</string>
+    <string name="extract">Extraindo</string>
+    <string name="extractdata">Extraindo dados</string>
+    <string name="extractfinish">Extração finalizada</string>
 
     <string name="pref_color">Cor favorita</string>
     <string name="pref_color_summary">Selecione a cor do aplicativo</string>

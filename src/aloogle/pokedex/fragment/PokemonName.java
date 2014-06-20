@@ -91,7 +91,7 @@ public class PokemonName extends Fragment {
 
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setQueryHint("Pokemon's name");
+        searchView.setQueryHint(getString(R.string.searchhint));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -167,12 +167,12 @@ public class PokemonName extends Fragment {
     public class UnzipFile extends AsyncTask<ZipHelper,Void,Void> {
         String zipLocation;
         NotificationCompat.Builder notif;
-
+        
         @Override
         protected void onPreExecute() {
             notif = new NotificationCompat.Builder(activity);
-            notif.setContentTitle("Extracting " + zipName)
-                    .setContentText("Extracting data")
+            notif.setContentTitle(getString(R.string.extract) + " " + zipName)
+                    .setContentText(getString(R.string.extractdata))
                     .setSmallIcon(R.drawable.ic_extract)
                     .setProgress(0, 0, true);
             notifManager.notify(0, notif.build());
@@ -191,7 +191,7 @@ public class PokemonName extends Fragment {
             File f = new File(zipLocation);
             if (f.exists()) f.delete();
 
-            notif.setContentText("Extracting finished")
+            notif.setContentText(getString(R.string.extractfinish))
                     .setProgress(0, 0, false);
             notifManager.notify(0, notif.build());
         }
