@@ -3,8 +3,8 @@
 <manifest 
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="aloogle.pokedex"
-    android:versionCode="35"
-    android:versionName="5.1">
+    android:versionCode="37"
+    android:versionName="5.1.5">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>

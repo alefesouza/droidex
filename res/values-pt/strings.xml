@@ -105,10 +105,15 @@
     <string name="extractdata">Extraindo dados</string>
     <string name="extractfinish">Extração finalizada</string>
 
+    <string name="pref_color_category">Cores</string>
     <string name="pref_color">Cor favorita</string>
     <string name="pref_color_summary">Selecione a cor do aplicativo</string>
     <string name="pref_icon">Escolher ícone</string>
     <string name="pref_icon_summary">Selecione o ícone da action bar</string>
-    <string name="pref_restart">Reinicie o aplicativo para aplicar as alterações</string>
+    <string name="pref_splash_category">Splash</string>
+    <string name="pref_splash">Tela Splash</string>
+    <string name="pref_splash_summary">Habilitar tela splash</string>
+    <string name="pref_splash_animation">Animação</string>
+    <string name="pref_splash_animation_summary">Mudar animação da tela splash</string>
 </resources>
 

@@ -1,5 +1,6 @@
 package aloogle.pokedex.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import aloogle.pokedex.R;
@@ -59,5 +60,11 @@ public class ActivitySettings extends PreferenceActivity {
 		else if (userIcon.equals("yellow"))
 			getActionBar().setIcon(R.drawable.ic_movedex);
 		setTitle(getResources().getText(R.string.settings));
+	}
+
+	public void onBackPressed() {
+		Intent intent = new Intent(ActivitySettings.this, ActivityMain.class);
+		startActivity(intent);
+		ActivitySettings.this.finish();
 	}
 }

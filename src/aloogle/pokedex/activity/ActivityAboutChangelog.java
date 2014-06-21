@@ -13,6 +13,7 @@ import android.graphics.drawable.ColorDrawable;
 
 public class ActivityAboutChangelog extends Activity {
 	private final static String changelog = "" +
+		//version 5.1.5 launched in 21 June 2014 update pokemon data and added a option of deactivate splash screen or change animation
 		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 5.1</h3>\n" +
 		"Launched in 19 June 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +

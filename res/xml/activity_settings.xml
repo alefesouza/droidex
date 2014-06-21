@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-<PreferenceCategory android:title="@string/pref_restart">
+<PreferenceCategory android:title="@string/pref_color_category">
 <ListPreference
             android:key="prefColor"
             android:entries="@array/favColor"
             android:entryValues="@array/favColorValues"
             android:title="@string/pref_color"
-            android:summary="@string/pref_color_summary" />
+            android:summary="@string/pref_color_summary"
+            android:defaultValue="droidexblue" />
 <ListPreference
             android:key="prefIcon"
             android:entries="@array/favIcon"
             android:entryValues="@array/favIconValues"
             android:title="@string/pref_icon"
-            android:summary="@string/pref_icon_summary" /> </PreferenceCategory>
+            android:summary="@string/pref_icon_summary"
+            android:defaultValue="blue" /> </PreferenceCategory>
+
+<PreferenceCategory android:title="@string/pref_splash_category" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="prefSplash"
+            android:title="@string/pref_splash"
+            android:summary="@string/pref_splash_summary" />
+<ListPreference
+            android:dependency="prefSplash"
+            android:key="prefSplashAnimation"
+            android:entries="@array/prefSplashAnimation"
+            android:entryValues="@array/prefSplashAnimationValues"
+            android:title="@string/pref_splash_animation"
+            android:summary="@string/pref_splash_animation_summary"
+            android:defaultValue="top" />
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -51,4 +51,20 @@
         <item name="blue">blue</item>
         <item name="yellow">yellow</item>
     </string-array>
+
+	<string-array name="prefSplashAnimation">
+        <item name="top">Para cima</item>
+        <item name="left">Para esquerda</item>
+        <item name="fade">Sumir</item>
+        <item name="forward">Ir para frente</item>
+        <item name="forbackward">Ir para frente e para trás</item>
+    </string-array>
+
+	<string-array name="prefSplashAnimationValues">
+        <item name="top">top</item>
+        <item name="left">left</item>
+        <item name="fade">fade</item>
+        <item name="forward">forward</item>
+        <item name="forbackward">forbackward</item>
+    </string-array>
 </resources>

@@ -120,6 +120,8 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		case R.id.menu_settings:
 			Intent settings = new Intent(ActivityMain.this, ActivitySettings.class);
 			startActivity(settings);
+			//For users do not need restart on changes
+			ActivityMain.this.finish();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

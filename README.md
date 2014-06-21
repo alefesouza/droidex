@@ -5,7 +5,7 @@ DroiDéx
 
 DroiDéx é um aplicativo baseado no DéxDroid ( https://github.com/RadhiFadlillah/Pokedex ) versão 3.1, ou seja, uma Pokédex para Android, decidi cria-lo porque eu gostava muito do aplicativo DéxDroid e fiquei muito decepcionado ao ver que ele saiu da Play Store e não recebeu mais atualizações, mas como o desenvolvedor original deixou ele em código aberto e deixou que qualquer um modificasse e distribuísse desde haja os devidos créditos, decidi que eu mesmo iria continua-lo.
 
-Esse é o código da versão 5.1
+Esse é o código da versão 5.1.5
 
 Nessa versão foram adicionados:
 
@@ -28,7 +28,7 @@ Nessa versão foram adicionados:
 DroiDéx is an application based on DéxDroid (https://
 github.com/RadhiFadlillah/Pokedex) version 3.1, wich is an Pokédex for Android. I decided creating it because i loved the app DéxDroid and became so disappointed when I realized it was removed from Play Store and had no more updates, but since the original developer left it open source and allowed anyone to modify and distribute, containing the credits to him, i decided to update it by myself.
 
-This is the 5.1 version code
+This is the 5.1.5 version code
 
 Recently added Pokémon:
 

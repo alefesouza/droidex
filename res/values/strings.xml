@@ -105,9 +105,14 @@
     <string name="extractdata">Extracting data</string>
     <string name="extractfinish">Extracting finished</string>
 
+    <string name="pref_color_category">Colors</string>
     <string name="pref_color">Favorite color</string>
     <string name="pref_color_summary">Select the application color</string>
     <string name="pref_icon">Choose icon</string>
     <string name="pref_icon_summary">Select the icon of action bar</string>
-    <string name="pref_restart">Restart the app to apply changes</string>
+    <string name="pref_splash_category">Splash</string>
+    <string name="pref_splash">Splash screen</string>
+    <string name="pref_splash_summary">Enable Splash screen</string>
+    <string name="pref_splash_animation">Splash animation</string>
+    <string name="pref_splash_animation_summary">Change the splash screen animation</string>
 </resources>
