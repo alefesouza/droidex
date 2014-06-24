@@ -9,6 +9,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -101,5 +102,14 @@ public class ActivityNews extends Activity {
 			super.onPageFinished(view, url);
 			animatedGifImageView.setVisibility(View.GONE);
 		}
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if ((keyCode == KeyEvent.KEYCODE_BACK) && web.canGoBack()) {
+			web.goBack();
+			return true;
+		}
+	return super.onKeyDown(keyCode, event);
 	}
 }
