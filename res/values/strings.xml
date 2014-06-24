@@ -90,9 +90,11 @@
     <string name="searchhint">Pokemon\'s name</string>
     
     <string name="download">Download image</string>
+    <string name="news">DroiDéx News</string>
     <string name="feedback">Send feedback</string>
     <string name="update">Verify updates</string>
     <string name="yourversion">Your version is:</string>
+    <string name="downloadupdate">Downloading update</string>
     <string name="share">Share this app</string>
     <string name="sharecontent">See the most updated Pokédex app for Android!! http://aloogle.tumblr.com/droidex/download</string>
     <string name="settings">Settings</string>
@@ -115,4 +117,11 @@
     <string name="pref_splash_summary">Enable Splash screen</string>
     <string name="pref_splash_animation">Splash animation</string>
     <string name="pref_splash_animation_summary">Change the splash screen animation</string>
+
+    <string name="addpokemon">Add Pokémon (beta)</string>
+    <string name="hintidpk">Type the Pokémon ID</string>
+    <string name="widgetshortcutinfo">The Pokémon ID is it\'s number in National Dex, to add different forms such as Mega Evolutions, go to the folder DroiDex/art, numbers after 10000 are IDs for different forms.</string>
+    <string name="widgetshortcutbeta">This is a beta function, use it only if you\'re not used to restart you device, because in case of device\'s restart the widget does not load and you\'ll need to put it on the screen again.</string>
+    <string name="createwidget">Create widget</string>
+    <string name="widgetshortcuttoastwarning">Download the Sugimori art before using the widget, also use only numbers between 1-721 and between 10001-10170</string>
 </resources>

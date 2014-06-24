@@ -39,6 +39,7 @@
     </string-array>
 
     <string-array name="favIcon">
+        <item name="default">Padrão</item>
         <item name="red">Vermelho</item>
         <item name="green">Verde</item>
         <item name="blue">Azul</item>
@@ -46,6 +47,7 @@
     </string-array>
 
 	<string-array name="favIconValues">
+        <item name="default">default</item>
         <item name="red">red</item>
         <item name="green">green</item>
         <item name="blue">blue</item>

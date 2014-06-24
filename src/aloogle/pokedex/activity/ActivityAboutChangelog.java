@@ -1,18 +1,27 @@
 package aloogle.pokedex.activity;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
 import aloogle.pokedex.R;
 import aloogle.pokedex.other.Other;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.graphics.drawable.ColorDrawable;
 
 public class ActivityAboutChangelog extends Activity {
 	private final static String changelog = "" +
+		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 5.3</h3>\n" +
+		"Launched in 23 June 2014\n" +
+		"<ul style=\"text-align: justify;\">\n" +
+		"<li>Now you can put widgets of ALL Pok&eacute;mons in your home screen</li>\n" +
+		"<li>DroiD&eacute;x News</li>\n" +
+		"<li>New app icon</li>\n" +
+		"<li>In version 5.1.5 were added option of deactivate splash screen and change animation</li>\n" +
+		"<li>And some others improvements</li>\n" +
+		"</ul>\n" +
 		//version 5.1.5 launched in 21 June 2014 update pokemon data and added a option of deactivate splash screen or change animation
 		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 5.1</h3>\n" +
 		"Launched in 19 June 2014\n" +
@@ -162,13 +171,15 @@ public class ActivityAboutChangelog extends Activity {
 		else if (userColor.equals("dexdroidred"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff4444));
 
-		String userIcon = preferences.getString("prefIcon", "blue");
+		 String userIcon = preferences.getString("prefIcon", "default");
+   if (userIcon.equals("default"))
+			getActionBar().setIcon(R.drawable.ic_launcher);
 		if (userIcon.equals("red"))
-			getActionBar().setIcon(R.drawable.ic_itemdex);
+			getActionBar().setIcon(R.drawable.ic_pokedex);
 		else if (userIcon.equals("green"))
 			getActionBar().setIcon(R.drawable.ic_abilitydex);
 		else if (userIcon.equals("blue"))
-			getActionBar().setIcon(R.drawable.ic_pokedex);
+			getActionBar().setIcon(R.drawable.ic_itemdex);
 		else if (userIcon.equals("yellow"))
 			getActionBar().setIcon(R.drawable.ic_movedex);
 

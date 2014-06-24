@@ -2,6 +2,12 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
         <item
+        android:id="@+id/menu_news"
+        android:icon="@drawable/ic_news"
+        android:title="@string/news"
+        android:showAsAction="ifRoom"
+        android:orderInCategory="993" />
+        <item
             android:id="@+id/menu_feedback"
             android:title="@string/feedback"
             android:orderInCategory="994"/>

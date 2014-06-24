@@ -88,11 +88,13 @@
     <string name="changelog_version_format">Versão <xliff:g id="version_name">%s</xliff:g></string>
 
     <string name="searchhint">Nome do Pokémon</string>
-    
+
     <string name="download">Baixar imagens</string>
-    <string name="feedback">Enviar feedback</string>
+    <string name="news">DroiDéx News</string>
+    <string name="feedback">Enviar opinião</string>
     <string name="update">Verificar atualizações</string>
     <string name="yourversion">Sua versão é:</string>
+    <string name="downloadupdate">Baixando atualização</string>
     <string name="share">Compartilhar app</string>
     <string name="sharecontent">Veja o aplicativo de Pokédex mais atualizado para Android!! http://aloogle.tumblr.com/droidex/download</string>
     <string name="settings">Configurações</string>
@@ -115,5 +117,11 @@
     <string name="pref_splash_summary">Habilitar tela splash</string>
     <string name="pref_splash_animation">Animação</string>
     <string name="pref_splash_animation_summary">Mudar animação da tela splash</string>
-</resources>
 
+    <string name="addpokemon">Adicionar Pokémon (beta)</string>
+    <string name="hintidpk">Digite a ID do Pokémon</string>
+    <string name="widgetshortcutinfo">A ID do Pokémon é o número dele na National Dex, para adicionar formas diferentes como Mega Evoluções, vá na pasta DroiDex/art, os números a partir do 10000 são as IDs de formas diferentes.</string>
+    <string name="widgetshortcutbeta">Essa é uma função beta, só use se você não tem costume de reiniciar seu dispositivo, pois ao reiniciar o widget não carrega e você vai ter que colocar de novo.</string>
+    <string name="createwidget">Criar widget</string>
+    <string name="widgetshortcuttoastwarning">Baixe as Sugimori art antes de adicionar o widget, também use apenas números de 1 a 721 e 10001 a 10170</string>
+</resources>

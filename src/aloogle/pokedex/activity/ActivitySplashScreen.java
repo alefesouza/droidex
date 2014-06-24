@@ -4,18 +4,26 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import aloogle.pokedex.R;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import aloogle.pokedex.lib.AnimatedGifImageView;
+import aloogle.pokedex.R;
+import aloogle.pokedex.lib.AnimatedGifImageView.TYPE;
 
 public class ActivitySplashScreen extends Activity {
 
 	private static final int TIME = 1500;
 
+	private AnimatedGifImageView animatedGifImageView;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
+
+		animatedGifImageView = ((AnimatedGifImageView)findViewById(R.id.animatedGifImageView));
+		animatedGifImageView.setAnimatedGif(R.raw.loading,
+			TYPE.FIT_CENTER);
 
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		boolean prefSplash = preferences.getBoolean("prefSplash", true);
@@ -55,13 +63,15 @@ public class ActivitySplashScreen extends Activity {
 			else if (userColor.equals("dexdroidred"))
 				getWindow().getDecorView().setBackgroundColor(0xffff4444);
 
-			String userIcon = preferences.getString("prefIcon", "blue");
+			String userIcon = preferences.getString("prefIcon", "default");
+			if (userIcon.equals("default"))
+				getActionBar().setIcon(R.drawable.ic_launcher);
 			if (userIcon.equals("red"))
-				getActionBar().setIcon(R.drawable.ic_itemdex);
+				getActionBar().setIcon(R.drawable.ic_pokedex);
 			else if (userIcon.equals("green"))
 				getActionBar().setIcon(R.drawable.ic_abilitydex);
 			else if (userIcon.equals("blue"))
-				getActionBar().setIcon(R.drawable.ic_pokedex);
+				getActionBar().setIcon(R.drawable.ic_itemdex);
 			else if (userIcon.equals("yellow"))
 				getActionBar().setIcon(R.drawable.ic_movedex);
 

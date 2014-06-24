@@ -1,7 +1,10 @@
 package aloogle.pokedex.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,9 +15,6 @@ import aloogle.pokedex.fragment.PokemonDetails;
 import aloogle.pokedex.fragment.PokemonName;
 import aloogle.pokedex.other.Other;
 import aloogle.pokedex.other.Other.pokemonInterface;
-import android.graphics.drawable.ColorDrawable;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 public class ActivityMain extends FragmentActivity implements pokemonInterface {
 	private FrameLayout fragmentContainer;
@@ -60,13 +60,15 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		else if (userColor.equals("dexdroidred"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff4444));
 
-		String userIcon = preferences.getString("prefIcon", "blue");
+		String userIcon = preferences.getString("prefIcon", "default");
+		if (userIcon.equals("default"))
+			getActionBar().setIcon(R.drawable.ic_launcher);
 		if (userIcon.equals("red"))
-			getActionBar().setIcon(R.drawable.ic_itemdex);
+			getActionBar().setIcon(R.drawable.ic_pokedex);
 		else if (userIcon.equals("green"))
 			getActionBar().setIcon(R.drawable.ic_abilitydex);
 		else if (userIcon.equals("blue"))
-			getActionBar().setIcon(R.drawable.ic_pokedex);
+			getActionBar().setIcon(R.drawable.ic_itemdex);
 		else if (userIcon.equals("yellow"))
 			getActionBar().setIcon(R.drawable.ic_movedex);
 
@@ -111,17 +113,21 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 			startActivity(feedback);
 			return true;
 		case R.id.menu_share:
-			Intent sendIntent = new Intent();
-			sendIntent.setAction(Intent.ACTION_SEND);
-			sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.sharecontent));
-			sendIntent.setType("text/plain");
-			startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.app_name)));
+			Intent shareIntent = new Intent();
+			shareIntent.setAction(Intent.ACTION_SEND);
+			shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.sharecontent));
+			shareIntent.setType("text/plain");
+			startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.app_name)));
 			return true;
 		case R.id.menu_settings:
 			Intent settings = new Intent(ActivityMain.this, ActivitySettings.class);
 			startActivity(settings);
 			//For users do not need restart on changes
 			ActivityMain.this.finish();
+			return true;
+		case R.id.menu_news:
+			Intent news = new Intent(ActivityMain.this, ActivityNews.class);
+			startActivity(news);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

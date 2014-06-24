@@ -22,6 +22,7 @@ import aloogle.pokedex.other.Database;
 import aloogle.pokedex.other.Other;
 import aloogle.pokedex.other.Other.pokemonInterface;
 import aloogle.pokedex.other.ZipHelper;
+import android.net.Uri;
 
 import java.io.File;
 
@@ -155,12 +156,14 @@ public class PokemonName extends Fragment {
 
     BroadcastReceiver onComplete = new BroadcastReceiver() {
         public void onReceive(Context ctxt, Intent intent) {
+			if(zipName == null) { Intent promptInstall = new Intent(Intent.ACTION_VIEW).setDataAndType(Uri.parse("file:///sdcard/DroiDex/DroiDex.apk"), "application/vnd.android.package-archive");
+startActivity(promptInstall); } else {
             File f = new File(unzipTarget);
             if (f.exists()) f.delete();
 
             UnzipFile unzip = new UnzipFile();
             String zipLocation = unzipTarget + zipName;
-            unzip.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,new ZipHelper(zipLocation, unzipTarget));
+            unzip.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,new ZipHelper(zipLocation, unzipTarget));}
         }
     };
 
@@ -195,5 +198,5 @@ public class PokemonName extends Fragment {
                     .setProgress(0, 0, false);
             notifManager.notify(0, notif.build());
         }
-    }
+}
 }

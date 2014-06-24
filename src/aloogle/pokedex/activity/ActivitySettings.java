@@ -1,12 +1,12 @@
 package aloogle.pokedex.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import aloogle.pokedex.R;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import aloogle.pokedex.R;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 
 public class ActivitySettings extends PreferenceActivity {
 
@@ -14,6 +14,7 @@ public class ActivitySettings extends PreferenceActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActionBar().setDisplayHomeAsUpEnabled(false);
 		addPreferencesFromResource(R.xml.activity_settings);
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String userColor = preferences.getString("prefColor", "droidexblue");
@@ -50,13 +51,15 @@ public class ActivitySettings extends PreferenceActivity {
 		else if (userColor.equals("dexdroidred"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff4444));
 
-		String userIcon = preferences.getString("prefIcon", "blue");
+		String userIcon = preferences.getString("prefIcon", "default");
+		if (userIcon.equals("default"))
+			getActionBar().setIcon(R.drawable.ic_launcher);
 		if (userIcon.equals("red"))
-			getActionBar().setIcon(R.drawable.ic_itemdex);
+			getActionBar().setIcon(R.drawable.ic_pokedex);
 		else if (userIcon.equals("green"))
 			getActionBar().setIcon(R.drawable.ic_abilitydex);
 		else if (userIcon.equals("blue"))
-			getActionBar().setIcon(R.drawable.ic_pokedex);
+			getActionBar().setIcon(R.drawable.ic_itemdex);
 		else if (userIcon.equals("yellow"))
 			getActionBar().setIcon(R.drawable.ic_movedex);
 		setTitle(getResources().getText(R.string.settings));

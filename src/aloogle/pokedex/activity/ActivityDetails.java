@@ -1,13 +1,13 @@
 package aloogle.pokedex.activity;
 
+import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import aloogle.pokedex.R;
 import aloogle.pokedex.fragment.PokemonDetails;
 import aloogle.pokedex.other.Other;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.graphics.drawable.ColorDrawable;
 
 public class ActivityDetails extends FragmentActivity implements Other.pokemonInterface {
 
@@ -51,13 +51,15 @@ public class ActivityDetails extends FragmentActivity implements Other.pokemonIn
 		else if (userColor.equals("dexdroidred"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff4444));
 
-		String userIcon = preferences.getString("prefIcon", "blue");
+		String userIcon = preferences.getString("prefIcon", "default");
+		if (userIcon.equals("default"))
+			getActionBar().setIcon(R.drawable.ic_launcher);
 		if (userIcon.equals("red"))
-			getActionBar().setIcon(R.drawable.ic_itemdex);
+			getActionBar().setIcon(R.drawable.ic_pokedex);
 		else if (userIcon.equals("green"))
 			getActionBar().setIcon(R.drawable.ic_abilitydex);
 		else if (userIcon.equals("blue"))
-			getActionBar().setIcon(R.drawable.ic_pokedex);
+			getActionBar().setIcon(R.drawable.ic_itemdex);
 		else if (userIcon.equals("yellow"))
 			getActionBar().setIcon(R.drawable.ic_movedex);
 
