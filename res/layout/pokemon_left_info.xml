@@ -228,7 +228,7 @@
         android:columnCount="2">
 
         <TextView
-            android:text="Version"
+            android:text="@string/data_version"
             style="@style/left_column"
             android:background="@drawable/bg_line"/>
 
@@ -239,7 +239,7 @@
             android:spinnerMode="dialog"/>
 
         <TextView
-            android:text="Method"
+            android:text="@string/data_method"
             style="@style/left_column"
             android:background="@drawable/bg_line"/>
 
@@ -251,7 +251,7 @@
 
         <TextView
             android:id="@+id/txtLocation"
-            android:text="List of location"
+            android:text="@string/data_list_location"
             style="@style/left_column"
             android:paddingRight="5dp"
             android:gravity="center"
@@ -300,7 +300,7 @@
         android:columnCount="2">
 
         <TextView
-            android:text="Version Group"
+            android:text="@string/data_version_group"
             style="@style/left_column"
             android:background="@drawable/bg_line"/>
 
@@ -311,7 +311,7 @@
             android:spinnerMode="dialog"/>
 
         <TextView
-            android:text="Method"
+            android:text="@string/data_method"
             style="@style/left_column"
             android:background="@drawable/bg_line"/>
 
@@ -323,7 +323,7 @@
 
         <TextView
             android:id="@+id/txtMove"
-            android:text="List of move"
+            android:text="@string/data_list_move"
             style="@style/left_column"
             android:paddingRight="5dp"
             android:gravity="center"

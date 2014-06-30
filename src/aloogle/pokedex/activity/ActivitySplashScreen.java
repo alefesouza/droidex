@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
+import java.io.File;
+import java.util.Locale;
 import aloogle.pokedex.lib.AnimatedGifImageView;
 import aloogle.pokedex.R;
 import aloogle.pokedex.lib.AnimatedGifImageView.TYPE;
@@ -20,6 +23,8 @@ public class ActivitySplashScreen extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
+		File art = new File("file:///data/data/aloogle.pokedex/databases/pokedex_data");
+		art.delete();
 
 		animatedGifImageView = ((AnimatedGifImageView)findViewById(R.id.animatedGifImageView));
 		animatedGifImageView.setAnimatedGif(R.raw.loading,
@@ -66,7 +71,7 @@ public class ActivitySplashScreen extends Activity {
 			String userIcon = preferences.getString("prefIcon", "default");
 			if (userIcon.equals("default"))
 				getActionBar().setIcon(R.drawable.ic_launcher);
-			if (userIcon.equals("red"))
+			else if (userIcon.equals("red"))
 				getActionBar().setIcon(R.drawable.ic_pokedex);
 			else if (userIcon.equals("green"))
 				getActionBar().setIcon(R.drawable.ic_abilitydex);
@@ -75,8 +80,31 @@ public class ActivitySplashScreen extends Activity {
 			else if (userIcon.equals("yellow"))
 				getActionBar().setIcon(R.drawable.ic_movedex);
 
-			String userAnimation = preferences.getString("prefSplashAnimation", "top");
-			if (userAnimation.equals("top")) {
+			String userAnimation = preferences.getString("prefSplashAnimation", "first");
+			if (userAnimation.equals("first")) {
+				new Handler().postDelayed(new Runnable() {
+
+					@Override
+					public void run() {
+
+						if (Locale.getDefault().getLanguage().equals("pt")) {
+							Intent intent = new Intent(ActivitySplashScreen.this, aloogle.pokedex.activity.pt.ActivityHelp.class);
+							startActivity(intent);
+						} else {
+							Intent intent = new Intent(ActivitySplashScreen.this, ActivityHelp.class);
+							startActivity(intent);
+						}
+
+						ActivitySplashScreen.this.finish();
+						overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
+					}
+				}, TIME);
+				//appear only in first time
+				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+				Editor editor = prefs.edit();
+				editor.putString("prefSplashAnimation", "top");
+				editor.commit();
+			} else if (userAnimation.equals("top")) {
 				new Handler().postDelayed(new Runnable() {
 
 					@Override

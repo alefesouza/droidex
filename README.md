@@ -5,7 +5,7 @@ DroiDéx
 
 DroiDéx é um aplicativo baseado no DéxDroid ( https://github.com/RadhiFadlillah/Pokedex ) versão 3.1, ou seja, uma Pokédex para Android, decidi cria-lo porque eu gostava muito do aplicativo DéxDroid e fiquei muito decepcionado ao ver que ele saiu da Play Store e não recebeu mais atualizações, mas como o desenvolvedor original deixou ele em código aberto e deixou que qualquer um modificasse e distribuísse desde haja os devidos créditos, decidi que eu mesmo iria continua-lo.
 
-Esse é o código da versão 5.5
+Esse é o código da versão 5.5.5
 
 Nessa versão foram adicionados:
 
@@ -23,12 +23,14 @@ Nessa versão foram adicionados:
 * Primal Groudon
 * Mega Diancie
 
+As principais diferenças se comparado ao aplicativo original são uma página de configurações para mudar a cor do aplicativo, e poder adicionar widgets de QUALQUER Pokémon na tela inicial.
+
 ##### English
 
 DroiDéx is an application based on DéxDroid (https://
-github.com/RadhiFadlillah/Pokedex) version 3.1, wich is an Pokédex for Android. I decided creating it because i loved the app DéxDroid and became so disappointed when I realized it was removed from Play Store and had no more updates, but since the original developer left it open source and allowed anyone to modify and distribute, containing the credits to him, i decided to update it by myself.
+github.com/RadhiFadlillah/Pokedex) version 3.1, wich is an Pokédex for Android. I decided creating it because i loved the app DéxDroid and became so disappointed when I realized it was removed from Play Store and had no more updates, but since the original developer left it open source and allowed anyone to modify and distribute, containing the credits to him, I decided to update it by myself.
 
-This is the 5.5 version code
+This is the 5.5.5 version code
 
 Recently added Pokémon:
 
@@ -45,6 +47,8 @@ Recently added Pokémon:
 * Primal Kyogre
 * Primal Groudon
 * Mega Diancie
+
+Compared to the original application, the major differences are a settings page to change the theme color and the function to add widgets of ANY Pokémon onto your homescreen.
 
 Here the README of DéxDroid:
 

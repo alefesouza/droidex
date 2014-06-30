@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import java.util.Locale;
 import aloogle.pokedex.R;
 import aloogle.pokedex.fragment.PokemonDetails;
 import aloogle.pokedex.fragment.PokemonName;
@@ -22,7 +23,6 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		getWindow().setBackgroundDrawable(null);
 		getActionBar().setDisplayHomeAsUpEnabled(false);
 
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -63,7 +63,7 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		String userIcon = preferences.getString("prefIcon", "default");
 		if (userIcon.equals("default"))
 			getActionBar().setIcon(R.drawable.ic_launcher);
-		if (userIcon.equals("red"))
+		else if (userIcon.equals("red"))
 			getActionBar().setIcon(R.drawable.ic_pokedex);
 		else if (userIcon.equals("green"))
 			getActionBar().setIcon(R.drawable.ic_abilitydex);
@@ -95,14 +95,26 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_changelog:
-			Intent change = new Intent(ActivityMain.this, ActivityAboutChangelog.class);
-			change.putExtra(Other.AboutOrChange, 0);
-			startActivity(change);
+			if (Locale.getDefault().getLanguage().equals("pt")) {
+				Intent change = new Intent(ActivityMain.this, aloogle.pokedex.activity.pt.ActivityAboutChangelog.class);
+				change.putExtra(Other.AboutOrChange, 0);
+				startActivity(change);
+			} else {
+				Intent change = new Intent(ActivityMain.this, ActivityAboutChangelog.class);
+				change.putExtra(Other.AboutOrChange, 0);
+				startActivity(change);
+			}
 			return true;
 		case R.id.menu_about:
-			Intent about = new Intent(ActivityMain.this, ActivityAboutChangelog.class);
-			about.putExtra(Other.AboutOrChange, 1);
-			startActivity(about);
+			if (Locale.getDefault().getLanguage().equals("pt")) {
+				Intent change = new Intent(ActivityMain.this, aloogle.pokedex.activity.pt.ActivityAboutChangelog.class);
+				change.putExtra(Other.AboutOrChange, 1);
+				startActivity(change);
+			} else {
+				Intent change = new Intent(ActivityMain.this, ActivityAboutChangelog.class);
+				change.putExtra(Other.AboutOrChange, 1);
+				startActivity(change);
+			}
 			return true;
 		case R.id.menu_update:
 			Intent update = new Intent(ActivityMain.this, ActivityVerifyUpdate.class);
@@ -128,6 +140,15 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		case R.id.menu_news:
 			Intent news = new Intent(ActivityMain.this, ActivityNews.class);
 			startActivity(news);
+			return true;
+		case R.id.menu_help:
+			if (Locale.getDefault().getLanguage().equals("pt")) {
+				Intent intent = new Intent(ActivityMain.this, aloogle.pokedex.activity.pt.ActivityHelp.class);
+				startActivity(intent);
+			} else {
+				Intent intent = new Intent(ActivityMain.this, ActivityHelp.class);
+				startActivity(intent);
+			}
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

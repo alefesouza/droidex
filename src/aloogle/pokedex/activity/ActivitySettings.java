@@ -54,7 +54,7 @@ public class ActivitySettings extends PreferenceActivity {
 		String userIcon = preferences.getString("prefIcon", "default");
 		if (userIcon.equals("default"))
 			getActionBar().setIcon(R.drawable.ic_launcher);
-		if (userIcon.equals("red"))
+		else if (userIcon.equals("red"))
 			getActionBar().setIcon(R.drawable.ic_pokedex);
 		else if (userIcon.equals("green"))
 			getActionBar().setIcon(R.drawable.ic_abilitydex);

@@ -15,7 +15,7 @@
         android:id="@+id/txtReturn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="← return to Pokémon's data"
+        android:text="@string/data_return"
         android:textSize="12sp"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"

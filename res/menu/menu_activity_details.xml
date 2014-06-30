@@ -4,9 +4,9 @@
         <item
             android:id="@+id/menu_bulbapedia"
             android:title="@string/bulbapedia"
-            android:orderInCategory="991"/>
+            android:orderInCategory="990"/>
         <item
             android:id="@+id/menu_serebii"
             android:title="@string/serebii"
-            android:orderInCategory="992"/>
+            android:orderInCategory="991"/>
 </menu>

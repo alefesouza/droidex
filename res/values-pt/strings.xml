@@ -79,6 +79,12 @@
     <string name="data_hatch">Passos até chocar</string>
     <string name="data_growth">Taxa de crescimento</string>
     <string name="data_capture">Taxa de captura</string>
+    <string name="data_version">Versão</string>
+    <string name="data_list_location">Lista de localização</string>
+    <string name="data_version_group">Grupo de versão</string>
+    <string name="data_method">Método</string>
+    <string name="data_list_move">Lista de movimentos</string>
+    <string name="data_return">← retornar aos dados do Pokémon</string>
 
     <!--Di changelog-->
     <string name="changelog_full_title">Change Log</string>
@@ -98,6 +104,7 @@
     <string name="share">Compartilhar app</string>
     <string name="sharecontent">Veja o aplicativo de Pokédex mais atualizado para Android!! http://aloogle.tumblr.com/droidex/download</string>
     <string name="settings">Configurações</string>
+    <string name="help">Ajuda</string>
     <string name="about">Sobre</string>
     <string name="bulbapedia">Abrir na Bulbapedia</string>
     <string name="serebii">Abrir no Serebii</string>
@@ -118,10 +125,12 @@
     <string name="pref_splash_animation">Animação</string>
     <string name="pref_splash_animation_summary">Mudar animação da tela splash</string>
 
-    <string name="addpokemon">Adicionar Pokémon (beta)</string>
+    <string name="addpokemon">Adicionar Pokémon</string>
+    <string name="addaleatorypokemon">Adicionar Pokémon aleatório</string>
     <string name="hintidpk">Digite a ID do Pokémon</string>
-    <string name="widgetshortcutinfo">A ID do Pokémon é o número dele na National Dex, para adicionar formas diferentes como Mega Evoluções, vá na pasta DroiDex/art, os números a partir do 10000 são as IDs de formas diferentes.</string>
-    <string name="widgetshortcutbeta">Essa é uma função beta, só use se você não tem costume de reiniciar seu dispositivo, pois ao reiniciar o widget não carrega e você vai ter que colocar de novo.</string>
+    <string name="widgetshortcutinfo">A ID do Pokémon é o número dele na National Dex, para adicionar formas diferentes como Mega Evoluções, vá na pasta DroiDex/art, os números a partir do 10001 são as IDs de formas diferentes.</string>
+    <string name="widgetshortcutinforesize">Para redimensionar o widget apenas pressione-o por um segundo.</string>
     <string name="createwidget">Criar widget</string>
     <string name="widgetshortcuttoastwarning">Baixe as Sugimori art antes de adicionar o widget, também use apenas números de 1 a 721 e 10001 a 10170</string>
+    <string name="widgetshortcutrandomwarning">Baixe as Sugimori art antes</string>
 </resources>

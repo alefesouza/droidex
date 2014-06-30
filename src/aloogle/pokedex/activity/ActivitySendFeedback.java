@@ -65,7 +65,7 @@ public class ActivitySendFeedback extends Activity {
 		String userIcon = preferences.getString("prefIcon", "default");
 		if (userIcon.equals("default"))
 			getActionBar().setIcon(R.drawable.ic_launcher);
-		if (userIcon.equals("red"))
+		else if (userIcon.equals("red"))
 			getActionBar().setIcon(R.drawable.ic_pokedex);
 		else if (userIcon.equals("green"))
 			getActionBar().setIcon(R.drawable.ic_abilitydex);
@@ -85,7 +85,7 @@ public class ActivitySendFeedback extends Activity {
 		web.loadUrl("http://aloogle.tumblr.com/droidex/feedback");
 	}
 
-	public class feedbackWebClient extends WebViewClient{
+	public class feedbackWebClient extends WebViewClient {
 		@Override
 		public void onPageStarted(WebView view, String url, Bitmap favicon) {
 			super.onPageStarted(view, url, favicon);

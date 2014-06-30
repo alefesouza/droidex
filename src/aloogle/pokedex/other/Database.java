@@ -6,12 +6,12 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class Database extends SQLiteAssetHelper {
     private static final String DATABASE_NAME = "pokedex_data";
-    private static final int DATABASE_VERSION = 12;
+    private static final int DATABASE_VERSION = 15;
     public static final String SPLIT = "ǁ";
 
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        setForcedUpgrade(12);
+        setForcedUpgrade(15);
     }
 
     private Cursor getCursor(String query, String[] args) {

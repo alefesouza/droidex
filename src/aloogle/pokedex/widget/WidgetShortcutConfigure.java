@@ -2,11 +2,15 @@ package aloogle.pokedex.widget;
 
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -44,19 +48,24 @@ public class WidgetShortcutConfigure extends Activity {
 			public void onClick(View v) {
 				String idpk = et.getText().toString();
 				File art = new File(Environment.getExternalStorageDirectory() + "/DroiDex/art/sa_" + idpk + ".png");
-				String files = art.toString();
 				if (art.exists()) {
-					Uri imgUri = Uri.parse(files);
-					views.setImageViewUri(R.id.imageView1, imgUri);
+					Bitmap bit = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/DroiDex/art/sa_" + idpk + ".png");
+					views.setImageViewBitmap(R.id.imageWidget1, bit);
 					Intent intent = new Intent(WidgetShortcutConfigure.this, aloogle.pokedex.activity.ActivitySplashScreen.class);
 					PendingIntent pending = PendingIntent.getActivity(context, 0, intent, 0);
 
-					views.setOnClickPendingIntent(R.id.imageView1, pending);
-					widgetManager.updateAppWidget(widgetID, views);
+					views.setOnClickPendingIntent(R.id.imageWidget1, pending);
 
 					Intent resultValue = new Intent();
 					resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetID);
 					setResult(RESULT_OK, resultValue);
+
+					SharedPreferences prefs =
+						PreferenceManager.getDefaultSharedPreferences(context);
+					Editor editor = prefs.edit();
+					editor.putString(String.valueOf(widgetID), idpk);
+					editor.commit();
+					widgetManager.updateAppWidget(widgetID, views);
 					finish();
 				} else {
 					Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.widgetshortcuttoastwarning), Toast.LENGTH_LONG);

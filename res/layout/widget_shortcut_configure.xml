@@ -39,6 +39,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView1"
-        android:text="@string/widgetshortcutbeta" />
+        android:text="@string/widgetshortcutinforesize" />
 
 </RelativeLayout>

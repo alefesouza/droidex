@@ -13,78 +13,36 @@ import aloogle.pokedex.other.Other;
 
 public class ActivityAboutChangelog extends Activity {
 	private final static String changelog = "" +
-		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 5.3</h3>\n" +
+		//version 5.5.5 launched 29 June 2014 fix widget dont load on system restart, allow widget resize and add a aleatory pokemon widget, too allow watch pokemon in fullscreen on DroiDex News
+		"<h3 style=\"text-align: justify;\">DroiD&eacute;x version 5.5</h3>\n" +
 		"Launched in 23 June 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
-		"<li>Now you can put widgets of ALL Pok&eacute;mons in your home screen</li>\n" +
-		"<li>DroiD&eacute;x News</li>\n" +
-		"<li>New app icon</li>\n" +
-		"<li>In version 5.1.5 were added option of deactivate splash screen and change animation</li>\n" +
-		"<li>And some others improvements</li>\n" +
+		"<li>Now you can put widgets of ALL Pok&eacute;mons in your home screen.</li>\n" +
+		"<li>DroiD&eacute;x News.</li>\n" +
+		"<li>New app icon.</li>\n" +
+		"<li>In version 5.1.5 were added option of deactivate splash screen and change animation.</li>\n" +
+		"<li>And some others improvements.</li>\n" +
 		"</ul>\n" +
 		//version 5.1.5 launched in 21 June 2014 update pokemon data and added a option of deactivate splash screen or change animation
-		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 5.1</h3>\n" +
+		"<h3 style=\"text-align: justify;\">DroiD&eacute;x version 5.1</h3>\n" +
 		"Launched in 19 June 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
-		"<li>Added settings page, with change color and action bar icon option</li>\n" +
-		"<li>Added Open on Bulbapedia and Serebii on Pok&eacute;mon details</li>\n" +
-		"<li>Portuguese version</li>\n" +
+		"<li>Added settings page, with change color and action bar icon option.</li>\n" +
+		"<li>Added \"Open on Bulbapedia\" and Serebii on Pok&eacute;mon details.</li>\n" +
+		"<li>Portuguese version.</li>\n" +
 		"</ul>\n" +
 		//version 5.0.1 launched in 17 June 2014 fix some names and add a share function
-		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 5.0</h3>\n" +
+		"<h3 style=\"text-align: justify;\">DroiD&eacute;x version 5.0</h3>\n" +
 		"Launched in 15 June 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
-		"<li>Newest Pok&eacute;mons announced and unannounced officially  of 6th generation, and announced for Omega Ruby/Alpha Sapphire until 15 June 2014</li>\n" +
-		"<li>Added all description of 6th moves</li>\n" +
-		"<li>Added all 6th generation sprites</li>\n" +
-		"<li>And some others improvements" +
+		"<li>Newest Pok&eacute;mons announced and unannounced officially  of 6th generation, and announced for Omega Ruby/Alpha Sapphire until 15 June 2014.</li>\n" +
+		"<li>Added all description of 6th moves.</li>\n" +
+		"<li>Added all 6th generation sprites.</li>\n" +
+		"<li>And some others improvements.</li>\n" +
 		"</ul>\n" +
-		"<p style=\"text-align: justify;\">I love D&eacute;xDroid but it was removed from Play Store (I don't know why) and didn't receive any updates, but this is an open source (the source is on GitHub for everyone), and I decided to create the DroiD&eacute;x, is only the original D&eacute;xDroid with most recent Pok&eacute;mon announcements.</p>\n" +
-		"<hr>\n" +
-		"<h2 style=\"text-align: justify;\">D&eacute;xDroid versions</h3>\n" +
-		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 3.1</h3>\n" +
-		"<ul style=\"text-align: justify;\">\n" +
-		"<li>Fix crash when downloading image</li>\n" +
-		"<li>Fix crash when extracting data</li>\n" +
-		"<li>Better layout for tablet</li>\n" +
-		"<li>Better filter design</li>\n" +
-		"</ul>\n" +
-		"<p style=\"text-align: justify;\">Now you can using this app even when the app is still downloading and extracting the data.</p>\n" +
-		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 3</h3>\n" +
-		"<ul style=\"text-align: justify;\">\n" +
-		"<li>Major UI overhaul</li>\n" +
-		"<li>Add list of location</li>\n" +
-		"<li>Add Pok&eacute;mon evolution</li>\n" +
-		"<li>Change Sugimori Art with bigger size and better quality</li>\n" +
-		"</ul>\n" +
-		"<p style=\"text-align: justify;\">This new version has bigger APK size than the previous version, because the database in this version is not compressed. This make APK size bigger,&nbsp; but faster (because there is no need to extract data).</p>\n" +
-		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 1.5</h3>\n" +
-		"<ul style=\"text-align: justify;\">\n" +
-		"<li>Fix crash when opening Farfetch'd</li>\n" +
-		"<li>Fix version name in Pok&eacute;mon move filter</li>\n" +
-		"<li>Add advanced search for Pok&eacute;dex</li>\n" +
-		"<li>Add info about available move for Pok&eacute;mon's alternative form</li>\n" +
-		"</ul>\n" +
-		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 1.25</h3>\n" +
-		"<ul style=\"text-align: justify;\">\n" +
-		"<li>Add menu to download image</li>\n" +
-		"<li>Add info about Pok&eacute;mon with multiple form, e.g. Unown, Vivilon, etc.</li>\n" +
-		"<li>Add <em>Mega Evolution</em> data</li>\n" +
-		"</ul>\n" +
-		"<p style=\"text-align: justify;\">When downloading image, app will extract the data after download is finished. This may take several minutes, depending on your device.</p>\n" +
-		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 1</h3>\n" +
-		"<ul style=\"text-align: justify;\">\n" +
-		"<li>Improved performance and stability</li>\n" +
-		"<li>Fix image not loaded in KitKat</li>\n" +
-		"<li>Add some details in Pok&eacute;mon Move</li>\n" +
-		"</ul>\n" +
-		"<p style=\"text-align: justify;\">If you have previous version installed, it will be slow on first load because app will replace old database with the new one. If it takes too long, please clear data in System Setting &rarr; App &rarr; Pokedex &rarr; tap Clear data</p>\n" +
-		"<h3 style=\"text-align: justify;\">Pok&eacute;dex ver 0.95</h3>\n" +
-		"<ul>\n" +
-		"<li style=\"text-align: justify;\">Initial release</li>\n" +
-		"</ul>";
+		"<p style=\"text-align: justify;\">I love D&eacute;xDroid but it was removed from Play Store and didn't receive any updates, but this is an open source (the source is on GitHub for everyone), and I decided to create the DroiD&eacute;x, is only the original D&eacute;xDroid with most recent Pok&eacute;mon announcements.</p>\n";
 	private final static String about = "" +
-		"<h3 style=\"text-align: justify;\">DroidD&eacute;x</h3>\n" +
+		"<h3 style=\"text-align: justify;\">DroiD&eacute;x</h3>\n" +
 		"<p style=\"text-align: justify;\">DroiD&eacute;x is a modified version of D&eacute;xDroid, developed by <a href=\"http://google.com/+AlefeSouza/about \">Alefe Souza</a>.</p>\n" +
 		"<p style=\"text-align: justify;\">I noticed that the D&eacute;xDroid was removed from the Play Store and didn't receive any updates, I did not like this because I loved D&eacute;xDroid and always indicated to my friends, then I decided create DroiD&eacute;x, a modified version of D&eacute;xDroid 3.1 with most recent Pok&eacute;mon updates.</p>\n" +
 		"<p style=\"text-align: justify;\">Thanks to:</p>\n" +
@@ -93,8 +51,7 @@ public class ActivityAboutChangelog extends Activity {
 		"<li><a href=\"http://deviantart.com/ \">DeviantArt</a>, for Sugimori art and sprites of most recent Pok&eacute;mons announced and unannounced officially.</li>\n" +
 		"</ul>\n" +
 		"<h3 style=\"text-align: justify;\">Source code</h3>\n" +
-		"<p style=\"text-align: justify;\">Please notice the \"License\" section of this page, it remains the same of D&eacute;xDroid, you can see the source code of DroiD&eacute;x in my <a href=\"https://github.com/alefesouza/droidex \">Github</a>.</p>\n" +
-		"<p>This application isn't available on Play Store because I don't have an credit card which is necessary to pay the developer tax needed.</p>\n" +
+		"<p style=\"text-align: justify;\">Please notice the \"License\" section of this page, it remains the same of D&eacute;xDroid, you can see the source code of DroiD&eacute;x in my <a href=\"https://github.com/alefesouza/droidex \">Github</a>. If you intend to use any DroiDéx code (such as widgets and settings, or anything that is not included in the original app), credit me too.</p>\n" +
 		"<hr>\n" +
 		"<h3 style=\"text-align: justify;\">D&eacute;xDroid 3.1 about</h3>\n" +
 		"<p style=\"text-align: justify;\">D&eacute;xDroid is Pok&eacute;dex (Pok&eacute;mon encyclopedia) for Android. It contains data of all Pok&eacute;mon species from every series of Pok&eacute;mon game (Gen I to Gen VI). Every Pok&eacute;mon's data is consisted by :</p>\n" +
@@ -171,10 +128,10 @@ public class ActivityAboutChangelog extends Activity {
 		else if (userColor.equals("dexdroidred"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff4444));
 
-		 String userIcon = preferences.getString("prefIcon", "default");
-   if (userIcon.equals("default"))
+		String userIcon = preferences.getString("prefIcon", "default");
+		if (userIcon.equals("default"))
 			getActionBar().setIcon(R.drawable.ic_launcher);
-		if (userIcon.equals("red"))
+		else if (userIcon.equals("red"))
 			getActionBar().setIcon(R.drawable.ic_pokedex);
 		else if (userIcon.equals("green"))
 			getActionBar().setIcon(R.drawable.ic_abilitydex);

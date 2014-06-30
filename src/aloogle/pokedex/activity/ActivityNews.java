@@ -2,18 +2,18 @@ package aloogle.pokedex.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebChromeClient.CustomViewCallback;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.DownloadListener;
+import android.widget.FrameLayout;
 import aloogle.pokedex.R;
 import aloogle.pokedex.lib.AnimatedGifImageView;
 import aloogle.pokedex.lib.AnimatedGifImageView.TYPE;
@@ -21,6 +21,12 @@ import aloogle.pokedex.lib.AnimatedGifImageView.TYPE;
 public class ActivityNews extends Activity {
 
 	WebView web;
+
+	private FrameLayout mTargetView;
+	private FrameLayout mContentView;
+	private CustomViewCallback mCustomViewCallback;
+	private View mCustomView;
+	private MyChromeClient mClient;
 
 	private AnimatedGifImageView animatedGifImageView;
 
@@ -65,27 +71,33 @@ public class ActivityNews extends Activity {
 		else if (userColor.equals("dexdroidred"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff4444));
 
+		String userIcon = preferences.getString("prefIcon", "default");
+		if (userIcon.equals("default"))
+			getActionBar().setIcon(R.drawable.ic_launcher);
+		else if (userIcon.equals("red"))
+			getActionBar().setIcon(R.drawable.ic_pokedex);
+		else if (userIcon.equals("green"))
+			getActionBar().setIcon(R.drawable.ic_abilitydex);
+		else if (userIcon.equals("blue"))
+			getActionBar().setIcon(R.drawable.ic_itemdex);
+		else if (userIcon.equals("yellow"))
+			getActionBar().setIcon(R.drawable.ic_movedex);
+
 		animatedGifImageView = ((AnimatedGifImageView)findViewById(R.id.animatedGifImageView));
 		animatedGifImageView.setAnimatedGif(R.raw.loading,
 			TYPE.FIT_CENTER);
 
 		web = (WebView)findViewById(R.id.webview01);
-
+		mClient = new MyChromeClient();
+		web.setWebChromeClient(mClient);
 		web.setWebViewClient(new newsWebClient());
 		web.getSettings().setJavaScriptEnabled(true);
 		web.loadUrl("http://aloogle.tumblr.com/droidex/news");
-		web.setDownloadListener(new DownloadListener() {
-			public void onDownloadStart(String url, String userAgent,
-				String contentDisposition, String mimetype,
-				long contentLength) {
-				Intent i = new Intent(Intent.ACTION_VIEW);
-				i.setData(Uri.parse(url));
-				startActivity(i);
-			}
-		});
+		mContentView = (FrameLayout)findViewById(R.id.main_content);
+		mTargetView = (FrameLayout)findViewById(R.id.target_view);
 	}
 
-	public class newsWebClient extends WebViewClient{
+	public class newsWebClient extends WebViewClient {
 		@Override
 		public void onPageStarted(WebView view, String url, Bitmap favicon) {
 			super.onPageStarted(view, url, favicon);
@@ -103,13 +115,48 @@ public class ActivityNews extends Activity {
 			animatedGifImageView.setVisibility(View.GONE);
 		}
 	}
-	
+
+	class MyChromeClient extends WebChromeClient {
+
+		@Override
+		public void onShowCustomView(View view, CustomViewCallback callback) {
+			mCustomViewCallback = callback;
+			mTargetView.addView(view);
+			mCustomView = view;
+			mContentView.setVisibility(View.GONE);
+			mTargetView.setVisibility(View.VISIBLE);
+			mTargetView.bringToFront();
+			getActionBar().hide();
+		}
+
+		@Override
+		public void onHideCustomView() {
+			if (mCustomView == null)
+				return;
+
+			mCustomView.setVisibility(View.GONE);
+			mTargetView.removeView(mCustomView);
+			mCustomView = null;
+			mTargetView.setVisibility(View.GONE);
+			mCustomViewCallback.onCustomViewHidden();
+			mContentView.setVisibility(View.VISIBLE);
+			getActionBar().show();
+		}
+	}
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if ((keyCode == KeyEvent.KEYCODE_BACK) && web.canGoBack()) {
-			web.goBack();
-			return true;
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			if (mCustomView != null) {
+				mClient.onHideCustomView();
+				return true;
+			} else {
+				if (web.canGoBack()) {
+					web.goBack();
+					return true;
+				}
+			}
 		}
-	return super.onKeyDown(keyCode, event);
+		return super.onKeyDown(keyCode, event);
 	}
 }

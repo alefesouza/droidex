@@ -3,8 +3,8 @@
 <manifest 
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="aloogle.pokedex"
-    android:versionCode="39"
-    android:versionName="5.5">
+    android:versionCode="45"
+    android:versionName="5.5.5">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -46,18 +46,33 @@
 
         <activity
             android:name=".activity.ActivityVerifyUpdate"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".activity.ActivityMain"/>
 
         <activity
             android:name=".activity.ActivitySendFeedback"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".activity.ActivityMain"/>
 
         <activity
             android:name=".activity.ActivityNews"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".activity.ActivityMain"/>
 
         <activity
             android:name=".activity.ActivitySettings"
+            android:parentActivityName=".activity.ActivityMain"/>
+
+        <activity
+            android:name=".activity.ActivityHelp"
+            android:parentActivityName=".activity.ActivityMain"/>
+
+        <activity
+            android:name=".activity.pt.ActivityAboutChangelog"
+            android:parentActivityName=".activity.ActivityMain"/>
+
+        <activity
+            android:name=".activity.pt.ActivityHelp"
             android:parentActivityName=".activity.ActivityMain"/>
 
         <activity
@@ -71,10 +86,17 @@
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget" />
         </receiver>
 
+        <receiver android:name=".widget.WidgetShortcutRandom" android:label="@string/addaleatorypokemon">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_random" />
+        </receiver>
+
         <activity android:name=".widget.WidgetShortcutConfigure">
-         <intent-filter>
-           <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
-         </intent-filter>
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
         </activity>
     </application>
 
