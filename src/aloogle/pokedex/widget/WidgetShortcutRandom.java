@@ -26,7 +26,7 @@ public class WidgetShortcutRandom extends AppWidgetProvider {
 			if (art.exists()) {
 				Random r = new Random();
 				int aleatory = r.nextInt(721 - 1 + 1) + 1;
-				int aleatory2 = r.nextInt(10170 - 10001 + 1) + 10001;
+				int aleatory2 = r.nextInt(10171 - 10000 + 1) + 10000;
 				int aleatory3 = r.nextInt(2 - 1 + 1) + 1;
 
 				if (aleatory3 == 1) {

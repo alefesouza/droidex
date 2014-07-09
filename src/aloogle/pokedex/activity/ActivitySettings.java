@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import aloogle.pokedex.R;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import aloogle.pokedex.R;
 
 public class ActivitySettings extends PreferenceActivity {
 
@@ -66,8 +66,14 @@ public class ActivitySettings extends PreferenceActivity {
 	}
 
 	public void onBackPressed() {
-		Intent intent = new Intent(ActivitySettings.this, ActivityMain.class);
-		startActivity(intent);
+		boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+		if (tabletSize) {
+			Intent intent = new Intent(ActivitySettings.this, ActivityMainTablet.class);
+			startActivity(intent);
+		} else {
+			Intent intent = new Intent(ActivitySettings.this, ActivityMain.class);
+			startActivity(intent);
+		}
 		ActivitySettings.this.finish();
 	}
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebChromeClient.CustomViewCallback;
 import android.webkit.WebView;
@@ -17,6 +18,9 @@ import android.widget.FrameLayout;
 import aloogle.pokedex.R;
 import aloogle.pokedex.lib.AnimatedGifImageView;
 import aloogle.pokedex.lib.AnimatedGifImageView.TYPE;
+import android.content.Intent;
+import android.net.Uri;
+import java.lang.reflect.InvocationTargetException;
 
 public class ActivityNews extends Activity {
 
@@ -92,9 +96,19 @@ public class ActivityNews extends Activity {
 		web.setWebChromeClient(mClient);
 		web.setWebViewClient(new newsWebClient());
 		web.getSettings().setJavaScriptEnabled(true);
+		web.getSettings().setSupportZoom(true);
 		web.loadUrl("http://aloogle.tumblr.com/droidex/news");
 		mContentView = (FrameLayout)findViewById(R.id.main_content);
 		mTargetView = (FrameLayout)findViewById(R.id.target_view);
+		web.setDownloadListener(new DownloadListener() {
+			public void onDownloadStart(String url, String userAgent,
+				String contentDisposition, String mimetype,
+				long contentLength) {
+				Intent i = new Intent(Intent.ACTION_VIEW);
+				i.setData(Uri.parse(url));
+				startActivity(i);
+			}
+		});
 	}
 
 	public class newsWebClient extends WebViewClient {
@@ -158,5 +172,23 @@ public class ActivityNews extends Activity {
 			}
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+	@Override
+	public void onPause() {
+		super.onPause();
+		try {
+			Class.forName
+			("android.webkit.WebView")
+			.getMethod
+			("onPause", (Class[])null)
+			.invoke
+			(web, (Object[])null);
+		} catch (ClassNotFoundException cnfe) {}
+
+		catch (NoSuchMethodException nsme) {}
+
+		catch (InvocationTargetException ite) {}
+
+		catch (IllegalAccessException iae) {}
 	}
 }

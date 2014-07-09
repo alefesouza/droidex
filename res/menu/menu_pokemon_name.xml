@@ -20,7 +20,7 @@
         <menu>
             <item
                 android:id="@+id/menu_art"
-                android:title="Sugimori art (57,6MB)"/>
+                android:title="Sugimori art (58MB)"/>
             <item
                 android:id="@+id/menu_sprite"
                 android:title="Sprite (5,6MB)"/>

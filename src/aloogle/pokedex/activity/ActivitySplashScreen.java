@@ -7,11 +7,10 @@ import android.os.Handler;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
-import java.io.File;
 import java.util.Locale;
 import aloogle.pokedex.lib.AnimatedGifImageView;
-import aloogle.pokedex.R;
 import aloogle.pokedex.lib.AnimatedGifImageView.TYPE;
+import aloogle.pokedex.R;
 
 public class ActivitySplashScreen extends Activity {
 
@@ -23,8 +22,6 @@ public class ActivitySplashScreen extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splash);
-		File art = new File("file:///data/data/aloogle.pokedex/databases/pokedex_data");
-		art.delete();
 
 		animatedGifImageView = ((AnimatedGifImageView)findViewById(R.id.animatedGifImageView));
 		animatedGifImageView.setAnimatedGif(R.raw.loading,
@@ -109,10 +106,14 @@ public class ActivitySplashScreen extends Activity {
 
 					@Override
 					public void run() {
-
-						Intent intent = new Intent(ActivitySplashScreen.this,
-								ActivityMain.class);
-						startActivity(intent);
+						boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+						if (tabletSize) {
+							Intent intent = new Intent(ActivitySplashScreen.this, ActivityMainTablet.class);
+							startActivity(intent);
+						} else {
+							Intent intent = new Intent(ActivitySplashScreen.this, ActivityMain.class);
+							startActivity(intent);
+						}
 
 						ActivitySplashScreen.this.finish();
 						overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
@@ -123,11 +124,14 @@ public class ActivitySplashScreen extends Activity {
 
 					@Override
 					public void run() {
-
-						Intent intent = new Intent(ActivitySplashScreen.this,
-								ActivityMain.class);
-						startActivity(intent);
-
+						boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+						if (tabletSize) {
+							Intent intent = new Intent(ActivitySplashScreen.this, ActivityMainTablet.class);
+							startActivity(intent);
+						} else {
+							Intent intent = new Intent(ActivitySplashScreen.this, ActivityMain.class);
+							startActivity(intent);
+						}
 						ActivitySplashScreen.this.finish();
 						overridePendingTransition(R.anim.right_in, R.anim.left_out);
 					}
@@ -151,11 +155,14 @@ public class ActivitySplashScreen extends Activity {
 
 					@Override
 					public void run() {
-
-						Intent intent = new Intent(ActivitySplashScreen.this,
-								ActivityMain.class);
-						startActivity(intent);
-
+						boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+						if (tabletSize) {
+							Intent intent = new Intent(ActivitySplashScreen.this, ActivityMainTablet.class);
+							startActivity(intent);
+						} else {
+							Intent intent = new Intent(ActivitySplashScreen.this, ActivityMain.class);
+							startActivity(intent);
+						}
 						ActivitySplashScreen.this.finish();
 						overridePendingTransition(R.anim.forward_in, R.anim.forward_out);
 					}
@@ -165,11 +172,14 @@ public class ActivitySplashScreen extends Activity {
 
 					@Override
 					public void run() {
-
-						Intent intent = new Intent(ActivitySplashScreen.this,
-								ActivityMain.class);
-						startActivity(intent);
-
+						boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+						if (tabletSize) {
+							Intent intent = new Intent(ActivitySplashScreen.this, ActivityMainTablet.class);
+							startActivity(intent);
+						} else {
+							Intent intent = new Intent(ActivitySplashScreen.this, ActivityMain.class);
+							startActivity(intent);
+						}
 						ActivitySplashScreen.this.finish();
 						overridePendingTransition(R.anim.forbackward_in, R.anim.forbackward_out);
 					}
@@ -181,10 +191,14 @@ public class ActivitySplashScreen extends Activity {
 				public void run() {}
 			}, TIME);
 		} else {
-			Intent intent = new Intent(ActivitySplashScreen.this,
-					ActivityMain.class);
-			startActivity(intent);
-
+			boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+			if (tabletSize) {
+				Intent intent = new Intent(ActivitySplashScreen.this, ActivityMainTablet.class);
+				startActivity(intent);
+			} else {
+				Intent intent = new Intent(ActivitySplashScreen.this, ActivityMain.class);
+				startActivity(intent);
+			}
 			ActivitySplashScreen.this.finish();
 		}
 

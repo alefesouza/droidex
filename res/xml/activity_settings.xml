@@ -6,8 +6,7 @@
             android:entries="@array/favColor"
             android:entryValues="@array/favColorValues"
             android:title="@string/pref_color"
-            android:summary="@string/pref_color_summary"
-            android:defaultValue="droidexblue" />
+            android:summary="@string/pref_color_summary" />
 <ListPreference
             android:key="prefIcon"
             android:entries="@array/favIcon"

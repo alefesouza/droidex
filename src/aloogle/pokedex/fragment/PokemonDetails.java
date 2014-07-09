@@ -1,5 +1,7 @@
 package aloogle.pokedex.fragment;
 
+import java.util.Locale;
+
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,6 +10,9 @@ import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
@@ -16,9 +21,6 @@ import aloogle.pokedex.adapter.*;
 import aloogle.pokedex.object.Pokemon;
 import aloogle.pokedex.other.Database;
 import aloogle.pokedex.other.Other;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 public class PokemonDetails extends Fragment{
     private Activity activity;
@@ -115,24 +117,53 @@ public class PokemonDetails extends Fragment{
 
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       switch (item.getItemId()) {
-          case R.id.menu_bulbapedia:
-             String urlb = "http://bulbapedia.bulbagarden.net/w/index.php?title=Special%3ASearch&search=" + pokemon_name + "&go=Go";
-			   Intent bulbapedia = new Intent(Intent.ACTION_VIEW);
-			   bulbapedia.setData(Uri.parse(urlb));
-			   startActivity(bulbapedia);
-             return true;
-		  case R.id.menu_serebii:
-			   String urls = "http://www.serebii.net/search.shtml?cx=018410473690156091934%3A6gahkiyodbi&cof=FORID%3A11&q=" + pokemon_name;
-			   Intent serebii = new Intent(Intent.ACTION_VIEW);
-			   serebii.setData(Uri.parse(urls));
-			   startActivity(serebii);
-			   return true;
-          default:
-             return
-          super.onOptionsItemSelected(item);
-       }
+    	switch (item.getItemId()) {
+    	case R.id.menu_bulbapedia:
+    		String urlb = "http://bulbapedia.bulbagarden.net/w/index.php?title=Special%3ASearch&search=" + pokemon_name + "&go=Go";
+    		Intent bulbapedia = new Intent(Intent.ACTION_VIEW);
+    		bulbapedia.setData(Uri.parse(urlb));
+    		startActivity(bulbapedia);
+    		return true;
+    	case R.id.menu_serebii:
+    		String urls = "http://www.serebii.net/search.shtml?cx=018410473690156091934%3A6gahkiyodbi&cof=FORID%3A11&q=" + pokemon_name;
+    		Intent serebii = new Intent(Intent.ACTION_VIEW);
+    		serebii.setData(Uri.parse(urls));
+    		startActivity(serebii);
+    		return true;
+    	case R.id.menu_smogon:
+			//for remove form name on Pokemon with different form
+    		String[]parts = pokemon_name.split(" ");
+    		String lastWord = parts[parts.length - 1];
+    		String urlsm = "http://www.smogon.com/dex/xy/pokemon/" + lastWord.toLowerCase();
+    		Intent smogon = new Intent(Intent.ACTION_VIEW);
+    		smogon.setData(Uri.parse(urlsm));
+    		startActivity(smogon);
+    		return true;
+    	default:
+    		return
+    		super.onOptionsItemSelected(item);
+    	}
     }
+	
+	@Override
+	public void onPrepareOptionsMenu(Menu menu) {
+		boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+		if (tabletSize) {
+			menu.findItem(R.id.menu_download).setVisible(false);
+			menu.findItem(R.id.menu_feedback).setVisible(false);
+			menu.findItem(R.id.menu_update).setVisible(false);
+			menu.findItem(R.id.menu_share).setVisible(false);
+			menu.findItem(R.id.menu_settings).setVisible(false);
+			menu.findItem(R.id.menu_help).setVisible(false);
+			menu.findItem(R.id.menu_changelog).setVisible(false);
+			menu.findItem(R.id.menu_about).setVisible(false);
+			if (Locale.getDefault().getLanguage().equals("pt")) {
+				menu.findItem(R.id.menu_news).setVisible(true);
+			} else {
+				menu.findItem(R.id.menu_news).setVisible(false);
+			};
+		}
+	}
 	
     private void setComponentName(View v) {
         rightScroll = (ScrollView) v.findViewById(R.id.leftScroll);

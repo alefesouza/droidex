@@ -28,7 +28,8 @@ public class ActivityVerifyUpdate extends Activity {
 	WebView web;
 	private AnimatedGifImageView animatedGifImageView;
 
-	 @ SuppressLint("SetJavaScriptEnabled")@Override
+	@SuppressLint("SetJavaScriptEnabled")
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_webview);

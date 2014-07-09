@@ -14,18 +14,18 @@ import aloogle.pokedex.R;
 public class ActivityHelp extends Activity {
 	private final static String help = "" +
 		"<h3 style=\"text-align: justify;\">FAQ</h3>\n" +
-		"<p><b>THIS IS NOT END-USER LICENSE AGREEMENT, PLEASE READ IT</b> before asking anything.</p>\n" +
-		"<p><b>Why there is no images, only Missingnos?</b></p>\n" +
-		"<p>The image data is not included in the application pack to make it lighter, but it is possible to download in-app: tap Menu (the tree little squares on the right top, or if you have a phone wich has a Menu button, press it), after tap \"Download image\".</p>\n" +
-		"<p><b>Ok. I did it all, but appeared \"Sugimori art\" and \"Sprite\", wich one is the right one? What\'s the difference between one another?</b></p>\n" +
-		"<p>Sprites are the little image that appear in-batte and Sugimori art the big ones, that\'s why they\'re such heavier, notice that if you only download the sprites, big image won\'t appear, and if you only download Sugimori art the tiny ones won\'t appear too, if you want it all working download both.</p>\n" +
-		"<p><b>Why shouldn\'t I close the app while download is in progress? </b></p>\n" +
-		"<p>The app downloads zipped image files that are extracted in the end of the download. Since there is no way to do anything with an closed app, the app won't extract if closed (unless that boring apps that you never open and are always working).</p>\n" +
-		"<p><b>I have all the images but the Missingnos keep appearing</b></p>\n" +
-		"<p>Normally, recently announced and unannounced officially Pok&eacute;mon don't have it.</p>\n" +
-		"<p><b>How can I put Pok&eacute;mon in my homescreen?</b></p>\n" +
-		"<p>First, download the Sugimori art, after go to the app drawer of your device and tap Widgets, and press \"Add Pok&eacute;mon\" (if there are no Widgets in this menu, press for a while an empty spot in your homescreen and then tap Widgets).</p>" +
-		"<p>If some doubt still persists, use the option \"Send feedback\" in-app.</p>\n";
+		"<p style=\"text-align: justify;\"><b>THIS IS NOT END-USER LICENSE AGREEMENT, PLEASE READ IT</b> before asking anything.</p>\n" +
+		"<p style=\"text-align: justify;\"><b>Why there is no images, only Missingnos?</b></p>\n" +
+		"<p style=\"text-align: justify;\">The image data is not included in the application pack to make it lighter, but it is possible to download in-app: tap Menu (the tree little squares on the right top, or if you have a phone wich has a Menu button, press it), after tap \"Download image\".</p>\n" +
+		"<p style=\"text-align: justify;\"><b>Ok. I did it all, but appeared \"Sugimori art\" and \"Sprite\", wich one is the right one? What\'s the difference between one another?</b></p>\n" +
+		"<p style=\"text-align: justify;\">Sprites are the little image that appear in-batte and Sugimori art the big ones, that\'s why they\'re such heavier, notice that if you only download the sprites, big image won\'t appear, and if you only download Sugimori art the tiny ones won\'t appear too, if you want it all working download both.</p>\n" +
+		"<p style=\"text-align: justify;\"><b>Why shouldn\'t I close the app while download is in progress? </b></p>\n" +
+		"<p style=\"text-align: justify;\">The app downloads zipped image files that are extracted in the end of the download. Since there is no way to do anything with an closed app, the app won't extract if closed (unless that boring apps that you never open and are always working). Sometimes Android system closes minimized applications, than if possible don\'t even minimize the app during the download.</p>\n" +
+		"<p style=\"text-align: justify;\"><b>I have all the images but the Missingnos keep appearing</b></p>\n" +
+		"<p style=\"text-align: justify;\">Normally, recently announced and unannounced officially Pok&eacute;mon don't have it.</p>\n" +
+		"<p style=\"text-align: justify;\"><b>How can I put Pok&eacute;mon in my homescreen?</b></p>\n" +
+		"<p style=\"text-align: justify;\">First, download the Sugimori art, after go to the app drawer of your device and tap Widgets, and press \"Add Pok&eacute;mon\" (if there are no Widgets in this menu, press for a while an empty spot in your homescreen and then tap Widgets).</p>" +
+		"<p style=\"text-align: justify;\">If some doubt still persists, use the option \"Send feedback\" in-app.</p>\n";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -82,17 +82,33 @@ public class ActivityHelp extends Activity {
 		TextView txtOK = (TextView)findViewById(R.id.txtOkChngAbout);
 		WebView viewChangelog = (WebView)findViewById(R.id.viewAboutChangelog);
 
-		setTitle("Ajuda");
+		setTitle(getString(R.string.help));
 		viewChangelog.loadData(help, "text/html", "UTF-8");
 
 		txtOK.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(ActivityHelp.this, ActivityMain.class);
-				startActivity(intent);
+				boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+				if (tabletSize) {
+					Intent intent = new Intent(ActivityHelp.this, ActivityMainTablet.class);
+					startActivity(intent);
+				} else {
+					Intent intent = new Intent(ActivityHelp.this, ActivityMain.class);
+					startActivity(intent);
+				}
 				finish();
 			}
 		});
-
+	}
+	public void onBackPressed() {
+		boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+		if (tabletSize) {
+			Intent intent = new Intent(ActivityHelp.this, ActivityMainTablet.class);
+			startActivity(intent);
+		} else {
+			Intent intent = new Intent(ActivityHelp.this, ActivityMain.class);
+			startActivity(intent);
+		}
+		ActivityHelp.this.finish();
 	}
 }

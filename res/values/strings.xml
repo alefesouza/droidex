@@ -97,6 +97,7 @@
     
     <string name="download">Download image</string>
     <string name="news">DroiDéx News</string>
+    <string name="needinternet">You must be connected to internet</string>
     <string name="feedback">Send feedback</string>
     <string name="update">Verify updates</string>
     <string name="yourversion">Your version is:</string>
@@ -106,12 +107,13 @@
     <string name="settings">Settings</string>
     <string name="help">Help</string>
     <string name="about">About</string>
-    <string name="bulbapedia">Open on Bulbapedia</string>
-    <string name="serebii">Open on Serebii</string>
+    <string name="bulbapedia">Open in Bulbapedia</string>
+    <string name="serebii">Open in Serebii</string>
+    <string name="smogon">Open in Smogon</string>
 
     <string name="downloadwarning">Not close the app while downloading</string>
     <string name="extract">Extracting</string>
-    <string name="extractdata">Extracting data</string>
+    <string name="extractdata">Extracting images</string>
     <string name="extractfinish">Extracting finished</string>
 
     <string name="pref_color_category">Colors</string>
@@ -128,9 +130,12 @@
     <string name="addpokemon">Add Pokémon</string>
     <string name="addaleatorypokemon">Add aleatory Pokémon</string>
     <string name="hintidpk">Type the Pokémon ID</string>
-    <string name="widgetshortcutinfo">The Pokémon ID is it\'s number in National Dex, to add different forms such as Mega Evolutions, go to the folder DroiDex/art, numbers after 10001 are IDs for different forms.</string>
+    <string name="widgetshortcutinfo">The Pokémon ID is it\'s number in National Dex, to add different forms, such as Mega Evolutions, go to the folder DroiDex/art, numbers after 10000 are IDs for different forms.</string>
     <string name="widgetshortcutinforesize">To change the widget\'s size, just press it for a while.</string>
     <string name="createwidget">Create widget</string>
-    <string name="widgetshortcuttoastwarning">Download the Sugimori art before using the widget, also use only numbers between 1-721 and between 10001-10170</string>
+    <string name="widgetshortcuttoastwarning">Download the Sugimori art before using the widget, also use only numbers between 1-721 and between 10000-10171</string>
     <string name="widgetshortcutrandomwarning">Download Sugimori art before</string>
+
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>

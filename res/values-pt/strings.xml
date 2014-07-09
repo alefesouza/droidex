@@ -97,6 +97,7 @@
 
     <string name="download">Baixar imagens</string>
     <string name="news">DroiDéx News</string>
+    <string name="needinternet">Você precisa estar conectado à internet</string>
     <string name="feedback">Enviar opinião</string>
     <string name="update">Verificar atualizações</string>
     <string name="yourversion">Sua versão é:</string>
@@ -108,10 +109,11 @@
     <string name="about">Sobre</string>
     <string name="bulbapedia">Abrir na Bulbapedia</string>
     <string name="serebii">Abrir no Serebii</string>
+    <string name="smogon">Abrir no Smogon</string>
 
     <string name="downloadwarning">Não feche o aplicativo durante o download</string>
     <string name="extract">Extraindo</string>
-    <string name="extractdata">Extraindo dados</string>
+    <string name="extractdata">Extraindo imagens</string>
     <string name="extractfinish">Extração finalizada</string>
 
     <string name="pref_color_category">Cores</string>
@@ -128,9 +130,9 @@
     <string name="addpokemon">Adicionar Pokémon</string>
     <string name="addaleatorypokemon">Adicionar Pokémon aleatório</string>
     <string name="hintidpk">Digite a ID do Pokémon</string>
-    <string name="widgetshortcutinfo">A ID do Pokémon é o número dele na National Dex, para adicionar formas diferentes como Mega Evoluções, vá na pasta DroiDex/art, os números a partir do 10001 são as IDs de formas diferentes.</string>
+    <string name="widgetshortcutinfo">A ID do Pokémon é o número dele na National Dex, para adicionar formas diferentes, como Mega Evoluções, vá na pasta DroiDex/art, os números a partir de 10000 são as IDs de formas diferentes.</string>
     <string name="widgetshortcutinforesize">Para redimensionar o widget apenas pressione-o por um segundo.</string>
     <string name="createwidget">Criar widget</string>
-    <string name="widgetshortcuttoastwarning">Baixe as Sugimori art antes de adicionar o widget, também use apenas números de 1 a 721 e 10001 a 10170</string>
+    <string name="widgetshortcuttoastwarning">Baixe as Sugimori art antes de adicionar o widget, também use apenas números de 1 a 721 e 10000 a 10171</string>
     <string name="widgetshortcutrandomwarning">Baixe as Sugimori art antes</string>
 </resources>

@@ -69,4 +69,13 @@
         <item name="forward">forward</item>
         <item name="forbackward">forbackward</item>
     </string-array>
+
+    <string-array name="drawer_array">
+        <item>Verificar atualizações</item>
+        <item>Enviar opinião</item>
+        <item>Configurações</item>
+        <item>Ajuda</item>
+        <item>Changelog</item>
+        <item>Sobre</item>
+    </string-array>
 </resources>

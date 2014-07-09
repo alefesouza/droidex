@@ -62,7 +62,7 @@
         <item name="forbackward">Go forward and backward</item>
     </string-array>
 
-	<string-array name="prefSplashAnimationValues">
+	   <string-array name="prefSplashAnimationValues">
         <item name="top">top</item>
         <item name="left">left</item>
         <item name="fade">fade</item>
@@ -70,4 +70,12 @@
         <item name="forbackward">forbackward</item>
     </string-array>
 
+    <string-array name="drawer_array">
+        <item>Verify updates</item>
+        <item>Send feedback</item>
+        <item>Settings</item>
+        <item>Help</item>
+        <item>Changelog</item>
+        <item>About</item>
+    </string-array>
 </resources>
