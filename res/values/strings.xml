@@ -86,13 +86,6 @@
     <string name="data_list_move">List of move</string>
     <string name="data_return">← return to Pokémon\'s data</string>
 
-    <!--Di changelog-->
-    <string name="changelog_full_title">Change Log</string>
-    <string name="changelog_title">What\'s New</string>
-    <string name="changelog_ok_button">OK</string>
-    <string name="changelog_show_full">more…</string>
-    <string name="changelog_version_format">Version <xliff:g id="version_name">%s</xliff:g></string>
-
     <string name="searchhint">Pokemon\'s name</string>
     
     <string name="download">Download image</string>
@@ -133,7 +126,7 @@
     <string name="widgetshortcutinfo">The Pokémon ID is it\'s number in National Dex, to add different forms, such as Mega Evolutions, go to the folder DroiDex/art, numbers after 10000 are IDs for different forms.</string>
     <string name="widgetshortcutinforesize">To change the widget\'s size, just press it for a while.</string>
     <string name="createwidget">Create widget</string>
-    <string name="widgetshortcuttoastwarning">Download the Sugimori art before using the widget, also use only numbers between 1-721 and between 10000-10171</string>
+    <string name="widgetshortcuttoastwarning">Download the Sugimori art before using the widget, also use only numbers between 1-721 and between 10000-10172</string>
     <string name="widgetshortcutrandomwarning">Download Sugimori art before</string>
 
     <string name="drawer_open">Open navigation drawer</string>

@@ -22,7 +22,7 @@ public class ActivityAboutChangelog extends Activity {
 		"<li>And some others improvements.</li>\n" +
 		"</ul>\n" +
 		"<p style=\"text-align: justify;\"><b>Version 5.5.5:</b> Launched June, 29, 2014 - Fixed widgets not loading after restarting the device, widget resizing and random Pok&eacute;mon widget, also watching Pok&eacute;mon in fullscreen on DroiD&eacute;x News.</p>\n" +
-		"<p style=\"text-align: justify;\"><b>Version 5.5.7:</b> Launched July, 09, 2014 - Added open in Smogon option, new sidebar in smartphones for a app menu more organized and fixed some bugs.</p>\n" +
+		"<p style=\"text-align: justify;\"><b>Version 5.5.7:</b> Launched July, 09, 2014 - Added open in Smogon option, new sidebar in smartphones for a app menu more organized, added Fancy Vivillon and fixed some bugs. Version <i>5.5.7.1</i> launched in July, 11, 2014 add Mega Metagross.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Version 5.1</h3>\n" +
 		"Launched June, 19, 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +

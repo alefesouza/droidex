@@ -22,7 +22,7 @@ public class ActivityAboutChangelog extends Activity {
 		"<li>E algumas outras melhorias.</li>\n" +
 		"</ul>\n" +
 		"<p style=\"text-align: justify;\"><b>Vers&atilde;o 5.5.5:</b> Lan&ccedil;ada em 29 de junho de 2014 - Corrige o problema dos widgets n&atilde;o carregarem ao reiniciar, permite redimensionar os widgets e adiciona um widget de Pok&eacute;mon aleat&oacute;rio, tamb&eacute;m permite assistir Pok&eacute;mon em tela cheia pelo DroiD&eacute;x News.</p>\n" +
-		"<p style=\"text-align: justify;\"><b>Vers&atilde;o 5.5.7:</b> Lan&ccedil;ada em 09 de julho de 2014 - Adiciona op&ccedil;&atilde;o de abrir no Smogon, um novo menu lateral nos smartphones para deixar o aplicativo mais organizado e corrige bugs.</p>\n" +
+		"<p style=\"text-align: justify;\"><b>Vers&atilde;o 5.5.7:</b> Lan&ccedil;ada em 09 de julho de 2014 - Adiciona op&ccedil;&atilde;o de abrir no Smogon, um novo menu lateral nos smartphones para deixar o aplicativo mais organizado, adiciona a Fancy Vivillon e corrige bugs. <i>Vers&atilde;o 5.5.7.1</i> lan&ccedil;ada dia 11 de julho de 2014 adiciona o Mega Metagross.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Vers&atilde;o 5.1</h3>\n" +
 		"Lan&ccedil;ado dia 19 de junho de 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +

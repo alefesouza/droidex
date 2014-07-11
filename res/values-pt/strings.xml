@@ -86,13 +86,6 @@
     <string name="data_list_move">Lista de movimentos</string>
     <string name="data_return">← retornar aos dados do Pokémon</string>
 
-    <!--Di changelog-->
-    <string name="changelog_full_title">Change Log</string>
-    <string name="changelog_title">O que há de novo?</string>
-    <string name="changelog_ok_button">OK</string>
-    <string name="changelog_show_full">mais…</string>
-    <string name="changelog_version_format">Versão <xliff:g id="version_name">%s</xliff:g></string>
-
     <string name="searchhint">Nome do Pokémon</string>
 
     <string name="download">Baixar imagens</string>
@@ -133,6 +126,6 @@
     <string name="widgetshortcutinfo">A ID do Pokémon é o número dele na National Dex, para adicionar formas diferentes, como Mega Evoluções, vá na pasta DroiDex/art, os números a partir de 10000 são as IDs de formas diferentes.</string>
     <string name="widgetshortcutinforesize">Para redimensionar o widget apenas pressione-o por um segundo.</string>
     <string name="createwidget">Criar widget</string>
-    <string name="widgetshortcuttoastwarning">Baixe as Sugimori art antes de adicionar o widget, também use apenas números de 1 a 721 e 10000 a 10171</string>
+    <string name="widgetshortcuttoastwarning">Baixe as Sugimori art antes de adicionar o widget, também use apenas números de 1 a 721 e 10000 a 10172</string>
     <string name="widgetshortcutrandomwarning">Baixe as Sugimori art antes</string>
 </resources>

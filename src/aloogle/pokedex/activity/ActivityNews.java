@@ -97,6 +97,8 @@ public class ActivityNews extends Activity {
 		web.setWebViewClient(new newsWebClient());
 		web.getSettings().setJavaScriptEnabled(true);
 		web.getSettings().setSupportZoom(true);
+		web.getSettings().setBuiltInZoomControls(true);
+		web.getSettings().setDisplayZoomControls(false);
 		web.loadUrl("http://aloogle.tumblr.com/droidex/news");
 		mContentView = (FrameLayout)findViewById(R.id.main_content);
 		mTargetView = (FrameLayout)findViewById(R.id.target_view);

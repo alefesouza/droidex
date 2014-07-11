@@ -3,8 +3,8 @@
 <manifest 
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="aloogle.pokedex"
-    android:versionCode="47"
-    android:versionName="5.5.7">
+    android:versionCode="49"
+    android:versionName="5.5.7.1">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -15,7 +15,8 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="19"
+        android:maxSdkVersion="19" />
 
     <application
         android:icon="@drawable/ic_launcher"

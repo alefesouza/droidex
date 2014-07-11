@@ -38,7 +38,6 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		getActionBar().setDisplayHomeAsUpEnabled(false);
 
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String userColor = preferences.getString("prefColor", "droidexblue");
