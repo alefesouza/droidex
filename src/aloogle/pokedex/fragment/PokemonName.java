@@ -123,6 +123,16 @@ public class PokemonName extends Fragment {
                 byteBuffer = 3 * 1024;
                 zipName = "Sprites.zip";
                 return true;
+			case R.id.menu_downloadanime:
+                Other.startDownload(mgr,Other.SoundAnimeURL, "Pokémon Anime Sounds",getString(R.string.downloadwarning), "SoundAnime.zip");
+                byteBuffer = 16 * 1024;
+                zipName = "SoundAnime.zip";
+                return true;
+            case R.id.menu_downloadgame:
+                Other.startDownload(mgr,Other.SoundGameURL,"Pokémon Game Sounds",getString(R.string.downloadwarning),"SoundGame.zip");
+                byteBuffer =  16 * 1024;
+                zipName = "SoundGame.zip";
+                return true;
             case R.id.action_filter:
                 Intent intent = new Intent(activity, ActivityPokemonFilter.class);
                 intent.putExtra(Other.PokemonFilterGeneration, Generation);

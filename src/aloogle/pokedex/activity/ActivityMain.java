@@ -44,11 +44,11 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 		if (userColor.equals("red"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
 		else if (userColor.equals("green"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00ff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
 		else if (userColor.equals("blue"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
 		else if (userColor.equals("yellow"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffffff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
 		else if (userColor.equals("gold"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffdaa520));
 		else if (userColor.equals("silver"))
@@ -217,7 +217,7 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 			menu.findItem(R.id.menu_news).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 		} else {
 			menu.findItem(R.id.menu_news).setShowAsAction(MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-		};
+		}
 		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
 		menu.findItem(R.id.action_search).setVisible(!drawerOpen);
 		menu.findItem(R.id.action_filter).setVisible(!drawerOpen);
@@ -283,6 +283,5 @@ public class ActivityMain extends FragmentActivity implements pokemonInterface {
 	}
 
 	@Override
-	public void formSelected(String id, String img_id, String name, boolean formSwitchable) {
-	}
+	public void formSelected(String id, String img_id, String name, boolean formSwitchable) {}
 }

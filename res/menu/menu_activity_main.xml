@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_news"
         android:title="@string/news"
         android:showAsAction="ifRoom"
-        android:orderInCategory="992" />
+        android:orderInCategory="991" />
         <item
             android:id="@+id/menu_feedback"
             android:title="@string/feedback"

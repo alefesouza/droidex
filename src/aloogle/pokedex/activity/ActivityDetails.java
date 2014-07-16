@@ -16,16 +16,19 @@ public class ActivityDetails extends FragmentActivity implements Other.pokemonIn
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_details);
 		getWindow().setBackgroundDrawable(null);
+		getActionBar().setHomeButtonEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
 		String userColor = preferences.getString("prefColor", "droidexblue");
 		if (userColor.equals("red"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
 		else if (userColor.equals("green"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00ff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
 		else if (userColor.equals("blue"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
 		else if (userColor.equals("yellow"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffffff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
 		else if (userColor.equals("gold"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffdaa520));
 		else if (userColor.equals("silver"))

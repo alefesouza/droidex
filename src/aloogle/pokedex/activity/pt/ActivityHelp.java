@@ -25,6 +25,8 @@ public class ActivityHelp extends Activity {
 		"<p style=\"text-align: justify;\">Normalmente eles aparecem em Pok&eacute;mons recentes porque ainda n&atilde;o tem sprite oficial.</p>\n" +
 		"<p style=\"text-align: justify;\"><b>Como adiciono Pok&eacute;mons na minha tela inicial?</b></p>\n" +
 		"<p style=\"text-align: justify;\">Primeiro baixe as Sugimori art, depois v&aacute; no menu de todos os aplicativos do seu dispositivo e toque em Widgets, depois pressione \"Adicionar Pok&eacute;mon\" (caso n&atilde;o haja Widgets nesse menu, pressione uma parte vazia da sua tela inicial por um segundo e toque em Widgets).</p>\n" +
+		"<p style=\"text-align: justify;\"><b>Porque os sons dos Pok&eacute;mon demoram pra tocar ou as vezes nem tocam?</b></p>" +
+		"<p style=\"text-align: justify;\">O aplicativo precisa baixar o &aacute;udio pra depois toca-lo, o que pode demorar uns segundos dependendo da sua velocidade de internet, se voc&ecirc; quiser que toque imediatamente e sem conex&atilde;o com a internet, baixe todos os sons em Menu > Baixar sons, e quando nem aparece &eacute; porque o Pok&eacute;mon n&atilde;o tem &aacute;udio no aplicativo ainda</p>" +
 		"<p style=\"text-align: justify;\"><b>O aplicativo est&aacute; em ingl&ecirc;s?????</b></p>\n" +
 		"<p style=\"text-align: justify;\">Leva muuuuuito tempo para traduzir todas as descri&ccedil;&otilde;es de Pok&eacute;mons, movimentos, habilidades, etc da primeira a sexta gera&ccedil;&atilde;o, mas alguns usu&aacute;rios do DroiD&eacute;x j&aacute; est&atilde;o trabalhando nisso,  uma vers&atilde;o totalmente em portugu&ecirc;s sair&aacute; em breve.</p>\n" +
 		"<p style=\"text-align: justify;\">Caso ainda queira fazer alguma outra pergunta, use a op&ccedil;&atilde;o \"Enviar opini&atilde;o\" do aplicativo</p>\n";
@@ -33,17 +35,18 @@ public class ActivityHelp extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_changelog_about);
+		getActionBar().setHomeButtonEnabled(false);
 		getActionBar().setDisplayHomeAsUpEnabled(false);
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String userColor = preferences.getString("prefColor", "droidexblue");
 		if (userColor.equals("red"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
 		else if (userColor.equals("green"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00ff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
 		else if (userColor.equals("blue"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
 		else if (userColor.equals("yellow"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffffff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
 		else if (userColor.equals("gold"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffdaa520));
 		else if (userColor.equals("silver"))

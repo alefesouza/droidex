@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
@@ -13,6 +14,14 @@ import aloogle.pokedex.other.Other;
 
 public class ActivityAboutChangelog extends Activity {
 	private final static String changelog = "" +
+		"<h3 style=\"text-align: justify;\">Vers&atilde;o 5.7</h3>\n" +
+		"Lan&ccedil;ado dia 15 de julho de 2014\n" +
+		"<ul style=\"text-align: justify;\">\n" +
+		"<li>Sons dos Pok&eacute;mon (no anime e no jogo).</li>\n" +
+		"<li>Agora a p&aacute;gina de detalhes muda de acordo com a cor do Pok&eacute;mon.</li>\n" +
+		"<li>Novo menu de navega&ccedil;&atilde;o no DroiD&eacute;x News.</li>\n" +
+		"<li>E algumas outras melhorias.</li>\n" +
+		"</ul>\n" +
 		"<h3 style=\"text-align: justify;\">Vers&atilde;o 5.5</h3>\n" +
 		"Lan&ccedil;ado dia 23 de junho de 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
@@ -70,10 +79,15 @@ public class ActivityAboutChangelog extends Activity {
 		"<ul style=\"text-align: justify;\">\n" +
 		"<li>Veekun's <a href=\"http://git.veekun.com/pokedex-media.git\">git</a> e seu <a href=\"http://veekun.com/dex/downloads\">site</a>.</li>\n" +
 		"<li><a href=\"http://bulbapedia.bulbagarden.net\">Bulbapedia</a>, a comunidade dirigida a enciclop&eacute;dia Pok&eacute;mon.</li>\n" +
-		"<li><a href=\"http://www.legendarypokemon.net/\">LegendaryPokemon</a>, por algumas Sugimori Art.</li>\n" +
+		"<li><a href=\"http://www.legendarypokemon.net\">LegendaryPokemon</a>, por algumas Sugimori Art.</li>\n" +
 		"<li><a href=\"http://www.serebii.net\">Serebii</a>, por alguns sprites do Pok&eacute;mon X/Y e Mega Evolu&ccedil;&otilde;es.</li>\n" +
-		"<li><a href=\"http://pkparaiso.com/\">PkPara&iacute;so</a>, por todos os sprites da sexta gera&ccedil;&atilde;o.</li>\n" +
-		"<li><a href=\"http://deviantart.com/ \">DeviantArt</a>, pelas Sugimori Art e sprites dos Pok&eacute;mons recentemente anunciados e n&atilde;o anunciados oficialmente.</li>\n" +
+		"<li><a href=\"http://pkparaiso.com\">PkPara&iacute;so</a>, por todos os sprites da sexta gera&ccedil;&atilde;o.</li>\n" +
+		"<li><a href=\"http://deviantart.com\">DeviantArt</a>, pelas Sugimori Art e sprites dos Pok&eacute;mons recentemente anunciados e n&atilde;o anunciados oficialmente.</li>\n" +
+		"</ul>\n" +
+		"<p style=\"text-align: justify;\">Sons do anime e jogo foram tirados de:</p>\n" +
+		"<ul style=\"text-align: justify;\">\n" +
+		"<li><a href=\"http://pokemon3d.net/forum/threads/6370\">F&oacute;rum Pok&eacute;mon 3D</a>, por todos os sons no anime.</li>\n" +
+		"<li><a href=\"https://www.youtube.com/channel/UC_A_FM2vHOg2OKIONPZwE7g\">Norbert Crescent</a>, por todos os sons no jogo.</li>\n" +
 		"</ul>\n" +
 		"<h3 style=\"text-align: justify;\">Agradecimentos</h3>\n" +
 		"<li style=\"text-align: justify;\"><a href=\"https://github.com/RadhiFadlillah\">Radhi</a>, desenvolvedor do D&eacute;xDroid.</li>\n" +
@@ -89,16 +103,19 @@ public class ActivityAboutChangelog extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_changelog_about);
 		getWindow().setBackgroundDrawable(null);
+		getActionBar().setHomeButtonEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String userColor = preferences.getString("prefColor", "droidexblue");
 		if (userColor.equals("red"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
 		else if (userColor.equals("green"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00ff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
 		else if (userColor.equals("blue"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
 		else if (userColor.equals("yellow"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffffff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
 		else if (userColor.equals("gold"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffdaa520));
 		else if (userColor.equals("silver"))
@@ -155,6 +172,17 @@ public class ActivityAboutChangelog extends Activity {
 				finish();
 			}
 		});
+	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			ActivityAboutChangelog.this.finish();
+			return true;
+		default:
+			return
+			super.onOptionsItemSelected(item);
+		}
 	}
 }

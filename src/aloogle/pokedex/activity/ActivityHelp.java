@@ -25,23 +25,24 @@ public class ActivityHelp extends Activity {
 		"<p style=\"text-align: justify;\">Normally, recently announced and unannounced officially Pok&eacute;mon don't have it.</p>\n" +
 		"<p style=\"text-align: justify;\"><b>How can I put Pok&eacute;mon in my homescreen?</b></p>\n" +
 		"<p style=\"text-align: justify;\">First, download the Sugimori art, after go to the app drawer of your device and tap Widgets, and press \"Add Pok&eacute;mon\" (if there are no Widgets in this menu, press for a while an empty spot in your homescreen and then tap Widgets).</p>" +
+		"<p style=\"text-align: justify;\"><b>Why Pok&eacute;mon cries take a lot of time to load or sometimes don\'t load?</b></p>" +
+		"<p style=\"text-align: justify;\">The application needs downloading the audio to then play it, and this can take a while depending on your internet connection. If you want it to play imediatelly and without internet connection, download all cries going to Menu > Download sounds, and when it does not appears it\'s because the Pok&eacute;mon hasn\'t a cry yet.</p>" +
 		"<p style=\"text-align: justify;\">If some doubt still persists, use the option \"Send feedback\" in-app.</p>\n";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_changelog_about);
-		getActionBar().setDisplayHomeAsUpEnabled(false);
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String userColor = preferences.getString("prefColor", "droidexblue");
 		if (userColor.equals("red"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
 		else if (userColor.equals("green"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00ff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
 		else if (userColor.equals("blue"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
 		else if (userColor.equals("yellow"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffffff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
 		else if (userColor.equals("gold"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffdaa520));
 		else if (userColor.equals("silver"))

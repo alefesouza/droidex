@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_back"
+        android:icon="@drawable/back"
+        android:title="@string/back"
+        android:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/home"
+        android:title="@string/home"
+        android:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_forward"
+        android:icon="@drawable/forward"
+        android:title="@string/forward"
+        android:showAsAction="always" />
+    <item
+        android:id="@+id/menu_reload"
+        android:title="@string/reload" />
+    <item
+        android:id="@+id/menu_share"
+        android:title="@string/sharepage" />
+    <item
+        android:id="@+id/menu_update"
+        android:title="@string/update" />
+</menu>

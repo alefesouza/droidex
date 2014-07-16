@@ -89,8 +89,15 @@
     <string name="searchhint">Nome do Pokémon</string>
 
     <string name="download">Baixar imagens</string>
+    <string name="downloadsound">Baixar sons</string>
     <string name="news">DroiDéx News</string>
     <string name="needinternet">Você precisa estar conectado à internet</string>
+    <string name="back">Voltar</string>
+    <string name="forward">Avançar</string>
+    <string name="reload">Atualizar</string>
+    <string name="nopages">Nenhuma página</string>
+    <string name="home">Início</string>
+    <string name="sharepage">Compartilhar página</string>
     <string name="feedback">Enviar opinião</string>
     <string name="update">Verificar atualizações</string>
     <string name="yourversion">Sua versão é:</string>
@@ -103,10 +110,14 @@
     <string name="bulbapedia">Abrir na Bulbapedia</string>
     <string name="serebii">Abrir no Serebii</string>
     <string name="smogon">Abrir no Smogon</string>
+    <string name="sound">Som</string>
+    <string name="inanime">No anime</string>
+    <string name="ingame">No jogo</string>
+    <string name="needinternetsound">Você precisa estar conectado a internet, ou então baixar os sons para poder ouvir sem internet</string>
 
     <string name="downloadwarning">Não feche o aplicativo durante o download</string>
     <string name="extract">Extraindo</string>
-    <string name="extractdata">Extraindo imagens</string>
+    <string name="extractdata">Extraindo dados</string>
     <string name="extractfinish">Extração finalizada</string>
 
     <string name="pref_color_category">Cores</string>
@@ -114,6 +125,8 @@
     <string name="pref_color_summary">Selecione a cor do aplicativo</string>
     <string name="pref_icon">Escolher ícone</string>
     <string name="pref_icon_summary">Selecione o ícone da action bar</string>
+    <string name="pref_detailscolor">Cor do Pokémon nos detalhes</string>
+    <string name="pref_detailscolor_summary">Mudar cor da action bar de acordo com a cor do Pokémon</string>
     <string name="pref_splash_category">Splash</string>
     <string name="pref_splash">Tela Splash</string>
     <string name="pref_splash_summary">Habilitar tela splash</string>

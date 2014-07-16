@@ -15,7 +15,6 @@ import aloogle.pokedex.R;
 public class ActivitySplashScreen extends Activity {
 
 	private static final int TIME = 1500;
-
 	private AnimatedGifImageView animatedGifImageView;
 
 	@Override
@@ -35,11 +34,11 @@ public class ActivitySplashScreen extends Activity {
 			if (userColor.equals("red"))
 				getWindow().getDecorView().setBackgroundColor(0xffff0000);
 			else if (userColor.equals("green"))
-				getWindow().getDecorView().setBackgroundColor(0xff00ff00);
+				getWindow().getDecorView().setBackgroundColor(0xff00cc00);
 			else if (userColor.equals("blue"))
 				getWindow().getDecorView().setBackgroundColor(0xff0000ff);
 			else if (userColor.equals("yellow"))
-				getWindow().getDecorView().setBackgroundColor(0xffffff00);
+				getWindow().getDecorView().setBackgroundColor(0xffe5e500);
 			else if (userColor.equals("gold"))
 				getWindow().getDecorView().setBackgroundColor(0xffdaa520);
 			else if (userColor.equals("silver"))

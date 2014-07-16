@@ -88,9 +88,16 @@
 
     <string name="searchhint">Pokemon\'s name</string>
     
-    <string name="download">Download image</string>
+    <string name="download">Download images</string>
+    <string name="downloadsound">Download sounds</string>
     <string name="news">DroiDéx News</string>
     <string name="needinternet">You must be connected to internet</string>
+    <string name="back">Back</string>
+    <string name="forward">Forward</string>
+    <string name="reload">Reload</string>
+    <string name="nopages">No pages</string>
+    <string name="home">Home</string>
+    <string name="sharepage">Share page</string>
     <string name="feedback">Send feedback</string>
     <string name="update">Verify updates</string>
     <string name="yourversion">Your version is:</string>
@@ -103,17 +110,23 @@
     <string name="bulbapedia">Open in Bulbapedia</string>
     <string name="serebii">Open in Serebii</string>
     <string name="smogon">Open in Smogon</string>
+    <string name="sound">Sound</string>
+    <string name="inanime">In anime</string>
+    <string name="ingame">In game</string>
+    <string name="needinternetsound">You must be connect to internet, or download the Pokémon cries to listen it out</string>
 
     <string name="downloadwarning">Not close the app while downloading</string>
     <string name="extract">Extracting</string>
-    <string name="extractdata">Extracting images</string>
+    <string name="extractdata">Extracting data</string>
     <string name="extractfinish">Extracting finished</string>
 
     <string name="pref_color_category">Colors</string>
     <string name="pref_color">Favorite color</string>
-    <string name="pref_color_summary">Select the application color</string>
+    <string name="pref_color_summary">Select application color</string>
     <string name="pref_icon">Choose icon</string>
-    <string name="pref_icon_summary">Select the icon of action bar</string>
+    <string name="pref_icon_summary">Select action bar icon</string>
+    <string name="pref_detailscolor">Pokémon color at details</string>
+    <string name="pref_detailscolor_summary">Turn on detail color changing according to Pokémon color</string>
     <string name="pref_splash_category">Splash</string>
     <string name="pref_splash">Splash screen</string>
     <string name="pref_splash_summary">Enable Splash screen</string>

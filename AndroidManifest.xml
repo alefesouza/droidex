@@ -3,8 +3,8 @@
 <manifest 
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="aloogle.pokedex"
-    android:versionCode="49"
-    android:versionName="5.5.7.1">
+    android:versionCode="51"
+    android:versionName="5.7">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -26,7 +26,8 @@
 
         <activity
             android:name=".activity.ActivitySplashScreen"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -35,51 +36,40 @@
         </activity>
 
         <activity
-            android:name=".activity.ActivityMain"
-            android:parentActivityName=".activity.SplashScreenActivity"/>
+            android:name=".activity.ActivityMain"/>
         
         <activity
-            android:name=".activity.ActivityMainTablet"
-            android:parentActivityName=".activity.SplashScreenActivity"/>
+            android:name=".activity.ActivityMainTablet"/>
 
         <activity
-            android:name=".activity.ActivityDetails"
-            android:parentActivityName=".activity.ActivityMain"/>
+            android:name=".activity.ActivityDetails"/>
 
         <activity
-            android:name=".activity.ActivityAboutChangelog"
-            android:parentActivityName=".activity.ActivityMain"/>
+            android:name=".activity.ActivityAboutChangelog"/>
 
         <activity
             android:name=".activity.ActivityVerifyUpdate"
-            android:configChanges="orientation|screenSize"
-            android:parentActivityName=".activity.ActivityMain"/>
+            android:configChanges="orientation|screenSize"/>
 
         <activity
             android:name=".activity.ActivitySendFeedback"
-            android:configChanges="orientation|screenSize"
-            android:parentActivityName=".activity.ActivityMain"/>
+            android:configChanges="orientation|screenSize"/>
 
         <activity
             android:name=".activity.ActivityNews"
-            android:configChanges="orientation|screenSize"
-            android:parentActivityName=".activity.ActivityMain"/>
+            android:configChanges="orientation|screenSize"/>
 
         <activity
-            android:name=".activity.ActivitySettings"
-            android:parentActivityName=".activity.ActivityMain"/>
+            android:name=".activity.ActivitySettings"/>
 
         <activity
-            android:name=".activity.ActivityHelp"
-            android:parentActivityName=".activity.ActivityMain"/>
+            android:name=".activity.ActivityHelp"/>
 
         <activity
-            android:name=".activity.pt.ActivityAboutChangelog"
-            android:parentActivityName=".activity.ActivityMain"/>
+            android:name=".activity.pt.ActivityAboutChangelog"/>
 
         <activity
-            android:name=".activity.pt.ActivityHelp"
-            android:parentActivityName=".activity.ActivityMain"/>
+            android:name=".activity.pt.ActivityHelp"/>
 
         <activity
             android:name=".activity.ActivityPokemonFilter"

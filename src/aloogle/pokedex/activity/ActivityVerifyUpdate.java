@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -28,22 +29,24 @@ public class ActivityVerifyUpdate extends Activity {
 	WebView web;
 	private AnimatedGifImageView animatedGifImageView;
 
-	@SuppressLint("SetJavaScriptEnabled")
+	 @ SuppressLint("SetJavaScriptEnabled")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_webview);
+		getActionBar().setHomeButtonEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String userColor = preferences.getString("prefColor", "droidexblue");
 		if (userColor.equals("red"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
 		else if (userColor.equals("green"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00ff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
 		else if (userColor.equals("blue"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
 		else if (userColor.equals("yellow"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffffff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
 		else if (userColor.equals("gold"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffdaa520));
 		else if (userColor.equals("silver"))
@@ -131,6 +134,17 @@ public class ActivityVerifyUpdate extends Activity {
 		public void onPageFinished(WebView view, String url) {
 			super.onPageFinished(view, url);
 			animatedGifImageView.setVisibility(View.GONE);
+		}
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			ActivityVerifyUpdate.this.finish();
+			return true;
+		default:
+			return
+			super.onOptionsItemSelected(item);
 		}
 	}
 }

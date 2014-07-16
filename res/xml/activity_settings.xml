@@ -13,7 +13,13 @@
             android:entryValues="@array/favIconValues"
             android:title="@string/pref_icon"
             android:summary="@string/pref_icon_summary"
-            android:defaultValue="default" /> </PreferenceCategory>
+            android:defaultValue="default" />
+<CheckBoxPreference
+            android:defaultValue="true"
+            android:key="prefDetailsColor"
+            android:title="@string/pref_detailscolor"
+            android:summary="@string/pref_detailscolor_summary" />
+</PreferenceCategory>
 
 <PreferenceCategory android:title="@string/pref_splash_category" >
         <CheckBoxPreference

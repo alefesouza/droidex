@@ -7,9 +7,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Environment;
 import android.widget.ImageView;
-import aloogle.pokedex.R;
-
 import java.io.File;
+import aloogle.pokedex.R;
 
 public class Other {
     public static final String PokemonId = "POKEMON_ID";
@@ -28,6 +27,10 @@ public class Other {
             "https://github.com/alefesouza/aloogle-files/releases/download/1.0/Art.zip";
     public static final String SpritesURL =
             "https://github.com/alefesouza/aloogle-files/releases/download/1.0/Sprites.zip";
+	public static final String SoundAnimeURL =
+	"https://github.com/alefesouza/aloogle-files/releases/download/1.0/SoundAnime.zip";
+    public static final String SoundGameURL =
+	"https://github.com/alefesouza/aloogle-files/releases/download/1.0/SoundGame.zip";
     public static final String AboutOrChange = "ABOUT_OR_CHANGE";
 
     public static void setImage(ImageView img, String imgLocation, int defaultImg) {

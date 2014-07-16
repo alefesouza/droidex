@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
@@ -13,6 +14,14 @@ import aloogle.pokedex.other.Other;
 
 public class ActivityAboutChangelog extends Activity {
 	private final static String changelog = "" +
+	"<h3 style=\"text-align: justify;\">Version 5.7</h3>\n" +
+	"Launched July, 15, 2014\n" +
+	"<ul style=\"text-align: justify;\">\n" +
+	"<li>Pok&eacute;mon cries (in-game cries and anime cries).</li>\n" +
+	"<li>Now Pok&eacute;mon details page change its color according to the selected Pok&eacute;mon.</li>\n" +
+	"<li>New navigation menu in DroiD&eacute;x News.</li>\n" +
+	"<li>And some others improvements.</li>\n" +
+	"</ul>\n" +
 		"<h3 style=\"text-align: justify;\">Version 5.5</h3>\n" +
 		"Launched June, 23, 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
@@ -75,6 +84,11 @@ public class ActivityAboutChangelog extends Activity {
 		"<li><a href=\"http://pkparaiso.com/\">PkPara&iacute;so</a>, for all the sprites of 6th generation.</li>\n" +
 		"<li><a href=\"http://deviantart.com/ \">DeviantArt</a>, for all Sugimori Art and sprites of most recent Pok&eacute;mons announced and unannounced officially.</li>\n" +
 		"</ul>\n" +
+	"<p style=\"text-align: justify;\">Cries of anime and game are taken from:</p>\n" +
+	"<ul style=\"text-align: justify;\">\n" +
+	"<li><a href=\"http://pokemon3d.net/forum/threads/6370\">Pok&eacute;mon 3D Forum</a>, for all anime cries.</li>\n" +
+	"<li><a href=\"https://www.youtube.com/channel/UC_A_FM2vHOg2OKIONPZwE7g\">Norbert Crescent</a>, fot all game cries.</li>\n" +
+	"</ul>\n" +
 		"<h3 style=\"text-align: justify;\">Acknowledgements</h3>\n" +
 		"<li style=\"text-align: justify;\"><a href=\"https://github.com/RadhiFadlillah\">Radhi</a>, developer of D&eacute;xDroid.</li>\n" +
 		"<p style=\"text-align: justify;\">In this app, were used following library/tools:</p>\n" +
@@ -89,16 +103,19 @@ public class ActivityAboutChangelog extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_changelog_about);
 		getWindow().setBackgroundDrawable(null);
+		getActionBar().setHomeButtonEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		String userColor = preferences.getString("prefColor", "droidexblue");
 		if (userColor.equals("red"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
 		else if (userColor.equals("green"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00ff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
 		else if (userColor.equals("blue"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
 		else if (userColor.equals("yellow"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffffff00));
+			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
 		else if (userColor.equals("gold"))
 			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffdaa520));
 		else if (userColor.equals("silver"))
@@ -156,5 +173,17 @@ public class ActivityAboutChangelog extends Activity {
 			}
 		});
 
+	}
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	switch (item.getItemId()) {
+			case android.R.id.home:
+				ActivityAboutChangelog.this.finish();
+				return true;
+			default:
+				return
+					super.onOptionsItemSelected(item);
+		}
 	}
 }

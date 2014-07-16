@@ -23,7 +23,19 @@
                 android:title="Sugimori art (58MB)"/>
             <item
                 android:id="@+id/menu_sprite"
-                android:title="Sprite (5,6MB)"/>
+                android:title="Sprites (5,6MB)"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/menu_downloadsound"
+        android:title="@string/downloadsound">
+        <menu>
+            <item
+                android:id="@+id/menu_downloadanime"
+                android:title="Anime (53,3MB)"/>
+            <item
+                android:id="@+id/menu_downloadgame"
+                android:title="Game (49,1MB)"/>
         </menu>
     </item>
 </menu>
