@@ -41,6 +41,8 @@ public class ActivityPokemonFilter extends Activity {
 		setComponentName();
 		restorePreviousFilter();
 		setCLickListener();
+		
+		Other.setTranslucentStatus(false, this, false);
 	}
 
 	@Override

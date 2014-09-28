@@ -18,6 +18,11 @@
         <item name="android:gridViewStyle">@style/GridViewStyleRed_Theme</item>
         <item name="android:popupMenuStyle">@style/PopupMenuRed_Theme</item>
         <item name="android:actionBarWidgetTheme">@style/WidgetRed_Theme</item>
+        <item name="android:actionOverflowButtonStyle">@style/overflow_menu</item>
+	</style>
+
+    <style name="Overflow_Black" parent="@style/_red_theme">
+        <item name="android:actionOverflowButtonStyle">@style/overflow_menu_dark</item>
     </style>
 
     <style name="Transucent_Pokedex_Red_Theme" parent="@style/Pokedex_Red_Theme">

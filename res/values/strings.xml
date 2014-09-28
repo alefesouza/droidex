@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="http://schemas.android.com/apk/res/com.radhi.Pokedex">
+<resources>
     <string name="app_name">DroiDéx</string>
 
     <string name="text_normal">Normal</string>
@@ -86,34 +86,63 @@
     <string name="data_list_move">List of move</string>
     <string name="data_return">← return to Pokémon\'s data</string>
 
-    <string name="searchhint">Pokemon\'s name</string>
-    
+    <string name="searchhint">Pokémon\'s name</string>
+
+    <string name="dialogdownloadsprites">You haven\'t dowloaded the sprites yet (tiny images), do you want to download it now? 5,6MB</string>
+    <string name="dialogdownloadart">You haven\'t downloaded Sugimori art yet (big images), do you want to download it now? 58MB</string>
+    <string name="read">Please, read it</string>
+    <string name="dialogwarning">The application will download a .zip file and extract it at the end of downloading, than don\'t close the app during the download, as it\'s not possible for an app to execute an action when it is closed (but those boring apps which are always running in background, and DroiDéx it is not like them) so, if you close the app before the download is finished, use an unzipper app and extract the files into DroiDex folder, always putting the folders with lowercase letters inside of it</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
     <string name="download">Download images</string>
     <string name="downloadsound">Download sounds</string>
+    <string name="downloadsugimoriart">Sugimori art (58,9MB)</string>
+    <string name="downloadsprite">Sprites (5,7MB)</string>
+    <string name="downloadanime">Anime (52,7MB)</string>
+    <string name="downloadgame">Game (48,9MB)</string>
+    <string name="downloadfinished">Download finished</string>
     <string name="news">DroiDéx News</string>
+    <string name="downloadthing">Download to DroiDéx</string>
     <string name="needinternet">You must be connected to internet</string>
     <string name="back">Back</string>
     <string name="forward">Forward</string>
     <string name="reload">Reload</string>
-    <string name="nopages">No pages</string>
+    <string name="nopages">No more pages available</string>
     <string name="home">Home</string>
     <string name="sharepage">Share page</string>
-    <string name="feedback">Send feedback</string>
     <string name="update">Verify updates</string>
     <string name="yourversion">Your version is:</string>
-    <string name="downloadupdate">Downloading update</string>
+    <string name="downloadupdate">Downloading update - DroiDéx</string>
     <string name="share">Share this app</string>
-    <string name="sharecontent">See the most updated Pokédex app for Android!! http://aloogle.tumblr.com/droidex/download</string>
+    <string name="sharecontent">See the most updated Pokédex app for Android!! http://bit.ly/droidex</string>
+    <string name="translate"></string>
     <string name="settings">Settings</string>
+    <string name="rateapp">Rate this app</string>
+    <string name="rateappawarning"><![CDATA[<p style="text-align: justify;">Please, if you are having any doubt read the <a href="droidex://?aloogleapp=activityhelp">Help</a>. And before sending a suggestion, read the future plans section <a href="droidex://?aloogleapp=activityverifyupdate">tapping here</a></p>]]></string>
+    <string name="rate">Rate</string>
     <string name="help">Help</string>
+    <string name="changelog">Changelog</string>
     <string name="about">About</string>
-    <string name="bulbapedia">Open in Bulbapedia</string>
-    <string name="serebii">Open in Serebii</string>
-    <string name="smogon">Open in Smogon</string>
+    <string name="wait">Please wait...</string>
+    <string name="openin">Open in</string>
+    <string name="bulbapedia">Bulbapedia</string>
+    <string name="serebii">Serebii</string>
+    <string name="smogon">Smogon</string>
     <string name="sound">Sound</string>
-    <string name="inanime">In anime</string>
-    <string name="ingame">In game</string>
-    <string name="needinternetsound">You must be connect to internet, or download the Pokémon cries to listen it out</string>
+    <string name="anime">Anime</string>
+    <string name="game">Game</string>
+    <string name="relatedvideos">Related videos</string>
+    <string name="loading">Loading...</string>
+    <string name="soundnotfound">The app does not have this Pokémon cry yet</string>
+    <string name="needinternetsound">Or download the Pokémon cries to listen it out</string>
+    <string name="needinternetsound2">If you already downloaded the Pokémon cries, the app may not have this Pokémon cry.</string>
+    <string name="erroroccured">Oops! An error has occurred!</string>
+    <string name="connectionerroron">Verify your internet connection.</string>
+    <string name="connectionerroroff">Verify if the Store web cache option is selected.</string>
+    <string name="connectionerroroff2">Unfortunatelly Android has an offline web cache storage limit, so only the latest internet loaded sprites will stay available.</string>
+    <string name="storagecachedialog">Storing web cache you can have instant access to gif images, even without internet connection, but Android has an offline storage limit, so if you load many sprites the oldest may be unavailable offline</string>
+    <string name="close">Close</string>
 
     <string name="downloadwarning">Not close the app while downloading</string>
     <string name="extract">Extracting</string>
@@ -123,8 +152,12 @@
     <string name="pref_color_category">Colors</string>
     <string name="pref_color">Favorite color</string>
     <string name="pref_color_summary">Select application color</string>
-    <string name="pref_icon">Choose icon</string>
-    <string name="pref_icon_summary">Select action bar icon</string>
+    <string name="pref_color_icons">Icons color</string>
+    <string name="pref_color_icons_summary">Choose Action Bar text and icons color, recommended if you choose a light color</string>
+    <string name="pref_system_bar_color">Change system notifications bar color</string>
+    <string name="pref_system_bar_color_summary">Change notification/navigation bar and the app action bar together</string>
+    <string name="pref_icon">Choose app icon</string>
+    <string name="pref_icon_summary">Select Action Bar app icon</string>
     <string name="pref_detailscolor">Pokémon color at details</string>
     <string name="pref_detailscolor_summary">Turn on detail color changing according to Pokémon color</string>
     <string name="pref_splash_category">Splash</string>
@@ -132,6 +165,11 @@
     <string name="pref_splash_summary">Enable Splash screen</string>
     <string name="pref_splash_animation">Splash animation</string>
     <string name="pref_splash_animation_summary">Change the splash screen animation</string>
+    <string name="pref_gifs_category">GIFS</string>
+    <string name="pref_cache">Storage web cache</string>
+    <string name="pref_cache_summary">For accessing without internet connection. This may increase the app size</string>
+    <string name="pref_gifs_desktop">Load gifs in desktop mode</string>
+    <string name="pref_gifs_desktop_summary">Toggle this option on if you don\'t see gifs properly</string>
 
     <string name="addpokemon">Add Pokémon</string>
     <string name="addaleatorypokemon">Add aleatory Pokémon</string>
@@ -139,7 +177,7 @@
     <string name="widgetshortcutinfo">The Pokémon ID is it\'s number in National Dex, to add different forms, such as Mega Evolutions, go to the folder DroiDex/art, numbers after 10000 are IDs for different forms.</string>
     <string name="widgetshortcutinforesize">To change the widget\'s size, just press it for a while.</string>
     <string name="createwidget">Create widget</string>
-    <string name="widgetshortcuttoastwarning">Download the Sugimori art before using the widget, also use only numbers between 1-721 and between 10000-10172</string>
+    <string name="widgetshortcuttoastwarning">Download the Sugimori art before using the widget, also use only numbers between 1-721 and between 10000-10185</string>
     <string name="widgetshortcutrandomwarning">Download Sugimori art before</string>
 
     <string name="drawer_open">Open navigation drawer</string>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Pokedex_Red_Theme" parent="@style/_red_theme"/>
+
+    <style name="_red_theme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:editTextBackground">@drawable/red_theme_edit_text_holo_light</item>
+        <item name="android:textColorHighlight">#990000ff</item>
+        <item name="android:textSelectHandleLeft">@drawable/red_theme_text_select_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/red_theme_text_select_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/red_theme_text_select_handle_middle</item>
+        <item name="android:listChoiceBackgroundIndicator">@drawable/red_theme_list_selector_holo_light</item>
+        <item name="android:activatedBackgroundIndicator">@drawable/red_theme_activated_background_holo_light</item>
+        <item name="android:fastScrollThumbDrawable">@drawable/red_theme_fastscroll_thumb_holo</item>
+        <item name="android:actionBarStyle">@style/ActionBarRed_Theme</item>
+        <item name="android:gridViewStyle">@style/GridViewStyleRed_Theme</item>
+        <item name="android:popupMenuStyle">@style/PopupMenuRed_Theme</item>
+        <item name="android:actionBarWidgetTheme">@style/WidgetRed_Theme</item>
+        <item name="android:actionOverflowButtonStyle">@style/overflow_menu</item>
+		<item name="android:windowTranslucentStatus">false</item>
+		<item name="android:windowTranslucentNavigation">false</item>
+	</style>
+
+    <style name="Overflow_Black" parent="@style/_red_theme">
+        <item name="android:actionOverflowButtonStyle">@style/overflow_menu_dark</item>
+    </style>
+
+    <style name="Transucent_Pokedex_Red_Theme" parent="@style/Pokedex_Red_Theme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

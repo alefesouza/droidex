@@ -1,31 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/menu_sound"
-        android:title="@string/sound"
-        android:icon="@drawable/ic_sound"
-        android:showAsAction="always"
-        android:orderInCategory="992">
+    <item android:id="@+id/menu_3dssprites" android:orderInCategory="997" android:title="3DS Sprites" android:showAsAction="ifRoom" android:icon="@drawable/ic_3ds" />
+
+    <item android:icon="@drawable/ic_sound" android:id="@+id/menu_sound" android:orderInCategory="998" android:title="@string/sound" android:showAsAction="always">
         <menu>
-            <item
-                android:id="@+id/menu_anime"
-                android:title="@string/inanime"/>
-            <item
-                android:id="@+id/menu_game"
-                android:title="@string/ingame"/>
+            <item android:id="@+id/menu_anime" android:title="@string/anime" />
+            <item android:id="@+id/menu_game" android:title="@string/game" />
         </menu>
     </item>
-        <item
-            android:id="@+id/menu_bulbapedia"
-            android:title="@string/bulbapedia"
-            android:orderInCategory="989"/>
-        <item
-            android:id="@+id/menu_serebii"
-            android:title="@string/serebii"
-            android:orderInCategory="990"/>
-        <item
-            android:id="@+id/menu_smogon"
-            android:title="@string/smogon"
-            android:orderInCategory="991"/>
+
+    <item android:icon="@drawable/ic_open_aloogle" android:id="@+id/menu_open" android:orderInCategory="999" android:title="@string/openin" android:showAsAction="ifRoom">
+        <menu>
+            <item android:id="@+id/menu_bulbapedia" android:title="@string/bulbapedia" />
+            <item android:id="@+id/menu_serebii" android:title="@string/serebii" />
+            <item android:id="@+id/menu_smogon" android:title="@string/smogon" />
+            <item android:id="@+id/menu_videos" android:title="@string/relatedvideos" />
+        </menu>
+    </item>
 </menu>

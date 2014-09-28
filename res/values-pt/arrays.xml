@@ -15,6 +15,7 @@
         <item name="pearl">Pearl</item>
         <item name="platinum">Platinum</item>
         <item name="black">Black</item>
+        <item name="white">White</item>
         <item name="droidexblue">DroiDéx Blue</item>
         <item name="dexdroidred">DéxDroid Red</item>
     </string-array>
@@ -34,8 +35,19 @@
         <item name="pearl">pearl</item>
         <item name="platinum">platinum</item>
         <item name="black">black</item>
+        <item name="white">white</item>
         <item name="droidexblue">droidexblue</item>
         <item name="dexdroidred">dexdroidred</item>
+    </string-array>
+
+    <string-array name="favColorIcons">
+        <item name="black">Preto</item>
+        <item name="white">Branco</item>
+    </string-array>
+
+    <string-array name="favColorIconsValues">
+        <item name="black">black</item>
+        <item name="white">white</item>
     </string-array>
 
     <string-array name="favIcon">
@@ -72,7 +84,7 @@
 
     <string-array name="drawer_array">
         <item>Verificar atualizações</item>
-        <item>Enviar opinião</item>
+        <item>Avaliar aplicativo</item>
         <item>Configurações</item>
         <item>Ajuda</item>
         <item>Changelog</item>

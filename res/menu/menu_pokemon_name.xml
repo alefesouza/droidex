@@ -20,10 +20,10 @@
         <menu>
             <item
                 android:id="@+id/menu_art"
-                android:title="Sugimori art (58MB)"/>
+                android:title="@string/downloadsugimoriart"/>
             <item
                 android:id="@+id/menu_sprite"
-                android:title="Sprites (5,6MB)"/>
+                android:title="@string/downloadsprite"/>
         </menu>
     </item>
     <item
@@ -32,10 +32,10 @@
         <menu>
             <item
                 android:id="@+id/menu_downloadanime"
-                android:title="Anime (53,3MB)"/>
+                android:title="@string/downloadanime"/>
             <item
                 android:id="@+id/menu_downloadgame"
-                android:title="Game (49,1MB)"/>
+                android:title="@string/downloadgame"/>
         </menu>
     </item>
 </menu>

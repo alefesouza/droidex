@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
-import java.util.Locale;
 import aloogle.pokedex.lib.AnimatedGifImageView;
 import aloogle.pokedex.lib.AnimatedGifImageView.TYPE;
 import aloogle.pokedex.R;
+import aloogle.pokedex.other.Other;
 
 public class ActivitySplashScreen extends Activity {
 
@@ -23,84 +22,52 @@ public class ActivitySplashScreen extends Activity {
 		setContentView(R.layout.activity_splash);
 
 		animatedGifImageView = ((AnimatedGifImageView)findViewById(R.id.animatedGifImageView));
-		animatedGifImageView.setAnimatedGif(R.raw.loading,
-			TYPE.FIT_CENTER);
+		animatedGifImageView.setAnimatedGif(R.raw.loading, TYPE.FIT_CENTER);
 
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		boolean prefSplash = preferences.getBoolean("prefSplash", true);
 		if (prefSplash) {
-			getActionBar().hide();
 			String userColor = preferences.getString("prefColor", "droidexblue");
-			if (userColor.equals("red"))
-				getWindow().getDecorView().setBackgroundColor(0xffff0000);
-			else if (userColor.equals("green"))
+			if (userColor.equals("red")) {
+				getWindow().getDecorView().setBackgroundColor(0xffcc0000);
+			} else if (userColor.equals("green")) {
 				getWindow().getDecorView().setBackgroundColor(0xff00cc00);
-			else if (userColor.equals("blue"))
-				getWindow().getDecorView().setBackgroundColor(0xff0000ff);
-			else if (userColor.equals("yellow"))
+			} else if (userColor.equals("blue")) {
+				getWindow().getDecorView().setBackgroundColor(0xff0000cc);
+			} else if (userColor.equals("yellow")) {
 				getWindow().getDecorView().setBackgroundColor(0xffe5e500);
-			else if (userColor.equals("gold"))
+			} else if (userColor.equals("gold")) {
 				getWindow().getDecorView().setBackgroundColor(0xffdaa520);
-			else if (userColor.equals("silver"))
+			} else if (userColor.equals("silver")) {
 				getWindow().getDecorView().setBackgroundColor(0xffc0c0c0);
-			else if (userColor.equals("crystal"))
+			} else if (userColor.equals("crystal")) {
 				getWindow().getDecorView().setBackgroundColor(0xffa1e2ff);
-			else if (userColor.equals("ruby"))
+			} else if (userColor.equals("ruby")) {
 				getWindow().getDecorView().setBackgroundColor(0xffe0115f);
-			else if (userColor.equals("sapphire"))
+			} else if (userColor.equals("sapphire")) {
 				getWindow().getDecorView().setBackgroundColor(0xff0f52ba);
-			else if (userColor.equals("emerald"))
+			} else if (userColor.equals("emerald")) {
 				getWindow().getDecorView().setBackgroundColor(0xff50c878);
-			else if (userColor.equals("diamond"))
+			} else if (userColor.equals("diamond")) {
 				getWindow().getDecorView().setBackgroundColor(0xffb9f2ff);
-			else if (userColor.equals("pearl"))
+			} else if (userColor.equals("pearl")) {
 				getWindow().getDecorView().setBackgroundColor(0xffeae0c8);
-			else if (userColor.equals("platinum"))
+			} else if (userColor.equals("platinum")) {
 				getWindow().getDecorView().setBackgroundColor(0xffe5e4e2);
-			else if (userColor.equals("black"))
+			} else if (userColor.equals("black")) {
 				getWindow().getDecorView().setBackgroundColor(0xff000000);
-			else if (userColor.equals("droidexblue"))
+			} else if (userColor.equals("white")) {
+				getWindow().getDecorView().setBackgroundColor(0xffffffff);
+			} else if (userColor.equals("droidexblue")) {
 				getWindow().getDecorView().setBackgroundColor(0xff0080ff);
-			else if (userColor.equals("dexdroidred"))
+			} else if (userColor.equals("dexdroidred")) {
 				getWindow().getDecorView().setBackgroundColor(0xffff4444);
+			}
 
-			String userIcon = preferences.getString("prefIcon", "default");
-			if (userIcon.equals("default"))
-				getActionBar().setIcon(R.drawable.ic_launcher);
-			else if (userIcon.equals("red"))
-				getActionBar().setIcon(R.drawable.ic_pokedex);
-			else if (userIcon.equals("green"))
-				getActionBar().setIcon(R.drawable.ic_abilitydex);
-			else if (userIcon.equals("blue"))
-				getActionBar().setIcon(R.drawable.ic_itemdex);
-			else if (userIcon.equals("yellow"))
-				getActionBar().setIcon(R.drawable.ic_movedex);
+			Other.SystemBarColor(this, false);
 
-			String userAnimation = preferences.getString("prefSplashAnimation", "first");
-			if (userAnimation.equals("first")) {
-				new Handler().postDelayed(new Runnable() {
-
-					@Override
-					public void run() {
-
-						if (Locale.getDefault().getLanguage().equals("pt")) {
-							Intent intent = new Intent(ActivitySplashScreen.this, aloogle.pokedex.activity.pt.ActivityHelp.class);
-							startActivity(intent);
-						} else {
-							Intent intent = new Intent(ActivitySplashScreen.this, ActivityHelp.class);
-							startActivity(intent);
-						}
-
-						ActivitySplashScreen.this.finish();
-						overridePendingTransition(R.anim.bottom_in, R.anim.top_out);
-					}
-				}, TIME);
-				//appear only in first time
-				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-				Editor editor = prefs.edit();
-				editor.putString("prefSplashAnimation", "top");
-				editor.commit();
-			} else if (userAnimation.equals("top")) {
+			String userAnimation = preferences.getString("prefSplashAnimation", "top");
+			if (userAnimation.equals("top")) {
 				new Handler().postDelayed(new Runnable() {
 
 					@Override
@@ -200,6 +167,5 @@ public class ActivitySplashScreen extends Activity {
 			}
 			ActivitySplashScreen.this.finish();
 		}
-
 	}
 }

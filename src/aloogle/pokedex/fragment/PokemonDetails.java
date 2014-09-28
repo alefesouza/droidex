@@ -1,24 +1,33 @@
 package aloogle.pokedex.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
+import android.content.SharedPreferences.Editor;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.SparseArray;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.DownloadListener;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.*;
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +38,7 @@ import aloogle.pokedex.object.Pokemon;
 import aloogle.pokedex.other.Database;
 import aloogle.pokedex.other.Other;
 
+@SuppressLint({"SetJavaScriptEnabled","DefaultLocale"})
 public class PokemonDetails extends Fragment{
     private Activity activity;
     private String pokemon_id, pokemon_image_id, pokemon_name;
@@ -36,23 +46,23 @@ public class PokemonDetails extends Fragment{
     private int nDescription, currentDesc;
     private ScrollView rightScroll;
     private ImageView imgSugimori, imgSpritesFront, imgSpritesBack,
-            imgShinyFront, imgShinyBack;
+	imgShinyFront, imgShinyBack;
     private LinearLayout boxDescription, boxDexNumber, boxAbility,
-            boxEvolution, boxOtherForm, boxTypeEfficacy, boxList;
+	boxEvolution, boxOtherForm, boxTypeEfficacy, boxList;
     private TableLayout boxSprites;
     private RelativeLayout boxData;
     private GridLayout boxStats, boxLocation, boxMove, boxBase;
     private Spinner spinVersion, spinEncounterMethod,
-            spinVersionGroup, spinMoveMethod;
+	spinVersionGroup, spinMoveMethod;
     private TextView txtDescVersion, txtDescription, txtSprites,
-            txtType1, txtType2, txtHeight, txtWeight,
-            txtShape, txtJapanese, txtSpecies, txtHabitat,
-            txtGenderRatio, txtEgg, txtHatch, txtGrowth,
-            txtCapture, txtBaseExp, txtBaseEffort, txtBaseHappiness,
-            txtLblHP, txtLblATK, txtLblDEF, txtLblSA,
-            txtLblSD, txtLblSPD, txtHP, txtATK,
-            txtDEF, txtSA, txtSD, txtSPD,
-            txtLocation, txtReturn, txtMove;
+	txtType1, txtType2, txtHeight, txtWeight,
+	txtShape, txtJapanese, txtSpecies, txtHabitat,
+	txtGenderRatio, txtEgg, txtHatch, txtGrowth,
+	txtCapture, txtBaseExp, txtBaseEffort, txtBaseHappiness,
+	txtLblHP, txtLblATK, txtLblDEF, txtLblSA,
+	txtLblSD, txtLblSPD, txtHP, txtATK,
+	txtDEF, txtSA, txtSD, txtSPD,
+	txtLocation, txtReturn, txtMove;
     private ExpandableListView listPokemon;
     private ProgressBar progressPokemon;
     private Database DB;
@@ -65,7 +75,7 @@ public class PokemonDetails extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-    	Bundle savedInstanceState) {
+							 Bundle savedInstanceState) {
     	setRetainInstance(true);
     	View view = inflater.inflate(R.layout.pokemon_details, container, false);
     	setComponentName(view);
@@ -74,32 +84,6 @@ public class PokemonDetails extends Fragment{
 
     	makePage make = new makePage();
     	make.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, pokemon_id);
-    	//if smartphone
-    	SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-    	boolean prefDetailsColor = preferences.getBoolean("prefDetailsColor", true);
-    	if (prefDetailsColor) {
-    		if (pokemon_id.matches("143|197|198|201|215|228|229|303|325|336|344|353|354|355|356|430|441|446|461|477|487|491|522|523|561|562|608|609|644|664|665|666")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff000000));
-    		} else if (pokemon_id.matches("7|8|9|29|30|31|43|44|55|60|61|62|72|73|114|116|117|130|131|134|138|139|144|147|148|158|159|160|170|171|183|184|189|194|195|202|214|230|231|245|258|259|260|276|277|283|284|294|295|298|307|319|320|321|333|334|340|358|360|363|364|365|366|367|371|373|374|375|376|378|381|382|393|394|395|403|404|405|408|409|443|444|445|447|448|453|454|456|457|458|465|471|482|489|490|501|502|503|515|516|524|525|526|527|528|535|536|537|539|564|565|580|588|603|604|605|615|633|634|635|638|642|656|657|658|686|687|692|693|698|699|712|713|716")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
-    		} else if (pokemon_id.matches("13|16|17|18|20|21|22|37|50|51|56|57|58|59|63|64|65|74|75|76|83|84|85|104|105|106|107|115|120|127|128|133|140|141|149|161|162|163|164|185|216|217|220|221|234|237|244|263|273|274|275|285|287|289|292|297|324|327|328|343|349|377|390|391|392|396|397|398|399|400|418|419|427|428|438|449|450|473|485|504|505|506|534|551|552|586|606|618|626|629|630|645|659|660|667|668|672|673|679|680|681|688|689|690|691|696|708|709|710|711")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff6B4226));
-    		} else if (pokemon_id.matches("66|67|68|81|82|95|111|112|200|204|208|211|223|227|232|247|261|262|290|299|304|305|306|313|339|347|348|361|362|369|379|410|411|412|413|431|432|462|464|476|493|507|508|519|520|521|529|530|532|533|544|570|571|572|573|589|597|598|599|600|601|632|639|646|677|703|707|720")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffd3d3d3));
-    		} else if (pokemon_id.matches("1|2|3|10|11|69|70|71|123|152|153|154|167|177|178|182|186|188|246|248|251|252|253|254|269|270|271|272|286|309|315|316|329|330|331|332|346|352|357|384|387|388|389|406|407|436|437|455|469|470|492|495|496|497|511|512|541|546|547|548|549|550|556|568|569|577|578|579|610|611|622|623|640|641|650|651|652|701|718")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
-    		} else if (pokemon_id.matches("35|36|39|40|79|80|102|108|113|122|137|151|173|174|180|187|199|209|222|238|241|242|293|300|350|368|370|420|421|439|440|463|481|517|518|531|594|682|683|700|719")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff69b4));
-    		} else if (pokemon_id.matches("19|23|24|32|33|34|41|42|48|49|88|89|90|91|92|93|94|109|110|121|132|142|150|169|190|196|205|207|210|226|236|268|301|302|314|317|326|345|422|423|424|425|426|429|434|435|442|451|452|472|484|509|510|574|575|576|620|649|704|705|706|714|715")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff7f00ff));
-    		} else if (pokemon_id.matches("4|5|6|45|46|47|98|99|100|101|118|119|124|126|129|136|165|166|168|193|212|218|219|224|225|233|240|250|255|256|257|265|308|318|323|338|341|342|380|383|386|401|402|467|474|479|498|499|500|513|514|538|543|545|553|554|555|557|558|560|616|617|621|624|625|628|631|653|654|655|661|662|663|697|717|721")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
-    		} else if (pokemon_id.matches("12|86|87|175|176|179|235|249|264|266|278|280|281|282|288|335|351|359|372|417|459|460|468|475|478|483|486|581|582|583|584|587|590|591|592|593|602|607|613|614|627|636|637|643|648|669|670|671|674|675|676|678|684|685")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e5e5));
-    		} else if (pokemon_id.matches("14|15|25|26|27|28|38|52|53|54|77|78|96|97|103|125|135|145|146|155|156|157|172|181|191|192|203|206|213|239|243|267|279|291|296|310|311|312|322|337|385|414|415|416|433|466|480|488|494|540|542|559|563|566|567|585|595|596|612|619|647|694|695|702")) {
-    			activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
-    		}
-    	}
     	return view;
     }
 
@@ -115,35 +99,16 @@ public class PokemonDetails extends Fragment{
 
         @Override
         protected void onPostExecute(Pokemon pokemon) {
-        	activity.getActionBar().setTitle(pokemon_name);
-        	boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
-        	if (tabletSize) {
-        		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
-        		boolean prefDetailsColor = preferences.getBoolean("prefDetailsColor", true);
-        		if (prefDetailsColor) {
-        			if (pokemon_id.matches("143|197|198|201|215|228|229|303|325|336|344|353|354|355|356|430|441|446|461|477|487|491|522|523|561|562|608|609|644|664|665|666")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff000000));
-        			} else if (pokemon_id.matches("7|8|9|29|30|31|43|44|55|60|61|62|72|73|114|116|117|130|131|134|138|139|144|147|148|158|159|160|170|171|183|184|189|194|195|202|214|230|231|245|258|259|260|276|277|283|284|294|295|298|307|319|320|321|333|334|340|358|360|363|364|365|366|367|371|373|374|375|376|378|381|382|393|394|395|403|404|405|408|409|443|444|445|447|448|453|454|456|457|458|465|471|482|489|490|501|502|503|515|516|524|525|526|527|528|535|536|537|539|564|565|580|588|603|604|605|615|633|634|635|638|642|656|657|658|686|687|692|693|698|699|712|713|716")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
-        			} else if (pokemon_id.matches("13|16|17|18|20|21|22|37|50|51|56|57|58|59|63|64|65|74|75|76|83|84|85|104|105|106|107|115|120|127|128|133|140|141|149|161|162|163|164|185|216|217|220|221|234|237|244|263|273|274|275|285|287|289|292|297|324|327|328|343|349|377|390|391|392|396|397|398|399|400|418|419|427|428|438|449|450|473|485|504|505|506|534|551|552|586|606|618|626|629|630|645|659|660|667|668|672|673|679|680|681|688|689|690|691|696|708|709|710|711")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff6B4226));
-        			} else if (pokemon_id.matches("66|67|68|81|82|95|111|112|200|204|208|211|223|227|232|247|261|262|290|299|304|305|306|313|339|347|348|361|362|369|379|410|411|412|413|431|432|462|464|476|493|507|508|519|520|521|529|530|532|533|544|570|571|572|573|589|597|598|599|600|601|632|639|646|677|703|707|720")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffd3d3d3));
-        			} else if (pokemon_id.matches("1|2|3|10|11|69|70|71|123|152|153|154|167|177|178|182|186|188|246|248|251|252|253|254|269|270|271|272|286|309|315|316|329|330|331|332|346|352|357|384|387|388|389|406|407|436|437|455|469|470|492|495|496|497|511|512|541|546|547|548|549|550|556|568|569|577|578|579|610|611|622|623|640|641|650|651|652|701|718")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
-        			} else if (pokemon_id.matches("35|36|39|40|79|80|102|108|113|122|137|151|173|174|180|187|199|209|222|238|241|242|293|300|350|368|370|420|421|439|440|463|481|517|518|531|594|682|683|700|719")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff69b4));
-        			} else if (pokemon_id.matches("19|23|24|32|33|34|41|42|48|49|88|89|90|91|92|93|94|109|110|121|132|142|150|169|190|196|205|207|210|226|236|268|301|302|314|317|326|345|422|423|424|425|426|429|434|435|442|451|452|472|484|509|510|574|575|576|620|649|704|705|706|714|715")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xff7f00ff));
-        			} else if (pokemon_id.matches("4|5|6|45|46|47|98|99|100|101|118|119|124|126|129|136|165|166|168|193|212|218|219|224|225|233|240|250|255|256|257|265|308|318|323|338|341|342|380|383|386|401|402|467|474|479|498|499|500|513|514|538|543|545|553|554|555|557|558|560|616|617|621|624|625|628|631|653|654|655|661|662|663|697|717|721")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
-        			} else if (pokemon_id.matches("12|86|87|175|176|179|235|249|264|266|278|280|281|282|288|335|351|359|372|417|459|460|468|475|478|483|486|581|582|583|584|587|590|591|592|593|602|607|613|614|627|636|637|643|648|669|670|671|674|675|676|678|684|685")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e5e5));
-        			} else if (pokemon_id.matches("14|15|25|26|27|28|38|52|53|54|77|78|96|97|103|125|135|145|146|155|156|157|172|181|191|192|203|206|213|239|243|267|279|291|296|310|311|312|322|337|385|414|415|416|433|466|480|488|494|540|542|559|563|566|567|585|595|596|612|619|647|694|695|702")) {
-        				activity.getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
-        			}
-        		}
-        	}
+			SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+			boolean prefDetailsColor = preferences.getBoolean("prefDetailsColor", true);
+			if (prefDetailsColor) {
+				Other.ActionBarDetailsColor(activity, pokemon_image_id, pokemon_name);
+				boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+				if (tabletSize) {} else {
+					Other.SystemBarDetailsColor(activity, pokemon_image_id, true);} }
+			else { Other.ActionBarColorIcons(activity, pokemon_name); }
+
+			activity.invalidateOptionsMenu();
 
         	setDescriptionBox(pokemon);
         	setPokemonImage(pokemon);
@@ -161,170 +126,543 @@ public class PokemonDetails extends Fragment{
 
         	progressPokemon.setVisibility(View.GONE);
         }
-        }
-	
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
+
 	}
 
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		super.onCreateOptionsMenu(menu, inflater);
-		inflater.inflate(R.menu.menu_pokemon_details, menu);
-	}
-
-	@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-    	ConnectivityManager cm = (ConnectivityManager)activity.getSystemService(Activity.CONNECTIVITY_SERVICE);
-    	MediaPlayer mp = new MediaPlayer();
-    	switch (item.getItemId()) {
-    	case android.R.id.home:
-    		activity.finish();
-    		return true;
-    	case R.id.menu_bulbapedia:
-    		String urlb = "http://bulbapedia.bulbagarden.net/w/index.php?title=Special%3ASearch&search=" + pokemon_name + "&go=Go";
-    		Intent bulbapedia = new Intent(Intent.ACTION_VIEW);
-    		bulbapedia.setData(Uri.parse(urlb));
-    		startActivity(bulbapedia);
-    		return true;
-    	case R.id.menu_serebii:
-    		String urls = "http://www.serebii.net/search.shtml?cx=018410473690156091934%3A6gahkiyodbi&cof=FORID%3A11&q=" + pokemon_name;
-    		Intent serebii = new Intent(Intent.ACTION_VIEW);
-    		serebii.setData(Uri.parse(urls));
-    		startActivity(serebii);
-    		return true;
-    	case R.id.menu_smogon:
-    		if (pokemon_name.matches("Mega Charizard X|Mega Charizard Y")) {
-    			String urlsm = "http://www.smogon.com/dex/xy/pokemon/charizard";
-    			Intent smogon = new Intent(Intent.ACTION_VIEW);
-    			smogon.setData(Uri.parse(urlsm));
-    			startActivity(smogon);
-    		} else if (pokemon_name.matches("Mega Mewtwo X|Mega Mewtwo Y")) {
-    			String urlsm = "http://www.smogon.com/dex/xy/pokemon/mewtwo";
-    			Intent smogon = new Intent(Intent.ACTION_VIEW);
-    			smogon.setData(Uri.parse(urlsm));
-    			startActivity(smogon);
-    		} else {
-    			//for remove form name on Pokemon with different form
-    			String[]parts = pokemon_name.split(" ");
-    			String lastWord = parts[parts.length - 1];
-    			String urlsm = "http://www.smogon.com/dex/xy/pokemon/" + lastWord.toLowerCase();
-    			Intent smogon = new Intent(Intent.ACTION_VIEW);
-    			smogon.setData(Uri.parse(urlsm));
-    			startActivity(smogon);
-    		}
-    		return true;
-    	case R.id.menu_anime:
-    		File animesound = new File(Environment.getExternalStorageDirectory() + "/DroiDex/sounds/anime/ca_" + pokemon_image_id + ".wav");
-    		if (animesound.exists()) {
-    			try {
-    				mp.setDataSource(Environment.getExternalStorageDirectory() + "/DroiDex/sounds/anime/ca_" + pokemon_image_id + ".wav");
-    			} catch (SecurityException e) {}
-
-    			catch (IOException e) {}
-
-    			catch (IllegalArgumentException e) {}
-
-    			catch (IllegalStateException e) {}
-    			try {
-    				mp.prepare();
-    			} catch (IOException e) {}
-
-    			catch (IllegalStateException e) {}
-    			mp.start();
-    		} else {
-    			if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
-    				try {
-    					mp.setDataSource("https://raw.githubusercontent.com/alefesouza/aloogle-files/master/DroiDéx/sounds/anime/ca_" + pokemon_image_id + ".wav");
-    				} catch (SecurityException e) {}
-
-    				catch (IOException e) {}
-
-    				catch (IllegalArgumentException e) {}
-
-    				catch (IllegalStateException e) {}
-    				try {
-    					mp.prepare();
-    				} catch (IOException e) {}
-
-    				catch (IllegalStateException e) {}
-    				mp.start();
-    			} else {
-    				Toast toast = Toast.makeText(activity, getString(R.string.needinternetsound), Toast.LENGTH_LONG);
-    				toast.show();
-    			}
-    		}
-    		return true;
-    	case R.id.menu_game:
-    		File gamesound = new File(Environment.getExternalStorageDirectory() + "/DroiDex/sounds/game/cg_" + pokemon_image_id + ".wav");
-    		if (gamesound.exists()) {
-    			try {
-    				mp.setDataSource(Environment.getExternalStorageDirectory() + "/DroiDex/sounds/game/cg_" + pokemon_image_id + ".wav");
-    			} catch (SecurityException e) {}
-
-    			catch (IOException e) {}
-
-    			catch (IllegalArgumentException e) {}
-
-    			catch (IllegalStateException e) {}
-    			try {
-    				mp.prepare();
-    			} catch (IOException e) {}
-
-    			catch (IllegalStateException e) {}
-    			mp.start();
-    		} else {
-    			if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
-    				try {
-    					mp.setDataSource("https://raw.githubusercontent.com/alefesouza/aloogle-files/master/DroiDéx/sounds/game/cg_" + pokemon_image_id + ".wav");
-    				} catch (SecurityException e) {}
-
-    				catch (IOException e) {}
-
-    				catch (IllegalArgumentException e) {}
-
-    				catch (IllegalStateException e) {}
-    				try {
-    					mp.prepare();
-    				} catch (IOException e) {}
-
-    				catch (IllegalStateException e) {}
-    				mp.start();
-    			} else {
-    				Toast toast = Toast.makeText(activity, getString(R.string.needinternetsound), Toast.LENGTH_LONG);
-    				toast.show();
-    			}
-    		}
-    		return true;
-    	default:
-    		return
-    		super.onOptionsItemSelected(item);
-    	}
-    }
-	
 	@Override
 	public void onPrepareOptionsMenu(Menu menu) {
 		boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
 		if (tabletSize) {
 			menu.findItem(R.id.menu_download).setVisible(false);
 			menu.findItem(R.id.menu_downloadsound).setVisible(false);
-			menu.findItem(R.id.menu_feedback).setVisible(false);
+			menu.findItem(R.id.menu_rateapp).setVisible(false);
 			menu.findItem(R.id.menu_update).setVisible(false);
+			menu.findItem(R.id.menu_news).setVisible(false);
+			menu.findItem(R.id.menu_translate).setVisible(false);
 			menu.findItem(R.id.menu_share).setVisible(false);
 			menu.findItem(R.id.menu_settings).setVisible(false);
 			menu.findItem(R.id.menu_help).setVisible(false);
 			menu.findItem(R.id.menu_changelog).setVisible(false);
 			menu.findItem(R.id.menu_about).setVisible(false);
-			if (Locale.getDefault().getLanguage().equals("pt")) {
-				menu.findItem(R.id.menu_news).setVisible(true);
+			menu.findItem(R.id.menu_3dssprites).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+			menu.findItem(R.id.menu_open).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+		}
+		if (Locale.getDefault().getLanguage().equals("pt")) {
+			menu.findItem(R.id.menu_videos).setVisible(true);
+		} else {
+			menu.findItem(R.id.menu_videos).setVisible(false);
+		}
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+		boolean prefDetailsColor = preferences.getBoolean("prefDetailsColor", true);
+		if (prefDetailsColor) {
+			if (String.valueOf(pokemon_image_id).matches(Other.PokemonColorWhite) || String.valueOf(pokemon_image_id).matches(Other.PokemonColorYellow) || String.valueOf(pokemon_image_id).matches(Other.PokemonColorGray)) {
+				menu.findItem(R.id.menu_3dssprites).setIcon(R.drawable.ic_3ds_dark);
+				menu.findItem(R.id.menu_sound).setIcon(R.drawable.ic_sound_dark);
+				menu.findItem(R.id.menu_open).setIcon(R.drawable.ic_open_dark_aloogle);
+				if (tabletSize) {
+					menu.findItem(R.id.action_search).setIcon(R.drawable.ic_search_dark);
+					menu.findItem(R.id.action_filter).setIcon(R.drawable.ic_filter_dark_aloogle);
+				}
 			} else {
-				menu.findItem(R.id.menu_news).setVisible(false);
+				menu.findItem(R.id.menu_3dssprites).setIcon(R.drawable.ic_3ds);
+				menu.findItem(R.id.menu_sound).setIcon(R.drawable.ic_sound);
+				menu.findItem(R.id.menu_open).setIcon(R.drawable.ic_open_aloogle);
+				if (tabletSize) {
+					menu.findItem(R.id.action_search).setIcon(R.drawable.ic_search);
+					menu.findItem(R.id.action_filter).setIcon(R.drawable.ic_filter);
+				}
+			}
+		} else {
+			String userColorIcons = preferences.getString("prefColorIcons", "white");
+			if (userColorIcons.equals("black")) {
+				menu.findItem(R.id.menu_3dssprites).setIcon(R.drawable.ic_3ds_dark);
+				menu.findItem(R.id.menu_sound).setIcon(R.drawable.ic_sound_dark);
+				menu.findItem(R.id.menu_open).setIcon(R.drawable.ic_open_dark_aloogle);
 			}
 		}
 	}
-	
+
+	 @ Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		inflater.inflate(R.menu.menu_pokemon_details, menu);
+	}
+
+	 @ Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Boolean loaded = String.valueOf(pokemon_image_id).equals("null");
+		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(activity);
+		final ConnectivityManager cm = (ConnectivityManager)activity.getSystemService(Activity.CONNECTIVITY_SERVICE);
+		final MediaPlayer mp = new MediaPlayer();
+		String webviewsoundcontent = "" +
+			"<p style=\"text-align: justify;\">" + getString(R.string.needinternet) + "</p>\n" +
+			"<ul style=\"text-align: justify;\">\n" +
+			"<li>" + getString(R.string.needinternetsound) + "</li>\n" +
+			"<li>" + getString(R.string.needinternetsound2) + "</li>\n" +
+			"</ul>\n";
+		final String connectionerroroffcontent = "" +
+			"<p style=\"text-align: justify;\">" + getString(R.string.erroroccured) + "</p>\n" +
+			"<ul style=\"text-align: justify;\">\n" +
+			"<li>" + getString(R.string.connectionerroroff) + "</li>\n" +
+			"<li>" + getString(R.string.connectionerroroff2) + "</li>\n" +
+			"</ul>\n";
+		final WebView soundwebview = new WebView(activity);
+		soundwebview.loadData(webviewsoundcontent, "text/html; charset=utf-8", null);
+		final AlertDialog alertsound = new
+			AlertDialog.Builder(activity)
+			.setView(soundwebview)
+			.setTitle(R.string.sound)
+			.setPositiveButton("OK", null)
+			.create();
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			activity.finish();
+			return true;
+		case R.id.menu_bulbapedia:
+			if (loaded) {
+				Toast toast = Toast.makeText(activity, R.string.wait, Toast.LENGTH_SHORT);
+				toast.show();
+			} else {
+				String urlb = "http://bulbapedia.bulbagarden.net/w/index.php?title=Special%3ASearch&search=" + pokemon_name + "&go=Go";
+				Intent bulbapedia = new Intent(Intent.ACTION_VIEW);
+				bulbapedia.setData(Uri.parse(urlb));
+				startActivity(bulbapedia);
+			}
+			return true;
+		case R.id.menu_serebii:
+			if (loaded) {
+				Toast toast = Toast.makeText(activity, R.string.wait, Toast.LENGTH_SHORT);
+				toast.show();
+			} else {
+				String urls = "http://www.serebii.net/search.shtml?cx=018410473690156091934%3A6gahkiyodbi&cof=FORID%3A11&q=" + pokemon_name;
+				Intent serebii = new Intent(Intent.ACTION_VIEW);
+				serebii.setData(Uri.parse(urls));
+				startActivity(serebii);
+			}
+			return true;
+		case R.id.menu_smogon:
+			if (loaded) {
+				Toast toast = Toast.makeText(activity, R.string.wait, Toast.LENGTH_SHORT);
+				toast.show();
+			} else {
+				if (pokemon_name.matches("Mega Charizard X|Mega Charizard Y")) {
+					String urlsm = "http://www.smogon.com/dex/xy/pokemon/charizard";
+					Intent smogon = new Intent(Intent.ACTION_VIEW);
+					smogon.setData(Uri.parse(urlsm));
+					startActivity(smogon);
+				} else if (pokemon_name.matches("Mega Mewtwo X|Mega Mewtwo Y")) {
+					String urlsm = "http://www.smogon.com/dex/xy/pokemon/mewtwo";
+					Intent smogon = new Intent(Intent.ACTION_VIEW);
+					smogon.setData(Uri.parse(urlsm));
+					startActivity(smogon);
+				} else {
+					//for remove form name on Pokemon with different form
+					String[]parts = pokemon_name.split(" ");
+					String lastWord = parts[parts.length - 1];
+					String urlsm = "http://www.smogon.com/dex/xy/pokemon/" + lastWord.toLowerCase();
+					Intent smogon = new Intent(Intent.ACTION_VIEW);
+					smogon.setData(Uri.parse(urlsm));
+					startActivity(smogon);
+				}
+			}
+			return true;
+		case R.id.menu_anime:
+			if (loaded) {
+				Toast toast = Toast.makeText(activity, R.string.wait, Toast.LENGTH_SHORT);
+				toast.show();
+			} else {
+				File animesound = new File(Environment.getExternalStorageDirectory() + "/DroiDex/sounds/anime/ca_" + pokemon_image_id + ".wav");
+				if (animesound.exists()) {
+					try {
+						mp.setDataSource(Environment.getExternalStorageDirectory() + "/DroiDex/sounds/anime/ca_" + pokemon_image_id + ".wav");
+					} catch (SecurityException e) {}
+
+					catch (IOException e) {}
+
+					catch (IllegalArgumentException e) {}
+
+					catch (IllegalStateException e) {}
+					try {
+						mp.prepare();
+					} catch (IOException e) {}
+
+					catch (IllegalStateException e) {}
+					mp.start();
+				} else {
+					if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+						Toast toastload = Toast.makeText(activity, R.string.loading, Toast.LENGTH_SHORT);
+						toastload.show();
+						new Handler().postDelayed(new Runnable() {
+
+							 @ Override
+							public void run() {
+								try {
+									mp.setDataSource("https://raw.githubusercontent.com/alefesouza/aloogle-files/master/DroiDéx/sounds/anime/ca_" + pokemon_image_id + ".wav");
+								} catch (SecurityException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								catch (IOException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								catch (IllegalArgumentException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								catch (IllegalStateException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								try {
+									mp.prepare();
+								} catch (IOException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								catch (IllegalStateException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								mp.start();
+							}
+						}, 100);
+					} else {
+						alertsound.show();
+					}
+				}
+			}
+			return true;
+		case R.id.menu_game:
+			if (loaded) {
+				Toast toast = Toast.makeText(activity, R.string.wait, Toast.LENGTH_SHORT);
+				toast.show();
+			} else {
+				File gamesound = new File(Environment.getExternalStorageDirectory() + "/DroiDex/sounds/game/cg_" + pokemon_image_id + ".wav");
+				if (gamesound.exists()) {
+					try {
+						mp.setDataSource(Environment.getExternalStorageDirectory() + "/DroiDex/sounds/game/cg_" + pokemon_image_id + ".wav");
+					} catch (SecurityException e) {}
+
+					catch (IOException e) {}
+
+					catch (IllegalArgumentException e) {}
+
+					catch (IllegalStateException e) {}
+					try {
+						mp.prepare();
+					} catch (IOException e) {}
+
+					catch (IllegalStateException e) {}
+					mp.start();
+				} else {
+					if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+						Toast toastload = Toast.makeText(activity, R.string.loading, Toast.LENGTH_SHORT);
+						toastload.show();
+						new Handler().postDelayed(new Runnable() {
+
+							 @ Override
+							public void run() {
+								try {
+									mp.setDataSource("https://raw.githubusercontent.com/alefesouza/aloogle-files/master/DroiDéx/sounds/game/cg_" + pokemon_image_id + ".wav");
+								} catch (SecurityException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								catch (IOException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								catch (IllegalArgumentException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								catch (IllegalStateException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								try {
+									mp.prepare();
+								} catch (IOException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								catch (IllegalStateException e) {
+									Toast toastnull = Toast.makeText(activity, R.string.soundnotfound, Toast.LENGTH_LONG);
+									toastnull.show();
+								}
+								mp.start();
+							}
+						}, 100);
+					} else {
+						alertsound.show();
+					}
+				}
+			}
+			return true;
+		case R.id.menu_3dssprites:
+			if (loaded) {
+				Toast toast = Toast.makeText(activity, R.string.wait, Toast.LENGTH_SHORT);
+				toast.show();
+			} else {
+				if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+					final WebView gifwebview = new WebView(activity);
+					gifwebview.getSettings().setJavaScriptEnabled(true);
+					gifwebview.getSettings().setSupportZoom(true);
+					gifwebview.getSettings().setBuiltInZoomControls(true);
+					gifwebview.getSettings().setDisplayZoomControls(false);
+					gifwebview.loadUrl("http://aloogle.tumblr.com/droidex/gifs?pokemon=" + pokemon_image_id);
+					gifwebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+					boolean prefdesktop = preferences.getBoolean("prefGifDesktop", false);
+					if (prefdesktop) {
+						gifwebview.getSettings().setUseWideViewPort(true);
+					}
+					gifwebview.setWebViewClient(new WebViewClient() {
+						 @ SuppressWarnings("deprecation")
+						 @ Override
+						public boolean shouldOverrideUrlLoading(WebView view, String url) {
+							ConnectivityManager cm = (ConnectivityManager)activity.getSystemService(Activity.CONNECTIVITY_SERVICE);
+							if (url.contains("?aloogleapp=open") || url.contains("&aloogleapp=open")) {
+								String realurl = url.replace("?aloogleapp=open", "").replace("&aloogleapp=open", "");
+								Intent i = new Intent(Intent.ACTION_VIEW);
+								i.setData(Uri.parse(realurl));
+								startActivity(i);
+							} else if (url.contains("?aloogleapp=reload") || url.contains("&aloogleapp=reload")) {
+								if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+									gifwebview.setVisibility(View.GONE);
+									gifwebview.getSettings().setCacheMode(WebSettings.LOAD_NORMAL);
+									gifwebview.reload();
+								} else {
+									Toast toast = Toast.makeText(activity, getString(R.string.needinternet), Toast.LENGTH_LONG);
+									toast.show();
+								}
+							} else if (url.contains("?aloogleapp=share") || url.contains("&aloogleapp=share")) {
+								String realurl = url.replace("?aloogleapp=share", "").replace("&aloogleapp=share", "");
+								Intent shareIntent = new Intent();
+								shareIntent.setAction(Intent.ACTION_SEND);
+								shareIntent.putExtra(Intent.EXTRA_TEXT, realurl);
+								shareIntent.setType("text/plain");
+								startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.app_name)));
+							} else if (url.contains("?aloogleapp=needinternet") || url.contains("&aloogleapp=needinternet")) {
+								if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+									gifwebview.getSettings().setCacheMode(WebSettings.LOAD_NORMAL);
+									String realurl = url.replace("?aloogleapp=needinternet", "").replace("&aloogleapp=needinternet", "");
+									gifwebview.loadUrl(realurl);
+								} else {
+									Toast toast = Toast.makeText(activity, getString(R.string.needinternet), Toast.LENGTH_LONG);
+									toast.show();
+								}
+							} else {
+								view.loadUrl(url);
+							}
+							return true;
+						}
+
+						 @ Override
+						public void onPageFinished(WebView view, String url) {
+							super.onPageFinished(view, url);
+							boolean prefcache = preferences.getBoolean("prefCache", false);
+							if (prefcache) {
+								Editor editor = preferences.edit();
+								editor.putBoolean("havecache" + String.valueOf(pokemon_image_id), true);
+								editor.commit();
+							} else {
+								gifwebview.clearCache(true);
+							}
+						}
+
+						 @ Override
+						public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+							super.onReceivedError(view, errorCode, description, failingUrl);
+							gifwebview.loadData(getString(R.string.erroroccured) + " " + getString(R.string.connectionerroron), "text/html; charset=UTF-8", null);
+							Editor editor = preferences.edit();
+							editor.remove("havecache" + String.valueOf(pokemon_image_id));
+							editor.commit();
+						}
+					});
+
+					gifwebview.setDownloadListener(new DownloadListener() {
+						public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+							Intent i = new Intent(Intent.ACTION_VIEW);
+							i.setData(Uri.parse(url));
+							startActivity(i);
+						}
+					});
+
+					final AlertDialog alert = new
+						AlertDialog.Builder(activity)
+						.setView(gifwebview)
+						.setTitle("3DS Sprites")
+						.setNegativeButton(R.string.close, null)
+						.create();
+
+					alert.setOnKeyListener(new DialogInterface.OnKeyListener() {
+						 @ Override
+						public boolean onKey
+						(DialogInterface dialog, int
+							keyCode, KeyEvent event) {
+							if (keyCode == KeyEvent.KEYCODE_BACK) {
+								if (gifwebview.canGoBack()) {
+									gifwebview.goBack();
+									return true;
+								} else {
+									dialog.dismiss();
+								}
+							}
+							return false;
+						}
+					});
+					alert.show();
+				} else {
+					boolean havecache = preferences.getBoolean("havecache" + String.valueOf(pokemon_image_id), false);
+					if (havecache) {
+						final WebView savedwebview = new WebView(activity);
+						savedwebview.getSettings().setJavaScriptEnabled(true);
+						savedwebview.getSettings().setSupportZoom(true);
+						savedwebview.getSettings().setBuiltInZoomControls(true);
+						savedwebview.getSettings().setDisplayZoomControls(false);
+						savedwebview.loadUrl("http://aloogle.tumblr.com/droidex/gifs?pokemon=" + pokemon_image_id);
+						savedwebview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+						boolean prefdesktop = preferences.getBoolean("prefGifDesktop", false);
+						if (prefdesktop) {
+							savedwebview.getSettings().setUseWideViewPort(true);
+						}
+						savedwebview.setWebViewClient(new WebViewClient() {
+							 @ SuppressWarnings("deprecation")
+							 @ Override
+							public boolean shouldOverrideUrlLoading(WebView view, String url) {
+								ConnectivityManager cm = (ConnectivityManager)activity.getSystemService(Activity.CONNECTIVITY_SERVICE);
+								if (url.contains("?aloogleapp=open") || url.contains("&aloogleapp=open")) {
+									String realurl = url.replace("?aloogleapp=open", "").replace("&aloogleapp=open", "");
+									Intent i = new Intent(Intent.ACTION_VIEW);
+									i.setData(Uri.parse(realurl));
+									startActivity(i);
+								} else if (url.contains("?aloogleapp=reload") || url.contains("&aloogleapp=reload")) {
+									if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+										savedwebview.setVisibility(View.GONE);
+										savedwebview.getSettings().setCacheMode(WebSettings.LOAD_NORMAL);
+										savedwebview.reload();
+									} else {
+										Toast toast = Toast.makeText(activity, getString(R.string.needinternet), Toast.LENGTH_LONG);
+										toast.show();
+									}
+								} else if (url.contains("?aloogleapp=share") || url.contains("&aloogleapp=share")) {
+									String realurl = url.replace("?aloogleapp=share", "").replace("&aloogleapp=share", "");
+									Intent shareIntent = new Intent();
+									shareIntent.setAction(Intent.ACTION_SEND);
+									shareIntent.putExtra(Intent.EXTRA_TEXT, realurl);
+									shareIntent.setType("text/plain");
+									startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.app_name)));
+								} else if (url.contains("?aloogleapp=needinternet") || url.contains("&aloogleapp=needinternet")) {
+									if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+										savedwebview.getSettings().setCacheMode(WebSettings.LOAD_NORMAL);
+										String realurl = url.replace("?aloogleapp=needinternet", "").replace("&aloogleapp=needinternet", "");
+										savedwebview.loadUrl(realurl);
+									} else {
+										Toast toast = Toast.makeText(activity, getString(R.string.needinternet), Toast.LENGTH_LONG);
+										toast.show();
+									}
+								} else {
+									view.loadUrl(url);
+								}
+								return true;
+							}
+
+							 @ Override
+							public void onPageFinished(WebView view, String url) {
+								super.onPageFinished(view, url);
+							}
+
+							 @ Override
+							public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+								super.onReceivedError(view, errorCode, description, failingUrl);
+								savedwebview.loadData(connectionerroroffcontent, "text/html; charset=UTF-8", null);
+								Editor editor = preferences.edit();
+								editor.putBoolean("havecache" + String.valueOf(pokemon_image_id), false);
+								editor.commit();
+							}
+						});
+						savedwebview.setDownloadListener(new DownloadListener() {
+							public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+								Intent i = new Intent(Intent.ACTION_VIEW);
+								i.setData(Uri.parse(url));
+								startActivity(i);
+							}
+						});
+						final AlertDialog savedalert = new
+							AlertDialog.Builder(activity)
+							.setView(savedwebview)
+							.setTitle("3DS Sprites")
+							.setPositiveButton(R.string.reload, null)
+							.setNegativeButton(R.string.close, null)
+							.create();
+
+						savedalert.setOnShowListener(new
+							DialogInterface.OnShowListener() {
+							 @ Override
+							public void onShow(DialogInterface dialog) {
+								Button b = savedalert.getButton(AlertDialog.BUTTON_POSITIVE);
+								b.setOnClickListener(new
+									View.OnClickListener() {
+									 @ Override
+									public void onClick(View view) {
+										savedwebview.loadUrl("http://aloogle.tumblr.com/droidex/gifs?pokemon=" + pokemon_image_id);
+									}
+								});
+							}
+						});
+						savedalert.show();
+						savedalert.setOnKeyListener(new DialogInterface.OnKeyListener() {
+							 @ Override
+							public boolean onKey
+							(DialogInterface dialog, int
+								keyCode, KeyEvent event) {
+								if (keyCode == KeyEvent.KEYCODE_BACK) {
+									if (savedwebview.canGoBack()) {
+										savedwebview.goBack();
+										return true;
+									} else {
+										dialog.dismiss();
+									}
+								}
+								return false;
+							}
+						});
+					} else {
+						Toast toast = Toast.makeText(activity, R.string.needinternet, Toast.LENGTH_LONG);
+						toast.show();
+					}
+				}
+			}
+			return true;
+		case R.id.menu_videos:
+			if (loaded) {
+				Toast toast = Toast.makeText(activity, R.string.wait, Toast.LENGTH_SHORT);
+				toast.show();
+			} else {
+				if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+					Intent news = new Intent(activity, aloogle.pokedex.activity.ActivityWebView.class);
+					news.putExtra(Other.WebViewValue, 2);
+					news.putExtra(Other.PokemonId, pokemon_image_id);
+					startActivity(news);
+				} else {
+					Toast toast = Toast.makeText(activity, getString(R.string.needinternet), Toast.LENGTH_LONG);
+					toast.show();
+				}
+			}
+			return true;
+		default:
+			return
+			super.onOptionsItemSelected(item);
+		}
+	}
+
     private void setComponentName(View v) {
         rightScroll = (ScrollView) v.findViewById(R.id.leftScroll);
 
@@ -407,13 +745,13 @@ public class PokemonDetails extends Fragment{
             setDescriptionText(currentDesc);
 
             boxDescription.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    currentDesc++;
-                    if (currentDesc == nDescription) currentDesc = 0;
-                    setDescriptionText(currentDesc);
-                }
-            });
+					@Override
+					public void onClick(View v) {
+						currentDesc++;
+						if (currentDesc == nDescription) currentDesc = 0;
+						setDescriptionText(currentDesc);
+					}
+				});
         } else boxDescription.setVisibility(View.GONE);
     }
 
@@ -444,23 +782,23 @@ public class PokemonDetails extends Fragment{
             final String shinyFeBack = "sprites/shiny/back/sb_" + pokemon_id + "_female.png";
 
             boxSprites.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (txtSprites.getText().equals("♂")) {
-                        txtSprites.setText("♀");
-                        Other.setImage(imgSpritesFront,normalFeFront,R.drawable.unknown_small);
-                        Other.setImage(imgSpritesBack, normalFeBack, R.drawable.unknown_small);
-                        Other.setImage(imgShinyFront, shinyFeFront, R.drawable.unknown_small);
-                        Other.setImage(imgShinyBack, shinyFeBack, R.drawable.unknown_small);
-                    } else {
-                        txtSprites.setText("♂");
-                        Other.setImage(imgSpritesFront, normalFront, R.drawable.unknown_small);
-                        Other.setImage(imgSpritesBack, normalBack, R.drawable.unknown_small);
-                        Other.setImage(imgShinyFront, shinyFront, R.drawable.unknown_small);
-                        Other.setImage(imgShinyBack, shinyBack, R.drawable.unknown_small);
-                    }
-                }
-            });
+					@Override
+					public void onClick(View v) {
+						if (txtSprites.getText().equals("♂")) {
+							txtSprites.setText("♀");
+							Other.setImage(imgSpritesFront,normalFeFront,R.drawable.unknown_small);
+							Other.setImage(imgSpritesBack, normalFeBack, R.drawable.unknown_small);
+							Other.setImage(imgShinyFront, shinyFeFront, R.drawable.unknown_small);
+							Other.setImage(imgShinyBack, shinyFeBack, R.drawable.unknown_small);
+						} else {
+							txtSprites.setText("♂");
+							Other.setImage(imgSpritesFront, normalFront, R.drawable.unknown_small);
+							Other.setImage(imgSpritesBack, normalBack, R.drawable.unknown_small);
+							Other.setImage(imgShinyFront, shinyFront, R.drawable.unknown_small);
+							Other.setImage(imgShinyBack, shinyBack, R.drawable.unknown_small);
+						}
+					}
+				});
         }
     }
 
@@ -537,12 +875,12 @@ public class PokemonDetails extends Fragment{
         setStats(false, Stats);
 
         boxStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (txtLblHP.getText().equals("Base HP")) setStats(true, maxStats);
-                else setStats(false, Stats);
-            }
-        });
+				@Override
+				public void onClick(View v) {
+					if (txtLblHP.getText().equals("Base HP")) setStats(true, maxStats);
+					else setStats(false, Stats);
+				}
+			});
     }
 
     private void setStats(boolean max, String[] data) {
@@ -583,50 +921,50 @@ public class PokemonDetails extends Fragment{
     private void setPokemonLocation(final Pokemon p) {
         if (p.hasLocation) {
             CustomSpinnerAdapter version_adapter =
-                    new CustomSpinnerAdapter(activity,p.Version,"Pokémon");
+				new CustomSpinnerAdapter(activity,p.Version,"Pokémon");
             CustomSpinnerAdapter encounter_method_adapter =
-                    new CustomSpinnerAdapter(activity,p.EncounterMethod,"");
+				new CustomSpinnerAdapter(activity,p.EncounterMethod,"");
 
             spinVersion.setAdapter(version_adapter);
             spinEncounterMethod.setAdapter(encounter_method_adapter);
 
             txtLocation.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    rightScroll.setVisibility(View.GONE);
-                    boxList.setVisibility(View.VISIBLE);
-                    makeListLocation();
-                }
-            });
+					@Override
+					public void onClick(View v) {
+						rightScroll.setVisibility(View.GONE);
+						boxList.setVisibility(View.VISIBLE);
+						makeListLocation();
+					}
+				});
         } else boxLocation.setVisibility(View.GONE);
     }
 
     private void setPokemonMove(final Pokemon p) {
         if (p.hasMove) {
             CustomSpinnerAdapter version_adapter =
-                    new CustomSpinnerAdapter(activity,p.VersionGroup,"");
+				new CustomSpinnerAdapter(activity,p.VersionGroup,"");
             CustomSpinnerAdapter move_method_adapter =
-                    new CustomSpinnerAdapter(activity,p.MoveMethod,"");
+				new CustomSpinnerAdapter(activity,p.MoveMethod,"");
 
             spinVersionGroup.setAdapter(version_adapter);
             spinMoveMethod.setAdapter(move_method_adapter);
 
             txtMove.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    rightScroll.setVisibility(View.GONE);
-                    boxList.setVisibility(View.VISIBLE);
-                    makeListMove();
-                }
-            });
+					@Override
+					public void onClick(View v) {
+						rightScroll.setVisibility(View.GONE);
+						boxList.setVisibility(View.VISIBLE);
+						makeListMove();
+					}
+				});
 
             txtReturn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    rightScroll.setVisibility(View.VISIBLE);
-                    boxList.setVisibility(View.GONE);
-                }
-            });
+					@Override
+					public void onClick(View v) {
+						rightScroll.setVisibility(View.VISIBLE);
+						boxList.setVisibility(View.GONE);
+					}
+				});
         } else boxMove.setVisibility(View.GONE);
     }
 
@@ -657,9 +995,9 @@ public class PokemonDetails extends Fragment{
         String location_id;
 
         String version_id = spinVersion
-                .getSelectedItem().toString().split(Database.SPLIT)[0];
+			.getSelectedItem().toString().split(Database.SPLIT)[0];
         String method_id = spinEncounterMethod
-                .getSelectedItem().toString().split(Database.SPLIT)[0];
+			.getSelectedItem().toString().split(Database.SPLIT)[0];
         String[] listEncounter = DB.getPokemonLocation(pokemon_id, version_id, method_id);
 
         int length = listEncounter.length;
@@ -669,15 +1007,15 @@ public class PokemonDetails extends Fragment{
         }
 
         ExpandListEncounterAdapter adapter = new ExpandListEncounterAdapter
-                (activity, listEncounter, childData);
+		(activity, listEncounter, childData);
         listPokemon.setAdapter(adapter);
     }
 
     private void makeListMove() {
         String version_id = spinVersionGroup
-                .getSelectedItem().toString().split(Database.SPLIT)[0];
+			.getSelectedItem().toString().split(Database.SPLIT)[0];
         String method_id = spinMoveMethod
-                .getSelectedItem().toString().split(Database.SPLIT)[0];
+			.getSelectedItem().toString().split(Database.SPLIT)[0];
         String[] listMove = DB.getPokemonMoveParentList(pokemon_id, version_id, method_id);
         String[] listChildMove = DB.getPokemonMoveChildList(pokemon_id, version_id, method_id);
 

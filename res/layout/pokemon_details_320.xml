@@ -30,7 +30,6 @@
                 android:layout_width="310dp"
                 android:layout_height="match_parent"
                 android:overScrollMode="never"
-                android:fitsSystemWindows="true"
                 android:paddingLeft="7dp">
                 <include layout="@layout/pokemon_left_info"/>
             </ScrollView>

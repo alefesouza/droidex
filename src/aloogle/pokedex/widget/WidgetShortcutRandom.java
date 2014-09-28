@@ -21,12 +21,11 @@ public class WidgetShortcutRandom extends AppWidgetProvider {
 		super.onUpdate(context, appWidgetManager, appWidgetIds);
 		for (int i = 0; i < appWidgetIds.length; i++) {
 			int appWidgetId = appWidgetIds[i];
-			//Cyndaquil >>>>> all
-			File art = new File(Environment.getExternalStorageDirectory() + "/DroiDex/art/sa_155.png");
+			File art = new File(Environment.getExternalStorageDirectory() + "/DroiDex/art/");
 			if (art.exists()) {
 				Random r = new Random();
 				int aleatory = r.nextInt(721 - 1 + 1) + 1;
-				int aleatory2 = r.nextInt(10172 - 10000 + 1) + 10000;
+				int aleatory2 = r.nextInt(10185 - 10000 + 1) + 10000;
 				int aleatory3 = r.nextInt(2 - 1 + 1) + 1;
 
 				if (aleatory3 == 1) {

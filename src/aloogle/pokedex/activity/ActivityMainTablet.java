@@ -1,16 +1,23 @@
 package aloogle.pokedex.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
+import android.content.SharedPreferences.Editor;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 import java.util.Locale;
@@ -28,18 +35,9 @@ public class ActivityMainTablet extends FragmentActivity implements pokemonInter
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		String userIcon = preferences.getString("prefIcon", "default");
-		if (userIcon.equals("default"))
-			getActionBar().setIcon(R.drawable.ic_launcher);
-		else if (userIcon.equals("red"))
-			getActionBar().setIcon(R.drawable.ic_pokedex);
-		else if (userIcon.equals("green"))
-			getActionBar().setIcon(R.drawable.ic_abilitydex);
-		else if (userIcon.equals("blue"))
-			getActionBar().setIcon(R.drawable.ic_itemdex);
-		else if (userIcon.equals("yellow"))
-			getActionBar().setIcon(R.drawable.ic_movedex);
+		Other.ActionBarIcon(this);
+		Other.ActionBarColor(this);
+		Other.ActionBarColorIcons(this, getString(R.string.app_name));
 
 		setContentView(R.layout.activity_main);
 		fragmentContainer = (FrameLayout)findViewById(R.id.fragment_container);
@@ -62,43 +60,12 @@ public class ActivityMainTablet extends FragmentActivity implements pokemonInter
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		ConnectivityManager cm = (ConnectivityManager)this.getSystemService(Activity.CONNECTIVITY_SERVICE);
+		final ConnectivityManager cm = (ConnectivityManager)this.getSystemService(Activity.CONNECTIVITY_SERVICE);
 		switch (item.getItemId()) {
-		case R.id.menu_changelog:
-			if (Locale.getDefault().getLanguage().equals("pt")) {
-				Intent change = new Intent(ActivityMainTablet.this, aloogle.pokedex.activity.pt.ActivityAboutChangelog.class);
-				change.putExtra(Other.AboutOrChange, 0);
-				startActivity(change);
-			} else {
-				Intent change = new Intent(ActivityMainTablet.this, ActivityAboutChangelog.class);
-				change.putExtra(Other.AboutOrChange, 0);
-				startActivity(change);
-			}
-			return true;
-		case R.id.menu_about:
-			if (Locale.getDefault().getLanguage().equals("pt")) {
-				Intent change = new Intent(ActivityMainTablet.this, aloogle.pokedex.activity.pt.ActivityAboutChangelog.class);
-				change.putExtra(Other.AboutOrChange, 1);
-				startActivity(change);
-			} else {
-				Intent change = new Intent(ActivityMainTablet.this, ActivityAboutChangelog.class);
-				change.putExtra(Other.AboutOrChange, 1);
-				startActivity(change);
-			}
-			return true;
-		case R.id.menu_update:
+		case R.id.menu_news:
 			if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
-				Intent update = new Intent(ActivityMainTablet.this, ActivityVerifyUpdate.class);
-				startActivity(update);
-			} else {
-				Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.needinternet), Toast.LENGTH_LONG);
-				toast.show();
-			}
-			return true;
-		case R.id.menu_feedback:
-			if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
-				Intent feedback = new Intent(ActivityMainTablet.this, ActivitySendFeedback.class);
-				startActivity(feedback);
+				Intent news = new Intent(ActivityMainTablet.this, ActivityWebView.class);
+				startActivity(news);
 			} else {
 				Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.needinternet), Toast.LENGTH_LONG);
 				toast.show();
@@ -111,28 +78,126 @@ public class ActivityMainTablet extends FragmentActivity implements pokemonInter
 			shareIntent.setType("text/plain");
 			startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.app_name)));
 			return true;
-		case R.id.menu_settings:
-			Intent settings = new Intent(ActivityMainTablet.this, ActivitySettings.class);
-			startActivity(settings);
-			//For user do not need restart on changes
-			ActivityMainTablet.this.finish();
-			return true;
-		case R.id.menu_news:
+		case R.id.menu_update:
 			if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
-				Intent news = new Intent(ActivityMainTablet.this, ActivityNews.class);
-				startActivity(news);
+				Intent update = new Intent(ActivityMainTablet.this, ActivityWebView.class);
+				update.putExtra(Other.WebViewValue, 3);
+				startActivity(update);
 			} else {
 				Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.needinternet), Toast.LENGTH_LONG);
 				toast.show();
 			}
 			return true;
+		case R.id.menu_rateapp:
+			final WebView webview = new WebView(this);
+			webview.loadData(getString(R.string.rateappawarning), "text/html; charset=utf-8", null);
+			webview.setWebViewClient(new WebViewClient() {
+				@Override
+				public boolean shouldOverrideUrlLoading(WebView view, String url) {
+					if (url.contains("?aloogleapp=activityhelp")) {
+						if (Locale.getDefault().getLanguage().equals("pt")) {
+							Intent help = new Intent(ActivityMainTablet.this, ActivityAboutChangelogHelp.class);
+							help.putExtra(Other.WebViewValue, 5);
+							startActivity(help);
+						} else {
+							Intent help = new Intent(ActivityMainTablet.this, ActivityAboutChangelogHelp.class);
+							help.putExtra(Other.WebViewValue, 2);
+							startActivity(help);
+						}
+					} else if (url.contains("?aloogleapp=activityverifyupdate")) {
+						if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+							Intent update = new Intent(ActivityMainTablet.this, ActivityWebView.class);
+							update.putExtra(Other.WebViewValue, 3);
+							startActivity(update);
+						} else {
+							Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.needinternet), Toast.LENGTH_LONG);
+							toast.show();
+						}
+					}
+					return true;
+				}
+
+				@Override
+				public void onPageFinished(WebView view, String url) {
+					super.onPageFinished(view, url);
+				}
+
+				@Override
+				public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+					super.onReceivedError(view, errorCode, description, failingUrl);
+				}
+			});
+
+			final AlertDialog ratealert = new
+				AlertDialog.Builder(this)
+				.setView(webview)
+				.setTitle(R.string.rateapp)
+				.setPositiveButton(R.string.rate, null)
+				.create();
+
+			ratealert.setOnShowListener(new
+				DialogInterface.OnShowListener() {
+				@Override
+				public void onShow(DialogInterface dialog) {
+					Button b = ratealert.getButton(AlertDialog.BUTTON_POSITIVE);
+					b.setOnClickListener(new
+						View.OnClickListener() {
+						@Override
+						public void onClick(View view) {
+							Intent i = new Intent(Intent.ACTION_VIEW);
+							i.setData(Uri.parse("market://details?id=aloogle.pokedex"));
+							startActivity(i);
+						}
+					});
+				}
+			});
+			ratealert.show();
+			return true;
+		case R.id.menu_settings:
+			Intent settings = new Intent(ActivityMainTablet.this, ActivitySettings.class);
+			startActivity(settings);
+			return true;
 		case R.id.menu_help:
 			if (Locale.getDefault().getLanguage().equals("pt")) {
-				Intent intent = new Intent(ActivityMainTablet.this, aloogle.pokedex.activity.pt.ActivityHelp.class);
-				startActivity(intent);
+				Intent help = new Intent(ActivityMainTablet.this, ActivityAboutChangelogHelp.class);
+				help.putExtra(Other.WebViewValue, 5);
+				startActivity(help);
 			} else {
-				Intent intent = new Intent(ActivityMainTablet.this, ActivityHelp.class);
-				startActivity(intent);
+				Intent help = new Intent(ActivityMainTablet.this, ActivityAboutChangelogHelp.class);
+				help.putExtra(Other.WebViewValue, 2);
+				startActivity(help);
+			}
+			return true;
+		case R.id.menu_changelog:
+			if (Locale.getDefault().getLanguage().equals("pt")) {
+				Intent change = new Intent(ActivityMainTablet.this, ActivityAboutChangelogHelp.class);
+				change.putExtra(Other.WebViewValue, 3);
+				startActivity(change);
+			} else {
+				Intent change = new Intent(ActivityMainTablet.this, ActivityAboutChangelogHelp.class);
+				change.putExtra(Other.WebViewValue, 0);
+				startActivity(change);
+			}
+			return true;
+		case R.id.menu_about:
+			if (Locale.getDefault().getLanguage().equals("pt")) {
+				Intent about = new Intent(ActivityMainTablet.this, ActivityAboutChangelogHelp.class);
+				about.putExtra(Other.WebViewValue, 4);
+				startActivity(about);
+			} else {
+				Intent about = new Intent(ActivityMainTablet.this, ActivityAboutChangelogHelp.class);
+				about.putExtra(Other.WebViewValue, 1);
+				startActivity(about);
+			}
+			return true;
+		case R.id.menu_translate:
+			if (cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected()) {
+				Intent translate = new Intent(ActivityMainTablet.this, ActivityWebView.class);
+				translate.putExtra(Other.WebViewValue, 4);
+				startActivity(translate);
+			} else {
+				Toast toast = Toast.makeText(getApplicationContext(), getString(R.string.needinternet), Toast.LENGTH_LONG);
+				toast.show();
 			}
 			return true;
 		default:
@@ -144,45 +209,18 @@ public class ActivityMainTablet extends FragmentActivity implements pokemonInter
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		if (Locale.getDefault().getLanguage().equals("pt")) {
 			menu.findItem(R.id.menu_news).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+			menu.findItem(R.id.menu_translate).setVisible(true);
 		} else {
 			menu.findItem(R.id.menu_news).setShowAsAction(MenuItem.SHOW_AS_ACTION_WITH_TEXT);
+			menu.findItem(R.id.menu_translate).setVisible(false);
 		}
-		getActionBar().setTitle(getResources().getText(R.string.app_name));
-
 		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		String userColor = preferences.getString("prefColor", "droidexblue");
-		if (userColor.equals("red"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
-		else if (userColor.equals("green"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
-		else if (userColor.equals("blue"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
-		else if (userColor.equals("yellow"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
-		else if (userColor.equals("gold"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffdaa520));
-		else if (userColor.equals("silver"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffc0c0c0));
-		else if (userColor.equals("crystal"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffa1e2ff));
-		else if (userColor.equals("ruby"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe0115f));
-		else if (userColor.equals("sapphire"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0f52ba));
-		else if (userColor.equals("emerald"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff50c878));
-		else if (userColor.equals("diamond"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffb9f2ff));
-		else if (userColor.equals("pearl"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffeae0c8));
-		else if (userColor.equals("platinum"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e4e2));
-		else if (userColor.equals("black"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff000000));
-		else if (userColor.equals("droidexblue"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0080ff));
-		else if (userColor.equals("dexdroidred"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff4444));
+		String userColorIcons = preferences.getString("prefColorIcons", "white");
+		if (userColorIcons.equals("black")) {
+			menu.findItem(R.id.action_search).setIcon(R.drawable.ic_search_dark);
+			menu.findItem(R.id.action_filter).setIcon(R.drawable.ic_filter_dark_aloogle);
+			menu.findItem(R.id.menu_news).setIcon(R.drawable.ic_news_dark_aloogle);
+		}
 		return super.onPrepareOptionsMenu(menu);
 	}
 
@@ -231,5 +269,31 @@ public class ActivityMainTablet extends FragmentActivity implements pokemonInter
 		.replace(R.id.fragment_container, alternativeForm)
 		.addToBackStack(null)
 		.commit();
+	}
+
+	public void onResume() {
+		super.onResume();
+		Other.ActionBarColor(this);
+		Other.ActionBarColorIcons(this, getString(R.string.app_name));
+		Other.ActionBarIcon(this);
+		invalidateOptionsMenu();
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		boolean prefCache = preferences.getBoolean("prefCache", false);
+		if (prefCache) {
+			Editor editor = preferences.edit();
+			boolean savecachewarning = preferences.getBoolean("savecachewarning", false);
+			if (savecachewarning) {}
+			else {
+				AlertDialog dialogsave = new
+					AlertDialog.Builder(this)
+					.setTitle(R.string.pref_cache)
+					.setMessage(R.string.storagecachedialog)
+					.setPositiveButton("OK", null)
+					.create();
+				dialogsave.show();
+				editor.putBoolean("savecachewarning", true);
+				editor.commit();
+			}
+		}
 	}
 }

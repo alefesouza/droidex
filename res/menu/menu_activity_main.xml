@@ -3,31 +3,34 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
         <item
         android:id="@+id/menu_news"
-        android:icon="@drawable/ic_news"
+        android:icon="@drawable/ic_news_aloogle"
         android:title="@string/news"
         android:showAsAction="ifRoom"
         android:orderInCategory="991" />
         <item
-            android:id="@+id/menu_feedback"
-            android:title="@string/feedback"
-            android:orderInCategory="993"/>
+            android:id="@+id/menu_rateapp"
+            android:title="@string/rateapp"
+            android:orderInCategory="992"/>
         <item
             android:id="@+id/menu_update"
             android:title="@string/update"
-            android:orderInCategory="994"/>
+            android:orderInCategory="993"/>
         <item android:id="@+id/menu_share"
             android:title="@string/share"
-            android:orderInCategory="995" />
+            android:orderInCategory="994" />
         <item
             android:id="@+id/menu_settings"
             android:title="@string/settings"
-            android:orderInCategory="996"/>
+            android:orderInCategory="995"/>
+        <item android:id="@+id/menu_translate"
+            android:title="@string/translate"
+            android:orderInCategory="996" />
         <item android:id="@+id/menu_help"
             android:title="@string/help"
             android:orderInCategory="997" />
         <item
             android:id="@+id/menu_changelog"
-            android:title="Changelog"
+            android:title="@string/changelog"
             android:orderInCategory="998"/>
         <item
             android:id="@+id/menu_about"

@@ -19,6 +19,7 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 import java.io.File;
 import aloogle.pokedex.R;
+import aloogle.pokedex.other.Other;
 
 public class WidgetShortcutConfigure extends Activity {
 
@@ -37,6 +38,8 @@ public class WidgetShortcutConfigure extends Activity {
 			widgetID = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID,
 					AppWidgetManager.INVALID_APPWIDGET_ID);
 		}
+
+		Other.setTranslucentStatus(false, this, false);
 
 		final AppWidgetManager widgetManager = AppWidgetManager.getInstance(context);
 		final RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_shortcut);

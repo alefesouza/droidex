@@ -1,12 +1,15 @@
 package aloogle.pokedex.activity;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.preference.CheckBoxPreference;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
+import android.preference.PreferenceCategory;
+import android.view.MenuItem;
 import aloogle.pokedex.R;
+import aloogle.pokedex.other.Other;
 
 public class ActivitySettings extends PreferenceActivity {
 
@@ -14,65 +17,92 @@ public class ActivitySettings extends PreferenceActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActionBar().setHomeButtonEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		addPreferencesFromResource(R.xml.activity_settings);
-		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		String userColor = preferences.getString("prefColor", "droidexblue");
-		if (userColor.equals("red"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff0000));
-		else if (userColor.equals("green"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff00cc00));
-		else if (userColor.equals("blue"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0000ff));
-		else if (userColor.equals("yellow"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e500));
-		else if (userColor.equals("gold"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffdaa520));
-		else if (userColor.equals("silver"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffc0c0c0));
-		else if (userColor.equals("crystal"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffa1e2ff));
-		else if (userColor.equals("ruby"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe0115f));
-		else if (userColor.equals("sapphire"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0f52ba));
-		else if (userColor.equals("emerald"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff50c878));
-		else if (userColor.equals("diamond"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffb9f2ff));
-		else if (userColor.equals("pearl"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffeae0c8));
-		else if (userColor.equals("platinum"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffe5e4e2));
-		else if (userColor.equals("black"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff000000));
-		else if (userColor.equals("droidexblue"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xff0080ff));
-		else if (userColor.equals("dexdroidred"))
-			getActionBar().setBackgroundDrawable(new ColorDrawable(0xffff4444));
 
-		String userIcon = preferences.getString("prefIcon", "default");
-		if (userIcon.equals("default"))
-			getActionBar().setIcon(R.drawable.ic_launcher);
-		else if (userIcon.equals("red"))
-			getActionBar().setIcon(R.drawable.ic_pokedex);
-		else if (userIcon.equals("green"))
-			getActionBar().setIcon(R.drawable.ic_abilitydex);
-		else if (userIcon.equals("blue"))
-			getActionBar().setIcon(R.drawable.ic_itemdex);
-		else if (userIcon.equals("yellow"))
-			getActionBar().setIcon(R.drawable.ic_movedex);
-		setTitle(getResources().getText(R.string.settings));
+		Other.ActionBarColor(this);
+		Other.ActionBarColorIcons(this, getString(R.string.settings));
+		Other.ActionBarIcon(this);
+		Other.SystemBarColor(this, true);
+
+		Preference prefColor = findPreference("prefColor");
+		prefColor.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				new Handler().postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						Other.ActionBarColor(ActivitySettings.this);
+						Other.ActionBarColorIcons(ActivitySettings.this, getString(R.string.settings));
+						Other.SystemBarColor(ActivitySettings.this, true);
+					}
+				}, 100);
+				return true;
+			}
+		});
+
+		Preference prefColorIcons = findPreference("prefColorIcons");
+		prefColorIcons.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				new Handler().postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						Other.ActionBarColorIcons(ActivitySettings.this, getString(R.string.settings));
+					}
+				}, 100);
+				return true;
+			}
+		});
+
+		Preference prefIcon = findPreference("prefIcon");
+		prefIcon.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+			@Override
+			public boolean onPreferenceChange(Preference preference, Object newValue) {
+				new Handler().postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						Other.ActionBarIcon(ActivitySettings.this);
+					}
+				}, 100);
+				return true;
+			}
+		});
+
+		if (Build.VERSION.SDK_INT >= 19) {
+			boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+			if (tabletSize) {
+				CheckBoxPreference prefSystemBarColor = (CheckBoxPreference)findPreference("prefSystemBarColor");
+				PreferenceCategory categoryColor = (PreferenceCategory)findPreference("categoryColor");
+				categoryColor.removePreference(prefSystemBarColor);
+			} else {
+				Preference prefSystemBarColor = findPreference("prefSystemBarColor");
+				prefSystemBarColor.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+					@Override
+					public boolean onPreferenceChange(Preference preference, Object newValue) {
+						new Handler().postDelayed(new Runnable() {
+							@Override
+							public void run() {
+								Other.SystemBarColor(ActivitySettings.this, true);
+							}
+						}, 100);
+						return true;
+					}
+				});
+			}
+		}
 	}
 
-	public void onBackPressed() {
-		boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
-		if (tabletSize) {
-			Intent intent = new Intent(ActivitySettings.this, ActivityMainTablet.class);
-			startActivity(intent);
-		} else {
-			Intent intent = new Intent(ActivitySettings.this, ActivityMain.class);
-			startActivity(intent);
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			ActivitySettings.this.finish();
+			return true;
+		default:
+			return
+			super.onOptionsItemSelected(item);
 		}
-		ActivitySettings.this.finish();
 	}
 }

@@ -52,4 +52,11 @@
         <item name="android:background">@drawable/red_white_check_box</item>
         <item name="android:layout_height">35dp</item>
     </style>
+
+    <style name="overflow_menu" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_overflow</item>
+    </style>
+    <style name="overflow_menu_dark" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_overflow_dark</item>
+    </style>
 </resources>

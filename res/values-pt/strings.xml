@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="http://schemas.android.com/apk/res/com.radhi.Pokedex">
+<resources>
     <string name="app_name">DroiDéx</string>
-
-    <string name="text_normal">Normal</string>
-    <string name="text_fighting">Fighting</string>
-    <string name="text_flying">Flying</string>
-    <string name="text_poison">Poison</string>
-    <string name="text_ground">Ground</string>
-    <string name="text_rock">Rock</string>
-    <string name="text_bug">Bug</string>
-    <string name="text_ghost">Ghost</string>
-    <string name="text_steel">Steel</string>
-    <string name="text_fire">Fire</string>
-    <string name="text_water">Water</string>
-    <string name="text_grass">Grass</string>
-    <string name="text_electric">Electric</string>
-    <string name="text_psychic">Psychic</string>
-    <string name="text_ice">Ice</string>
-    <string name="text_dragon">Dragon</string>
-    <string name="text_dark">Dark</string>
-    <string name="text_fairy">Fairy</string>
 
     <string name="text_black">Preto</string>
     <string name="text_blue">Azul</string>
@@ -53,12 +34,12 @@
     <string name="search">Pesquisar</string>
     <string name="filter">Filtro</string>
 
-    <!--Di pokemon details-->
     <string name="img_sugimori_desc">Sugimori art do Pokémon</string>
     <string name="img_sprites_front">Sprite do Pokémon de frente</string>
     <string name="img_sprites_back">Sprite do Pokémon de costas</string>
     <string name="img_shiny_front">Shiny sprite do Pokémon de frente</string>
     <string name="img_shiny_back">Shiny sprite do Pokémon de costas</string>
+
     <string name="male_symbol">♂</string>
     <string name="body_height">Altura</string>
     <string name="body_weight">Peso</string>
@@ -85,35 +66,55 @@
     <string name="data_method">Método</string>
     <string name="data_list_move">Lista de movimentos</string>
     <string name="data_return">← retornar aos dados do Pokémon</string>
-
     <string name="searchhint">Nome do Pokémon</string>
+
+    <string name="dialogdownloadsprites">Você ainda não baixou os sprites (as imagens pequenas), deseja baixar agora? São 5,6MB</string>
+    <string name="dialogdownloadart">Você ainda não baixou as Sugimori art (as imagens grandes), deseja baixar agora? São 58MB</string>
+    <string name="read">Por favor leia</string>
+    <string name="dialogwarning">O aplicativo baixará um .zip e irá extrai-lo ao final do download, então não o feche durante o download, já que não tem como um aplicativo fazer algo se estiver fechado (a não ser aqueles aplicativos chatos que estão sempre rodando em segundo plano, o que não é o caso do DroiDéx), então se você fechar antes do download terminar e extrair as imagens, baixe um aplicativo descompactador e extraia os arquivos .zip na pasta DroiDex, deixando sempre as pastas com letra minúsculas dentro dela</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
 
     <string name="download">Baixar imagens</string>
     <string name="downloadsound">Baixar sons</string>
-    <string name="news">DroiDéx News</string>
+    <string name="downloadgame">Jogo (48,9MB)</string>
+    <string name="downloadfinished">Download finalizado</string>
+    <string name="downloadthing">Download para o DroiDéx</string>
     <string name="needinternet">Você precisa estar conectado à internet</string>
     <string name="back">Voltar</string>
     <string name="forward">Avançar</string>
-    <string name="reload">Atualizar</string>
+    <string name="reload">Recarregar</string>
     <string name="nopages">Nenhuma página</string>
     <string name="home">Início</string>
     <string name="sharepage">Compartilhar página</string>
-    <string name="feedback">Enviar opinião</string>
     <string name="update">Verificar atualizações</string>
     <string name="yourversion">Sua versão é:</string>
-    <string name="downloadupdate">Baixando atualização</string>
+    <string name="downloadupdate">Baixando atualização - DroiDéx</string>
     <string name="share">Compartilhar app</string>
-    <string name="sharecontent">Veja o aplicativo de Pokédex mais atualizado para Android!! http://aloogle.tumblr.com/droidex/download</string>
+    <string name="sharecontent">Veja o aplicativo de Pokédex mais atualizado para Android!! http://bit.ly/droidex</string>
+    <string name="translate">Ajudar a traduzir!</string>
     <string name="settings">Configurações</string>
+    <string name="rateapp">Avaliar aplicativo</string>
+    <string name="rateappawarning"><![CDATA[<p style="text-align: justify;">Por favor, antes de avaliar o aplicativo, caso tenha alguma duvida veja a <a href="droidex://?aloogleapp=activityhelp">Ajuda</a>. E antes de fazer uma sugestão, leia a seção planos futuros <a href="droidex://?aloogleapp=activityverifyupdate">tocando aqui</a></p>]]></string>
+    <string name="rate">Avaliar</string>
     <string name="help">Ajuda</string>
     <string name="about">Sobre</string>
-    <string name="bulbapedia">Abrir na Bulbapedia</string>
-    <string name="serebii">Abrir no Serebii</string>
-    <string name="smogon">Abrir no Smogon</string>
+    <string name="wait">Espere...</string>
+    <string name="openin">Abrir no</string>
     <string name="sound">Som</string>
-    <string name="inanime">No anime</string>
-    <string name="ingame">No jogo</string>
-    <string name="needinternetsound">Você precisa estar conectado a internet, ou então baixar os sons para poder ouvir sem internet</string>
+    <string name="anime">Anime</string>
+    <string name="game">Jogo</string>
+    <string name="relatedvideos">Vídeos relacionados</string>
+    <string name="loading">Carregando...</string>
+    <string name="soundnotfound">O aplicativo ainda não tem esse som desse Pokémon</string>
+    <string name="needinternetsound">Ou então baixe os sons para poder ouvir sem internet.</string>
+    <string name="needinternetsound2">Se você já baixou os sons, pode ser que o aplicativo ainda não tenha o som desse Pokémon.</string>
+    <string name="erroroccured">Ops, houve um erro!</string>
+    <string name="connectionerroron">Verifique sua conexão com a internet.</string>
+    <string name="connectionerroroff">Verifique se a configuração Armazenar cache web esta selecionada.</string>
+    <string name="connectionerroroff2">Infelizmente o Android tem um limite de armazenamento web offline, logo só os últimos sprites que você carregou com internet estão disponíveis.</string>
+    <string name="storagecachedialog">Armazenando o cache você pode acessar os gifs mesmo sem acesso a internet, porém o Android tem um limite de armazenamento offline, ou seja se você carregar muitos pode ser que os mais antigos fiquem indisponíveis.</string>
+    <string name="close">Fechar</string>
 
     <string name="downloadwarning">Não feche o aplicativo durante o download</string>
     <string name="extract">Extraindo</string>
@@ -123,15 +124,23 @@
     <string name="pref_color_category">Cores</string>
     <string name="pref_color">Cor favorita</string>
     <string name="pref_color_summary">Selecione a cor do aplicativo</string>
-    <string name="pref_icon">Escolher ícone</string>
-    <string name="pref_icon_summary">Selecione o ícone da action bar</string>
+    <string name="pref_color_icons">Cor dos ícones</string>
+    <string name="pref_color_icons_summary">Escolha a cor do texto e ícones da Action Bar, recomendado se você escolher uma cor clara</string>
+    <string name="pref_system_bar_color">Mudar cor das barras do sistema</string>
+    <string name="pref_system_bar_color_summary">Mudar cor da barra de notificações e de navegação junto com a do aplicativo</string>
+    <string name="pref_icon">Escolher ícone do aplicativo</string>
+    <string name="pref_icon_summary">Selecione o ícone do aplicativo na Action Bar</string>
     <string name="pref_detailscolor">Cor do Pokémon nos detalhes</string>
-    <string name="pref_detailscolor_summary">Mudar cor da action bar de acordo com a cor do Pokémon</string>
+    <string name="pref_detailscolor_summary">Mudar a cor da Action Bar de acordo com a cor do Pokémon</string>
     <string name="pref_splash_category">Splash</string>
     <string name="pref_splash">Tela Splash</string>
     <string name="pref_splash_summary">Habilitar tela splash</string>
     <string name="pref_splash_animation">Animação</string>
     <string name="pref_splash_animation_summary">Mudar animação da tela splash</string>
+    <string name="pref_cache">Armazenar cache web</string>
+    <string name="pref_cache_summary">Para acesso sem internet, isso pode aumentar o tamanho do aplicativo</string>
+    <string name="pref_gifs_desktop">Carregar gifs em modo desktop</string>
+    <string name="pref_gifs_desktop_summary">Use essa opção se você estiver com dificuldade para visualizar os gifs</string>
 
     <string name="addpokemon">Adicionar Pokémon</string>
     <string name="addaleatorypokemon">Adicionar Pokémon aleatório</string>
@@ -139,6 +148,6 @@
     <string name="widgetshortcutinfo">A ID do Pokémon é o número dele na National Dex, para adicionar formas diferentes, como Mega Evoluções, vá na pasta DroiDex/art, os números a partir de 10000 são as IDs de formas diferentes.</string>
     <string name="widgetshortcutinforesize">Para redimensionar o widget apenas pressione-o por um segundo.</string>
     <string name="createwidget">Criar widget</string>
-    <string name="widgetshortcuttoastwarning">Baixe as Sugimori art antes de adicionar o widget, também use apenas números de 1 a 721 e 10000 a 10172</string>
+    <string name="widgetshortcuttoastwarning">Baixe as Sugimori art antes de adicionar o widget, também use apenas números de 1 a 721 e 10000 a 10185</string>
     <string name="widgetshortcutrandomwarning">Baixe as Sugimori art antes</string>
 </resources>

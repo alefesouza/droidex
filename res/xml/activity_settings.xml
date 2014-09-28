@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 <PreferenceCategory android:title="@string/pref_color_category">
 <ListPreference
             android:key="prefColor"
@@ -7,6 +7,13 @@
             android:entryValues="@array/favColorValues"
             android:title="@string/pref_color"
             android:summary="@string/pref_color_summary" />
+        <ListPreference
+            android:entries="@array/favColorIcons"
+            android:title="@string/pref_color_icons"
+            android:key="prefColorIcons"
+            android:summary="@string/pref_color_icons_summary"
+            android:defaultValue="white"
+            android:entryValues="@array/favColorIconsValues" />
 <ListPreference
             android:key="prefIcon"
             android:entries="@array/favIcon"
@@ -35,5 +42,18 @@
             android:title="@string/pref_splash_animation"
             android:summary="@string/pref_splash_animation_summary"
             android:defaultValue="top" />
+    </PreferenceCategory>
+
+<PreferenceCategory android:title="@string/pref_gifs_category" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefCache"
+            android:title="@string/pref_cache"
+            android:summary="@string/pref_cache_summary" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefGifDesktop"
+            android:title="@string/pref_gifs_desktop"
+            android:summary="@string/pref_gifs_desktop_summary" />
     </PreferenceCategory>
 </PreferenceScreen>

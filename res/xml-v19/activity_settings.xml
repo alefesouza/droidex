@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceCategory android:title="@string/pref_color_category" android:key="categoryColor">
+<ListPreference
+            android:key="prefColor"
+            android:entries="@array/favColor"
+            android:entryValues="@array/favColorValues"
+            android:title="@string/pref_color"
+            android:summary="@string/pref_color_summary" />
+        <ListPreference
+            android:entries="@array/favColorIcons"
+            android:title="@string/pref_color_icons"
+            android:key="prefColorIcons"
+            android:summary="@string/pref_color_icons_summary"
+            android:defaultValue="white"
+            android:entryValues="@array/favColorIconsValues" />
+<ListPreference
+            android:key="prefIcon"
+            android:entries="@array/favIcon"
+            android:entryValues="@array/favIconValues"
+            android:title="@string/pref_icon"
+            android:summary="@string/pref_icon_summary"
+            android:defaultValue="default" />
+<CheckBoxPreference
+            android:defaultValue="true"
+            android:key="prefSystemBarColor"
+            android:title="@string/pref_system_bar_color"
+            android:summary="@string/pref_system_bar_color_summary" />
+<CheckBoxPreference
+            android:defaultValue="true"
+            android:key="prefDetailsColor"
+            android:title="@string/pref_detailscolor"
+            android:summary="@string/pref_detailscolor_summary" />
+</PreferenceCategory>
+
+<PreferenceCategory android:title="@string/pref_splash_category" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="prefSplash"
+            android:title="@string/pref_splash"
+            android:summary="@string/pref_splash_summary" />
+<ListPreference
+            android:dependency="prefSplash"
+            android:key="prefSplashAnimation"
+            android:entries="@array/prefSplashAnimation"
+            android:entryValues="@array/prefSplashAnimationValues"
+            android:title="@string/pref_splash_animation"
+            android:summary="@string/pref_splash_animation_summary"
+            android:defaultValue="top" />
+    </PreferenceCategory>
+
+<PreferenceCategory android:title="@string/pref_gifs_category" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefCache"
+            android:title="@string/pref_cache"
+            android:summary="@string/pref_cache_summary" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="prefGifDesktop"
+            android:title="@string/pref_gifs_desktop"
+            android:summary="@string/pref_gifs_desktop_summary" />
+</PreferenceCategory>
+</PreferenceScreen>
