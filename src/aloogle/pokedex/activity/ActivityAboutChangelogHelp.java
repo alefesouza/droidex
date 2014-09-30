@@ -20,6 +20,7 @@ public class ActivityAboutChangelogHelp extends Activity {
 		"<li>Interface improvement.</li>\n" +
 		"<li>And other improvements.</li>\n" +
 		"</ul>\n" +
+		"<p style=\"text-align: justify;\"><b>Version 5.9.1:</b> Launched September, 29, 2014 - Fixed crash on open Gastly.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Version 5.7</h3>\n" +
 		"Launched July, 15, 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
@@ -76,9 +77,9 @@ public class ActivityAboutChangelogHelp extends Activity {
 		"<li>Evolution (including Mega Evolution)</li>\n" +
 		"<li>Etc.</li>\n" +
 		"</ul>\n" +
-		"<p style=\"text-align: justify;\">Compared to the D&eacute;xDroid, the major differences are a settings page to change the app theme color and the function to add widgets of ANY Pok&eacute;mon onto your home screen.</p>\n" +
+		"<p style=\"text-align: justify;\">Compared to the D&eacute;xDroid, the major differences are a settings page to change the theme color, the function to add widgets of ANY Pok&eacute;mon onto your home screen, Pok&eacute;mon anime and game sounds and Pok&eacute;mon XY animated gifs of ALL Pok&eacute;mon.</p>\n" +
 		"<h3 style=\"text-align: justify;\">License</h3>\n" +
-		"<p style=\"text-align: justify;\">This app is released under <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=license\">GPLv3 License</a> and its source code is available in my <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=alefegithub\">Github</a>. Everyone is allowed to modify this app and release it in their own name, but they have to open the source code. And, if you would, please give proper credit to me, <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=alefegithub\">Alefe Souza</a>, and the developer of D&eacute;xDroid, <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=radhigithub\">Radhi</a>.</p>\n" +
+		"<p style=\"text-align: justify;\">This app is released under <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=license\">GPLv3 License</a> and its source code is available in my <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=droidexgithub\">Github</a>. Everyone is allowed to modify this app and release it in their own name, but they have to open the source code. And, if you would, please give proper credit to me, <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=alefegithub\">Alefe Souza</a>, and the developer of D&eacute;xDroid, <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=radhigithub\">Radhi Fadlillah</a>.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Sources</h3>\n" +
 		"<p style=\"text-align: justify;\">Database is taken from Veekun's git (<a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=veekun1\">here</a> or <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=veekun2\">here</a>). Were just converted it from CSV to SQLITE.</p>\n" +
 		"<p style=\"text-align: justify;\">Images and sprites are taken from:</p>\n" +
@@ -96,7 +97,7 @@ public class ActivityAboutChangelogHelp extends Activity {
 		"<li><a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=veekun4\">Veekun</a>, for all game cries.</li>\n" +
 		"</ul>\n" +
 		"<h3 style=\"text-align: justify;\">Acknowledgements</h3>\n" +
-		"<li style=\"text-align: justify;\"><a href=\"aloogle.tumblr.com/droidex/redirects?redirect=radhigithub\">Radhi</a>, developer of D&eacute;xDroid.</li>\n" +
+		"<li style=\"text-align: justify;\"><a href=\"aloogle.tumblr.com/droidex/redirects?redirect=radhigithub\">Radhi Fadlillah</a>, developer of D&eacute;xDroid.</li>\n" +
 		"<p style=\"text-align: justify;\">In this app, were used following library/tools:</p>\n" +
 		"<ul>\n" +
 		"<li style=\"text-align: justify;\"><a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=sqlhelper\">Android SQLiteAssetHelper</a> and <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=systembartint\">SystemBarTint</a> libraries by <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=jgilfelt\">Jeff Gilfelt</a>.</li>\n" +
@@ -131,6 +132,7 @@ public class ActivityAboutChangelogHelp extends Activity {
 		"<li>Melhoras na interface.</li>\n" +
 		"<li>E muitas outras melhorias.</li>\n" +
 		"</ul>\n" +
+		"<p style=\"text-align: justify;\"><b>Vers&atilde;o 5.9.1:</b> Lan&ccedil;ada em 29 de setembro de 2014 - Corrige problema de o aplicativo fechar ao abrir o Gastly.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Vers&atilde;o 5.7</h3>\n" +
 		"Lan&ccedil;ado dia 15 de julho de 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
@@ -187,9 +189,9 @@ public class ActivityAboutChangelogHelp extends Activity {
 		"<li>Evolu&ccedil;&atilde;o (incluindo Mega Evolu&ccedil;&atilde;o)</li>\n" +
 		"<li>Etc.</li>\n" +
 		"</ul>\n" +
-		"<p style=\"text-align: justify;\">As principais diferen&ccedil;as se comparado ao D&eacute;xDroid s&atilde;o uma p&aacute;gina de configura&ccedil;&otilde;es para mudar a cor do aplicativo, e poder adicionar widgets de QUALQUER Pok&eacute;mon na tela inicial.</p>\n" +
+		"<p style=\"text-align: justify;\">As principais diferen&ccedil;as se comparado ao D&eacute;xDroid s&atilde;o uma p&aacute;gina de configura&ccedil;&otilde;es para mudar a cor do aplicativo, poder adicionar widgets de QUALQUER Pok&eacute;mon na tela inicial, sons dos Pok&eacute;mon no anime e jogo e gifs animados do Pok&eacute;mon XY de TODOS os Pok&eacute;mon.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Licen&ccedil;a</h3>\n" +
-		"<p style=\"text-align: justify;\">Esse aplicativo foi lan&ccedil;ado sob <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=license\">licen&ccedil;a GPLv3</a> e o c&oacute;digo fonte dele est&aacute; dispon&iacute;vel no meu <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=alefegithub\">GitHub</a>. Todo mundo esta permitido a modificar e lan&ccedil;ar esse aplicativo em seu nome, mas vai ter que liberar o c&oacute;digo fonte. E, se voc&ecirc; fizer isso, por favor d&ecirc; os devidos cr&eacute;ditos a mim, <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=alefegithub\">Alefe Souza</a>, e ao desenvolvedor do D&eacute;xDroid, <a href=\"http://aloogle.tumblr.com/droidex/ redirects?redirect=radhigithub\">Radhi</a>.</p>\n" +
+		"<p style=\"text-align: justify;\">Esse aplicativo foi lan&ccedil;ado sob <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=license\">licen&ccedil;a GPLv3</a> e o c&oacute;digo fonte dele est&aacute; dispon&iacute;vel no meu <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=droidexgithub\">GitHub</a>. Todo mundo esta permitido a modificar e lan&ccedil;ar esse aplicativo em seu nome, mas vai ter que liberar o c&oacute;digo fonte. E, se voc&ecirc; fizer isso, por favor d&ecirc; os devidos cr&eacute;ditos a mim, <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=alefegithub\">Alefe Souza</a>, e ao desenvolvedor do D&eacute;xDroid, <a href=\"http://aloogle.tumblr.com/droidex/ redirects?redirect=radhigithub\">Radhi Fadlillah</a>.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Fontes</h3>\n" +
 		"<p style=\"text-align: justify;\">Base de dados foi tirada de Veekun's git (<a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=veekun1\">aqui</a> ou <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=veekun2\">aqui</a>). Foi apenas convertido de CSV para SQLITE.</p>\n" +
 		"<p style=\"text-align: justify;\">Imagens e sprites foram tiradas de:</p>\n" +
@@ -207,7 +209,7 @@ public class ActivityAboutChangelogHelp extends Activity {
 		"<li><a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=veekun4\">Veekun</a>, por todos os sons no jogo.</li>\n" +
 		"</ul>\n" +
 		"<h3 style=\"text-align: justify;\">Agradecimentos</h3>\n" +
-		"<li style=\"text-align: justify;\"><a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=radhigithub\">Radhi</a>, desenvolvedor do D&eacute;xDroid.</li>\n" +
+		"<li style=\"text-align: justify;\"><a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=radhigithub\">Radhi Fadlillah</a>, desenvolvedor do D&eacute;xDroid.</li>\n" +
 		"<p style=\"text-align: justify;\">Nesse aplicativo foi usado as seguintes biblioteca/ferramentas:</p>\n" +
 		"<ul>\n" +
 		"<li style=\"text-align: justify;\"><a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=sqlhelper\">Android SQLiteAssetHelper</a> e <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=systembartint\">SystemBarTint</a> bibliotecas por <a href=\"http://aloogle.tumblr.com/droidex/redirects?redirect=jgilfelt\">Jeff Gilfelt</a>.</li>\n" +

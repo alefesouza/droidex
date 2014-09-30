@@ -3,11 +3,11 @@ DroiDéx
 
 ##### Portuguese
 
-DroiDéx é um aplicativo baseado no [DéxDroid](https://github.com/RadhiFadlillah/Pokedex) versão 3.1, ou seja, uma Pokédex para Android, decidi cria-lo porque eu gostava muito do aplicativo DéxDroid e fiquei muito decepcionado ao ver que ele não recebeu mais atualizações, mas como o desenvolvedor original deixou ele em código aberto e deixou que qualquer um modificasse e distribuísse, decidi que eu mesmo iria continua-lo.
+DroiDéx é um aplicativo baseado no DéxDroid versão 3.1, ou seja, uma Pokédex para Android, decidi cria-lo porque eu gostava muito do aplicativo DéxDroid e fiquei muito decepcionado ao ver que ele não recebeu mais atualizações, mas como o desenvolvedor original deixou ele em código aberto e deixou que qualquer um modificasse e distribuísse, decidi que eu mesmo iria continua-lo.
 
 Você pode baixa-lo na [Google Play Store](http://play.google.com/store/apps/details?id=aloogle.pokedex).
 
-Esse é o código da versão 5.9
+Esse é o código da versão 5.9.1
 
 Os Pokémons recentemente adicionados são:
 
@@ -64,7 +64,7 @@ Fonte dos dados
 
 Agradecimentos
 ---------------
-* [Radhi](https://github.com/RadhiFadlillah), desenvolvedor do DéxDroid.
+* [Radhi Fadlillah](https://github.com/RadhiFadlillah), desenvolvedor do DéxDroid.
 
 Nesse aplicativo foi usado:
 *  [Android SQLiteAssetHelper](https://github.com/jgilfelt/android-sqlite-asset-helper) biblioteca por [Jeff Gilfelt](https://github.com/jgilfelt).
@@ -82,15 +82,15 @@ Licença
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
     
-Esse aplicativo foi lançado sob [licença GPLv3](http://choosealicense.com/licenses/gpl-v3/). Dessa forma, todo mundo esta permitido a modificar e lançar esse aplicativo em seu nome, mas vai ter que liberar o código fonte. E, se você fizer, por favor dê os devidos créditos a mim, [Alefe Souza](https://github.com/alefesouza), e ao desenvolvedor do DéxDroid, [Radhi](https://github.com/RadhiFadlillah).
+Esse aplicativo foi lançado sob [licença GPLv3](http://choosealicense.com/licenses/gpl-v3/). Dessa forma, todo mundo esta permitido a modificar e lançar esse aplicativo em seu nome, mas vai ter que liberar o código fonte. E, se você fizer, por favor dê os devidos créditos a mim, [Alefe Souza](https://github.com/alefesouza), e ao desenvolvedor do DéxDroid, [Radhi Fadlillah](https://github.com/RadhiFadlillah).
 
 ##### English
 
-DroiDéx is an application based on [DéxDroid](https://github.com/Acrophobic/Pokedex) version 3.1, wich is an Pokédex for Android. I decided creating it because I loved the app DéxDroid and became so disappointed when I realized it had no more updates, but since the original developer left it open source and allowed anyone to modify and distribute, I decided to update it by myself.
+DroiDéx is an application based on DéxDroid version 3.1, wich is an Pokédex for Android. I decided creating it because I loved the app DéxDroid and became so disappointed when I realized it had no more updates, but since the original developer left it open source and allowed anyone to modify and distribute, I decided to update it by myself.
 
 You can download it at [Google Play Store](http://play.google.com/store/apps/details?id=aloogle.pokedex).
 
-This is the 5.9 version code
+This is the 5.9.1 version code
 
 Recently added Pokémon:
 
@@ -147,7 +147,7 @@ Data Source
 
 Acknowledgements
 ---------------
-* [Radhi](https://github.com/RadhiFadlillah), developer of DéxDroid.
+* [Radhi Fadlillah](https://github.com/RadhiFadlillah), developer of DéxDroid.
 
 In this app, were used:
 *  [Android SQLiteAssetHelper](https://github.com/jgilfelt/android-sqlite-asset-helper) library by [Jeff Gilfelt](https://github.com/jgilfelt).
@@ -165,4 +165,4 @@ License
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
     
-This app is released under [GPLv3 License](http://choosealicense.com/licenses/gpl-v3/). This way, everyone is allowed to modify this app and release it in their own name, but they have to open the source code. And, if you would, please give proper credit to me, [Alefe Souza](https://github.com/alefesouza), and the developer of DéxDroid, [Radhi](https://github.com/RadhiFadlillah).
+This app is released under [GPLv3 License](http://choosealicense.com/licenses/gpl-v3/). This way, everyone is allowed to modify this app and release it in their own name, but they have to open the source code. And, if you would, please give proper credit to me, [Alefe Souza](https://github.com/alefesouza), and the developer of DéxDroid, [Radhi Fadlillah](https://github.com/RadhiFadlillah).
