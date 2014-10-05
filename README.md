@@ -7,7 +7,7 @@ DroiDéx é um aplicativo baseado no DéxDroid versão 3.1, ou seja, uma Pokéde
 
 Você pode baixa-lo na [Google Play Store](http://play.google.com/store/apps/details?id=aloogle.pokedex).
 
-Esse é o código da versão 5.9.1
+Esse é o código da versão 5.9.3
 
 Os Pokémons recentemente adicionados são:
 
@@ -35,6 +35,7 @@ Os Pokémons recentemente adicionados são:
 * Mega Sharpedo
 * Mega Camerupt
 * Mega Gallade
+* Mega Rayquaza
 
 Por ser baseado no DéxDroid ele possui as mesmas funções, como dados de todas as espécies de Pokémon de todos os jogos (da primeira geração a sexta geração), todos os dados de Pokémon consistem em:
 
@@ -67,7 +68,7 @@ Agradecimentos
 * [Radhi Fadlillah](https://github.com/RadhiFadlillah), desenvolvedor do DéxDroid.
 
 Nesse aplicativo foi usado:
-*  [Android SQLiteAssetHelper](https://github.com/jgilfelt/android-sqlite-asset-helper) biblioteca por [Jeff Gilfelt](https://github.com/jgilfelt).
+*  [Android SQLiteAssetHelper](https://github.com/jgilfelt/android-sqlite-asset-helper) e [SystemBarTint](https://github.com/jgilfelt/SystemBarTint) bibliotecas por [Jeff Gilfelt](https://github.com/jgilfelt).
 *  [Android Holo Colors Plugin](https://github.com/jeromevdl/android-holo-colors-idea-plugin) por [Jérôme Van Der Linden](https://github.com/jeromevdl)
 
 Licença
@@ -90,7 +91,7 @@ DroiDéx is an application based on DéxDroid version 3.1, wich is an Pokédex f
 
 You can download it at [Google Play Store](http://play.google.com/store/apps/details?id=aloogle.pokedex).
 
-This is the 5.9.1 version code
+This is the 5.9.3 version code
 
 Recently added Pokémon:
 
@@ -118,6 +119,7 @@ Recently added Pokémon:
 * Mega Sharpedo
 * Mega Camerupt
 * Mega Gallade
+* Mega Rayquaza
 
 Since is based on DéxDroid, it has the same functions, as data of all Pokémon species from every series of Pokémon game (Gen I to Gen VI), every Pokémon's data is consisted by:
 
@@ -150,7 +152,7 @@ Acknowledgements
 * [Radhi Fadlillah](https://github.com/RadhiFadlillah), developer of DéxDroid.
 
 In this app, were used:
-*  [Android SQLiteAssetHelper](https://github.com/jgilfelt/android-sqlite-asset-helper) library by [Jeff Gilfelt](https://github.com/jgilfelt).
+*  [Android SQLiteAssetHelper](https://github.com/jgilfelt/android-sqlite-asset-helper) and [SystemBarTint](https://github.com/jgilfelt/SystemBarTint) libraries by [Jeff Gilfelt](https://github.com/jgilfelt).
 *  [Android Holo Colors Plugin](https://github.com/jeromevdl/android-holo-colors-idea-plugin) by [Jérôme Van Der Linden](https://github.com/jeromevdl)
 
 License

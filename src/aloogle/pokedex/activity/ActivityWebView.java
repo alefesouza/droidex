@@ -33,6 +33,7 @@ import android.app.DownloadManager.Request;
 import java.io.File;
 import android.os.Environment;
 import aloogle.pokedex.other.Other;
+import android.content.pm.*;
 
 public class ActivityWebView extends Activity {
 
@@ -101,12 +102,12 @@ public class ActivityWebView extends Activity {
 			} catch (NameNotFoundException e) {}
 		} else if (webViewValue == 3) {
 			Other.ActionBarColor(this);
-			try {
-				String version = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-				Other.ActionBarColorIcons(this, getString(R.string.yourversion) + " " + version);
-			} catch (NameNotFoundException e) {}
 			Other.SystemBarColor(this, true);
-			web.loadUrl("http://aloogle.tumblr.com/droidex/update");
+			try {
+				PackageInfo version = getPackageManager().getPackageInfo(getPackageName(), 0);
+				Other.ActionBarColorIcons(this, getString(R.string.yourversion) + " " + version.versionName);
+				web.loadUrl("http://aloogle.tumblr.com/droidex/update?version=" + version.versionCode);
+			} catch (NameNotFoundException e) {}
 		} else if (webViewValue == 4) {
 			Other.ActionBarColor(this);
 			Other.ActionBarColorIcons(this, getString(R.string.translate));

@@ -21,6 +21,7 @@ public class ActivityAboutChangelogHelp extends Activity {
 		"<li>And other improvements.</li>\n" +
 		"</ul>\n" +
 		"<p style=\"text-align: justify;\"><b>Version 5.9.1:</b> Launched September, 29, 2014 - Fixed crash on open Gastly.</p>\n" +
+		"<p style=\"text-align: justify;\"><b>Version 5.9.3:</b> Launched October, 05, 2014 - Added Mega Rayquaza.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Version 5.7</h3>\n" +
 		"Launched July, 15, 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
@@ -32,13 +33,13 @@ public class ActivityAboutChangelogHelp extends Activity {
 		"<h3 style=\"text-align: justify;\">Version 5.5</h3>\n" +
 		"Launched June, 23, 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
-		"<li>Place widgets of ALL Pok&eacute;mom on your homescreen.</li>\n" +
+		"<li>Place widgets of ALL Pok&eacute;mon on your homescreen.</li>\n" +
 		"<li>DroiD&eacute;x News.</li>\n" +
 		"<li>New app icon.</li>\n" +
-		"<li>And some others improvements.</li>\n" +
+		"<li>And some other improvements.</li>\n" +
 		"</ul>\n" +
 		"<p style=\"text-align: justify;\"><b>Version 5.5.5:</b> Launched June, 29, 2014 - Fixed widgets not loading after restarting the device, widget resizing and random Pok&eacute;mon widget, also watching Pok&eacute;mon in fullscreen on DroiD&eacute;x News.</p>\n" +
-		"<p style=\"text-align: justify;\"><b>Version 5.5.7:</b> Launched July, 09, 2014 - Added open in Smogon option, new sidebar in smartphones for a app menu more organized, added Fancy Vivillon and fixed some bugs. Version <i>5.5.7.1</i> launched in July, 11, 2014 add Mega Metagross.</p>\n" +
+		"<p style=\"text-align: justify;\"><b>Version 5.5.7:</b> Launched July, 09, 2014 - Added open in Smogon option, new sidebar in smartphones (for a more organized app menu), added Fancy Vivillon and fixed some bugs. Version <i>5.5.7.1</i> launched in July, 11, 2014 add Mega Metagross.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Version 5.1</h3>\n" +
 		"Launched June, 19, 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
@@ -133,6 +134,7 @@ public class ActivityAboutChangelogHelp extends Activity {
 		"<li>E muitas outras melhorias.</li>\n" +
 		"</ul>\n" +
 		"<p style=\"text-align: justify;\"><b>Vers&atilde;o 5.9.1:</b> Lan&ccedil;ada em 29 de setembro de 2014 - Corrige problema de o aplicativo fechar ao abrir o Gastly.</p>\n" +
+		"<p style=\"text-align: justify;\"><b>Vers&atilde;o 5.9.3:</b> Lan&ccedil;ada em 05 de outubro de 2014 - Adicionado Mega Rayquaza.</p>\n" +
 		"<h3 style=\"text-align: justify;\">Vers&atilde;o 5.7</h3>\n" +
 		"Lan&ccedil;ado dia 15 de julho de 2014\n" +
 		"<ul style=\"text-align: justify;\">\n" +
