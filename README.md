@@ -1,6 +1,8 @@
 DroiDéx
 =======
 
+Screenshots: https://aloogle.tumblr.com/droidex/download
+
 ##### Portuguese
 
 DroiDéx é um aplicativo baseado no DéxDroid versão 3.1, ou seja, uma Pokédex para Android, decidi cria-lo porque eu gostava muito do aplicativo DéxDroid e fiquei muito decepcionado ao ver que ele não recebeu mais atualizações, mas como o desenvolvedor original deixou ele em código aberto e deixou que qualquer um modificasse e distribuísse, decidi que eu mesmo iria continua-lo.
