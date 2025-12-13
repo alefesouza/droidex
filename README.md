@@ -1,13 +1,17 @@
 DroiDéx
 =======
 
-Screenshots: https://aloogle.tumblr.com/droidex/download
+DroiDéx is an application based on DéxDroid version 3.1, which is an Pokédex for Android. I decided creating it because I loved the app DéxDroid and became so disappointed when I realized it had no more updates, but since the original developer left it open source and allowed anyone to modify and distribute, I decided to update it by myself.
 
-##### English
+## Screenshots
 
-DroiDéx is an application based on DéxDroid version 3.1, wich is an Pokédex for Android. I decided creating it because I loved the app DéxDroid and became so disappointed when I realized it had no more updates, but since the original developer left it open source and allowed anyone to modify and distribute, I decided to update it by myself.
+| Phone | Tablet |
+|-|-|
+| <img src="./Screenshots/phone/1.png"> | <img src="./Screenshots/tablet/1.jpg"> |
+| <img src="./Screenshots/phone/3.png"> | <img src="./Screenshots/tablet/2.jpg"> |
+| <img src="./Screenshots/phone/6.png"> | <img src="./Screenshots/tablet/3.jpg"> |
 
-You can download it at [Google Play Store](http://play.google.com/store/apps/details?id=aloogle.pokedex).
+More screenshots [at this link](./Screenshots/).
 
 This is the 5.9.3 version code
 
@@ -76,8 +80,6 @@ In this app, were used:
 ##### Portuguese
 
 DroiDéx é um aplicativo baseado no DéxDroid versão 3.1, ou seja, uma Pokédex para Android, decidi cria-lo porque eu gostava muito do aplicativo DéxDroid e fiquei muito decepcionado ao ver que ele não recebeu mais atualizações, mas como o desenvolvedor original deixou ele em código aberto e deixou que qualquer um modificasse e distribuísse, decidi que eu mesmo iria continua-lo.
-
-Você pode baixa-lo na [Google Play Store](http://play.google.com/store/apps/details?id=aloogle.pokedex).
 
 Esse é o código da versão 5.9.3
 
